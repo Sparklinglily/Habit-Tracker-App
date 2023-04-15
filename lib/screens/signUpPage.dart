@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_help/screens/actualLoginPage.dart';
+import 'package:habit_help/screens/loginPage.dart';
 import '../constants/constants.dart';
 import 'package:habit_help/screens/confirmEmail.dart';
 
@@ -144,29 +144,25 @@ class _CreateAccountState extends State<CreateAccount> {
 
                       const SizedBox(height: defaultSpacing* 6),
 
-                      Text(
-                        'Already have an account ?',
+                      RichText(text: TextSpan(
+                        text:  'Already have an account? ',
                         style: Theme.of(context)
                             .textTheme
                             .bodyLarge
                             ?.copyWith(fontSize: defaultSpacing, color: secondaryLight),
+
+                        children: [
+                          TextSpan(
+                            text: 'Login',
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: defaultSpacing * 1.2,
+                        color: secondaryLight,
+                        fontWeight: FontWeight.bold,
                       ),
-                      TextButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginDetails(),
-                        ));
-                      },
-                          child: Text(
-                            'Login',
-                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              fontSize: defaultSpacing * 1.2,
-                              color: secondaryLight,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )
+                      )
 
-
-
-
+                        ]
+                      ),
 
 
                       )

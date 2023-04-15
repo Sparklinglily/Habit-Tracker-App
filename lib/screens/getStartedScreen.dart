@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/constants.dart';
-import 'package:habit_help/screens/loginPage.dart';
+import 'package:habit_help/screens/loginButton.dart';
 
 
 
@@ -63,7 +63,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: ((context) => const LoginPage()),
+                          builder: ((context) => const LoginButton()),
                         ));
                   }),
                   child: const Text(

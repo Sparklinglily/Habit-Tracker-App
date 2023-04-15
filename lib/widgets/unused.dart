@@ -1,6 +1,6 @@
 
 
-return Drawer(
+/*return Drawer(
 child: ListView(
 padding: EdgeInsets.zero,
 children: <Widget>[
@@ -201,6 +201,33 @@ TextStyle(fontSize: defaultSpacing, color: Colors.red),
 
 //grid views
 
+Text(
+                        'Already have an account ?',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyLarge
+                            ?.copyWith(fontSize: defaultSpacing, color: secondaryLight),
+                      ),
+                      TextButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginPage(),
+                        ));
+                      },
+                          child: Text(
+                            'Login',
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                              fontSize: defaultSpacing * 1.2,
+                              color: secondaryLight,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+
+
+
+
+
+
+                      )
+
 
 return Padding(
 padding: const EdgeInsets.all( 11.0),
@@ -221,4 +248,5 @@ fit: BoxFit.cover,),
 
 }).toList(),
 ),
+ */
 
