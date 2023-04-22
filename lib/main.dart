@@ -1,9 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:habit_help/screens/homeScreen.dart';
 import 'package:habit_help/screens/loginPage.dart';
 import 'package:habit_help/screens/loginButton.dart';
 import 'package:habit_help/screens/onboardOne.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:habit_help/screens/signUpPage.dart';
+import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 
 Future main() async {
@@ -24,11 +29,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home:  LoginPage(),
+      home:  const onboardingOne(),
         debugShowCheckedModeBanner: false,
     );
   }
 }
+
 
 
 
