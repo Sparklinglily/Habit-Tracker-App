@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
+import '../../../constants/constants.dart';
 import 'package:habit_help/widgets/spactBtw.dart';
 
-import '../widgets/dailyQuotes.dart';
-import '../widgets/due.dart';
-import '../widgets/imageGrid.dart';
-import '../widgets/rewards.dart';
-import '../widgets/rewardsList.dart';
+import '../../../widgets/dailyQuotes.dart';
+import '../../../widgets/due.dart';
+import '../../../widgets/imageGrid.dart';
+import '../../../widgets/rewards.dart';
+import '../../../widgets/rewardsList.dart';
 
 
 

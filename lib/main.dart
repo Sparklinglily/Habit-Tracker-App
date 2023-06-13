@@ -1,19 +1,32 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:habit_help/screens/homeScreen.dart';
+import 'package:habit_help/FirebaseAuthServices/authMethods.dart';
+import 'package:habit_help/screens/checkEmail.dart';
+import 'package:habit_help/screens/forgotPasswordPage.dart';
+import 'package:habit_help/screens/homePage/homeScreen.dart';
 import 'package:habit_help/screens/loginPage.dart';
-import 'package:habit_help/screens/loginButton.dart';
-import 'package:habit_help/screens/onboardOne.dart';
+import 'package:habit_help/screens/onboardingPages/loginOrSignUpPage.dart';
+import 'package:habit_help/screens/onboardingPages/onboardOne.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:habit_help/screens/signUpPage.dart';
-import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'firebase_options.dart';
+import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 
-Future main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  // init hive
+  await Hive.initFlutter();
+
+  //oppen box
+  var box = await Hive.openBox("lilybox");
 
   runApp(const MyApp());
 }
@@ -24,16 +37,44 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
+    return MultiProvider(
+      providers: [
+        Provider<FirebaseAuthMethods> (create: (_)=>FirebaseAuthMethods(FirebaseAuth.instance)
+        ),
+        StreamProvider(create: (context)=> context.read<FirebaseAuthMethods>().authState,
+            initialData: null)
+
+      ],
+
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.orange,
+        ),
+        home:  AuthWrapper(),
+          debugShowCheckedModeBanner: false,
       ),
-      home:  const onboardingOne(),
-        debugShowCheckedModeBanner: false,
     );
   }
 }
+
+class AuthWrapper extends StatelessWidget {
+  const AuthWrapper({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final firebaseUser = context.watch<User?>();
+    if (firebaseUser != null)
+    {
+         return HomePage();}
+      else
+        {
+          return LoginPage();
+        }
+    }
+  }
+
+
 
 
 

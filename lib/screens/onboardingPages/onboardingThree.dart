@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
-import 'package:habit_help/screens/getStartedScreen.dart';
+import '../../constants/constants.dart';
+import 'package:habit_help/screens/onboardingPages/getStartedScreen.dart';
 
 class OnboardingThree extends StatefulWidget {
   const OnboardingThree({Key? key}) : super(key: key);

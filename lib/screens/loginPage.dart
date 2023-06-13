@@ -1,10 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:habit_help/FirebaseAuthServices/authMethods.dart';
+import 'package:provider/provider.dart';
 import '../constants/constants.dart';
-import 'package:habit_help/screens/homeScreen.dart';
+import 'package:habit_help/screens/homePage/homeScreen.dart';
 import 'package:habit_help/screens/signUpPage.dart';
-import 'package:get/get.dart';
+import 'package:email_validator/email_validator.dart';
+
+import 'forgotPasswordPage.dart';
+
 
 
 class LoginPage extends StatefulWidget {
@@ -28,9 +33,18 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
+  void signInUser(){
+    context.read<FirebaseAuthMethods>().signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+        context: context);
+  }
+
 
 
   bool showValue = false;
+
+  bool passwordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -76,52 +90,82 @@ class _LoginPageState extends State<LoginPage> {
                        const SizedBox(height: defaultSpacing * 2),
                        //email section
 
-                       Container(
-                         decoration: BoxDecoration(
-                             border: Border.all(
-                               color: primaryLight,
-                               // width: 1.0,
-                             ),
-                             borderRadius: BorderRadius.circular(10)),
-                         child: TextField(
+                       // Container(
+                       //   decoration: BoxDecoration(
+                       //       border: Border.all(
+                       //         color: primaryLight,
+                       //         // width: 1.0,
+                       //       ),
+                       //       borderRadius: BorderRadius.circular(10)), child:
+                       TextFormField(
                            controller: emailController,
+                           autovalidateMode: AutovalidateMode.onUserInteraction,
+                           validator: (email)=>
+                           email != null && EmailValidator.validate(email)
+                           ? null: "Enter valid email Address",
 
                            style: const TextStyle(
                                fontSize: defaultSpacing * 1.2, color: secondaryLight),
-                           obscureText: true,
-                           decoration: InputDecoration(
-                               hintText: 'enter your password',
+                           decoration:InputDecoration(
+                             label: Text("Email Address"),
                                prefixIcon: Icon(Icons.email),
-                               border: InputBorder.none,
-                               contentPadding: EdgeInsets.symmetric(vertical: 20)
+                             border: OutlineInputBorder(
+                               borderSide: BorderSide(color: Colors.grey
+                               ),
+                                 borderRadius: BorderRadius.circular(13),
+
+                             ),
+
+
+                               // border: InputBorder.none,
+                               // contentPadding: EdgeInsets.symmetric(vertical: 20)
                            ),
                          ),
 
-                       ),
+                       // ),
 
                        const SizedBox(height: defaultSpacing),
 
                        //password section
-                       Container(
+                       // Container(
+                       //
+                       //   decoration: BoxDecoration(
+                       //       border: Border.all(
+                       //         color: primaryLight,
+                       //         // width: 1.0,
+                       //       ),
+                       //       borderRadius: BorderRadius.circular(10)),
+                       TextFormField(
 
-                         decoration: BoxDecoration(
-                             border: Border.all(
-                               color: primaryLight,
-                               // width: 1.0,
-                             ),
-                             borderRadius: BorderRadius.circular(10)),
-                         child: TextField(
+                           autovalidateMode: AutovalidateMode.onUserInteraction,
+                           validator: (password)=>
+                           password != null && password.length > 6
+                           ? null: "Enter minimum of 6 characters",
                            controller: passwordController ,
                            style: const TextStyle(
                                fontSize: defaultSpacing * 1.2, color: secondaryLight),
-                           obscureText: true,
-                           decoration: const InputDecoration(
-                               hintText: 'enter your password',
+                           obscureText: passwordVisible,
+                           decoration:  InputDecoration(
+                             label: Text("Password"),
+                             border: OutlineInputBorder(
+                               borderSide: const BorderSide(color: Colors.grey),
+                                   borderRadius: BorderRadius.circular(13)
+                             ),
                                prefixIcon: Icon(Icons.lock),
-                               border: InputBorder.none,
-                               contentPadding: EdgeInsets.symmetric(vertical: 20)),
-                         ),
-                       ),
+
+
+                               suffixIcon: IconButton(onPressed: (){
+                                 setState(() {
+                                   passwordVisible= !passwordVisible;
+                                 });
+                               },
+
+                                   icon: Icon(passwordVisible
+                                       ? Icons.visibility : Icons.visibility_off )),
+                               // border: InputBorder.none,
+                               // contentPadding: EdgeInsets.symmetric(vertical: 20)),
+                         ),),
+
 
 
 
@@ -153,13 +197,18 @@ class _LoginPageState extends State<LoginPage> {
                              ],
                            ),
 
-                           const Text("Forgot password?",
+                            TextButton(onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ForgotPassword()));
+                            },
+                            child: const Text("Forgot password?",
                              style: TextStyle(
+                               color: secondaryDark,
                                  height: 1.5,
                                  fontWeight: FontWeight.w500,
                                  fontSize: defaultSpacing
                              ),
                            ),
+                            )
                          ],
                        ),
 
@@ -174,7 +223,7 @@ class _LoginPageState extends State<LoginPage> {
                                borderRadius: BorderRadius.circular(defaultRadius),
                              ),
                            ),
-                           onPressed: SignIn,
+                           onPressed: signInUser,
                            child: const Text(
                              'Sign In',
                              style: TextStyle(
@@ -189,28 +238,44 @@ class _LoginPageState extends State<LoginPage> {
 
 
 
-                       Center(
-                         child: RichText(
-                           text:TextSpan(
-                               text:  "Don\'t have an account ?",
-                               style: Theme.of(context)
-                                   .textTheme
-                                   .bodyLarge
-                                   ?.copyWith(fontSize: defaultSpacing, color: secondaryLight),
-                               children: [
-                                 TextSpan(
-                                   recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>CreateAccount()),
-                                   text: 'Signup',
-                                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                     fontSize: defaultSpacing * 1.2,
-                                     color: secondaryLight,
-                                     fontWeight: FontWeight.bold,
-                                   ),
-
-                                 )
-                               ]
-                           ),
-                         ),
+                       // Center(
+                       //   child: RichText(
+                       //     text:TextSpan(
+                       //         text:  "Don\'t have an account?",
+                       //         style: Theme.of(context)
+                       //             .textTheme
+                       //             .bodyLarge
+                       //             ?.copyWith(fontSize: defaultSpacing, color: secondaryLight),
+                       //         children: [
+                       //           TextSpan(
+                       //             text: ' Signup',
+                       //             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                       //               fontSize: defaultSpacing * 1.2,
+                       //               color: secondaryLight,
+                       //               fontWeight: FontWeight.bold,
+                       //             ),
+                       //
+                       //           )
+                       //         ]
+                       //     ),
+                       //   ),
+                       // )
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                           Text("Dont have an account?", style: Theme.of(context)
+                           .textTheme
+                           .bodyLarge
+                           ?.copyWith(fontSize: defaultSpacing, color: secondaryLight),),
+                           TextButton(onPressed: (){
+                             Navigator.push(context, MaterialPageRoute(builder: (context)=> CreateAccount()));
+                           }, child: Text("Sign Up",
+                             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                               fontSize: defaultSpacing * 1.1,
+                               color: primaryLight,
+                               fontWeight: FontWeight.bold,
+                             ),),)
+                         ],
                        )
 
 
@@ -236,12 +301,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-Future SignIn() async {
-  //performing the authentication process using firebase
-  await FirebaseAuth.instance.signInWithEmailAndPassword
-    ( email: 'emailController.text.trim()', password: 'passwordController.text.trim()',
-  );
+// Future SignIn() async {
+//   //performing the authentication process using firebase
+//   await FirebaseAuth.instance.signInWithEmailAndPassword
+//     ( email: 'emailController.text.trim()', password: 'passwordController.text.trim()',
+//   );
 
-}
+// }
 
 

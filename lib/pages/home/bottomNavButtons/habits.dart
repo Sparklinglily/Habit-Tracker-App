@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
+import '../../../constants/constants.dart';
 
 class GridViewTab extends StatefulWidget {
   const GridViewTab({Key? key}) : super(key: key);

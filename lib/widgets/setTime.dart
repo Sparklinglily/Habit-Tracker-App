@@ -16,7 +16,7 @@ class _SetTimeState extends State<SetTime> {
         minimumSize: const Size(23, 32),
         backgroundColor: background,
       ),
-      onPressed: () {  }, child: const Text("Set Priority",
+      onPressed: () {  }, child: const Text("Set Time",
       style: TextStyle(
           color: primaryDark,
           fontSize: 17,

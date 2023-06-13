@@ -2,8 +2,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
-import 'package:habit_help/screens/onboardingTwo.dart';
+import '../../constants/constants.dart';
+import 'package:habit_help/screens/onboardingPages/onboardingTwo.dart';
 
 
 class onboardingOne extends StatefulWidget {

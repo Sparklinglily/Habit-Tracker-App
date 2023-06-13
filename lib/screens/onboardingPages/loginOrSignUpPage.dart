@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
+import '../../constants/constants.dart';
 import 'package:habit_help/screens/loginPage.dart';
 import 'package:habit_help/screens/signUpPage.dart';
 
