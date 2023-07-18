@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/constants.dart';
-import 'package:habit_help/screens/homePage/homeScreen.dart';
+import 'package:habit_help/pages/home/homeScreen.dart';
 import 'package:habit_help/pages/home/bottomNavButtons/homePage.dart';
 
 

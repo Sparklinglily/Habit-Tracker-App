@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:habit_help/FirebaseAuthServices/widgets/showSnackBar.dart';
-import 'package:habit_help/screens/homePage/homeScreen.dart';
+import 'package:habit_help/pages/home/homeScreen.dart';
 
-import '../screens/checkEmail.dart';
-import '../screens/loginPage.dart';
+import '../authentication/checkEmail.dart';
+import '../authentication/loginPage.dart';
 
 class FirebaseAuthMethods {
 final FirebaseAuth _firebaseAuth;

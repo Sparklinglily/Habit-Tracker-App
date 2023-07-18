@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_help/FirebaseAuthServices/authMethods.dart';
-import 'package:habit_help/screens/loginPage.dart';
+import 'package:habit_help/authentication/loginPage.dart';
 
 import '../constants/constants.dart';
 

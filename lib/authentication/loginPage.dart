@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:habit_help/FirebaseAuthServices/authMethods.dart';
 import 'package:provider/provider.dart';
 import '../constants/constants.dart';
-import 'package:habit_help/screens/homePage/homeScreen.dart';
-import 'package:habit_help/screens/signUpPage.dart';
+import 'package:habit_help/pages/home/homeScreen.dart';
+import 'package:habit_help/authentication/signUpPage.dart';
 import 'package:email_validator/email_validator.dart';
 
 import 'forgotPasswordPage.dart';

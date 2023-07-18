@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:habit_help/FirebaseAuthServices/authMethods.dart';
-import 'package:habit_help/screens/loginPage.dart';
+import 'package:habit_help/authentication/loginPage.dart';
 import '../constants/constants.dart';
-import 'package:habit_help/screens/confirmEmail.dart';
+import 'package:habit_help/authentication/confirmEmail.dart';
 import 'package:provider/provider.dart';
 import 'package:email_validator/email_validator.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/constants.dart';
-import '../screens/loginPage.dart';
+import '../authentication/loginPage.dart';
 
 class ImageGrids extends StatefulWidget {
   const ImageGrids({Key? key}) : super(key: key);

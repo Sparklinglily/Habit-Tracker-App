@@ -512,3 +512,138 @@ fit: BoxFit.cover,),
 //             ],
 //           ),
 //         ),
+
+/// Column(
+//               children:  [
+//                 Stack(
+//                   children: [
+//                     SizedBox(
+//                       height: 180,
+//                       width: 400,
+//                       child: Image.asset("images/header.png"),
+//                     ),
+//
+//                     Positioned(
+//                         left: 155,
+//                         top: 88,
+//                         child: CircleAvatar(
+//                           radius: 43,
+//                           backgroundImage: AssetImage("images/profileImage.jpg") ,
+//                         )
+//                     )
+//                   ],
+//                 ),
+//                 SizedBox(height: 5,),
+//                 Container(
+//                   child: Column(
+//                     children: [
+//                       Text("Mary Peters",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+//                       Text("Live healthy and enjoy life",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w400,color: Colors.blueGrey)),
+//
+//                       SizedBox(height: 13,),
+//
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.center,
+//                         children: [
+//                           SizedBox(
+//                             width: 120,
+//                             height: 45,
+//                             child: TextButton(onPressed:(){},style: TextButton.styleFrom(
+//                               backgroundColor: primaryDark,
+//                               foregroundColor: Colors.white,
+//
+//                             ),
+//                                 child: Text("Invite",style: TextStyle(fontSize: 15,),)),
+//                           ),
+//                           SizedBox(width: 9,),
+//                           SizedBox(
+//                             width: 120,
+//                             height: 45,
+//                             child: OutlinedButton(onPressed: (){},style: ButtonStyle(
+//                                 shape: MaterialStateProperty.all(RoundedRectangleBorder(side:
+//                                 BorderSide(color: primaryLight,width: 1,),borderRadius: BorderRadius.circular(4))
+//                                 )
+//
+//                             ),
+//                                 child: Text("Chat",style: TextStyle(fontSize: 15))
+//
+//
+//                             ),
+//                           )
+//                         ],
+//                       )
+//
+//                     ],
+//                   ),
+//
+//                 ),
+//                 SizedBox(height: 25,),
+//
+//
+//
+//               ]
+//
+//           ),
+
+///Expanded(
+//         child: DefaultTabController(length: 3, child:Column(
+//             children:
+//             [TabBar(
+//
+//                      // isScrollable: true,
+//
+//                     // indicator: BoxDecoration(
+//                     //   border: Border(
+//                     //     bottom: BorderSide(
+//                     //       color: primaryDark,
+//                     //     )
+//                     //   ),
+//                     // ),
+//
+//
+//                       indicatorColor: primaryDark,
+//                       indicatorSize: TabBarIndicatorSize.label,
+//                       indicatorWeight: 3,
+//
+//                       tabs: [
+//                         Text("Achievement",style: TextStyle(
+//                             color: fontDark,
+//                             height: 1.5,
+//                             fontWeight: FontWeight.w500,
+//                             fontSize: 17
+//                         ),),
+//                         Text("Leaderboard",style: TextStyle(
+//                             color: fontDark,
+//                             height: 1.5,
+//                             fontWeight: FontWeight.w500,
+//                             fontSize: 17
+//                         ),),
+//                         Text("Challenges",style: TextStyle(
+//                             color: fontDark,
+//                             height: 1.5,
+//                             fontWeight: FontWeight.w500,
+//                             fontSize: 17
+//                         ),),
+//
+//                       ]
+//
+//
+//                   ),
+//
+//               SizedBox(height: 10,),
+//               Expanded(child:
+//               TabBarView(
+//                 children: [
+//
+//                   AchievementBoard(),
+//                   LeaderBoard(),
+//                   ChallengesBoard(),
+//
+//                 ],
+//               ),
+//               )
+//
+//             ],
+//           ),
+//           ),
+//       ),

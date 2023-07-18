@@ -3,6 +3,7 @@ import 'package:habit_help/pages/home/bottomNavButtons/toDoUtil/alertDialog.dart
 import 'package:habit_help/pages/home/bottomNavButtons/toDoUtil/toDoTile.dart';
 import 'package:hive/hive.dart';
 import '../../../constants/constants.dart';
+import '../../../hiveData/database.dart';
 import 'addTask.dart';
 
 class Tasks extends StatefulWidget {
@@ -17,33 +18,54 @@ class Tasks extends StatefulWidget {
 class _TasksState extends State<Tasks> {
 
   //reference the hive box
-  final _lilybox = Hive.openBox("lilybox");
+  final _lilybox = Hive.box("lilybox");
+  ToDoDatabase db= ToDoDatabase();
+
+  @override
+  void initState(){
+    //if thiss is the first time opening this app then create default data
+    if(_lilybox.get("TODOLIST")== null){
+      db.createInitialData();
+
+
+    }else {
+      //if there already exists data or any changes
+      db.loadData();
+
+    }
+
+
+
+    super.initState();
+  }
 
 
   final TextEditingController _controller = TextEditingController();
 
-  List toDoList = [
-    ["Go to the market", false],
-    ["code for 5 hours", true],
-    ["clean the house", true]
-
-  ];
+  // List toDoList = [
+  //   ["Go to the market", false],
+  //   ["code for 5 hours", true],
+  //   ["clean the house", true]
+  //
+  // ];
 
   //checkbox when tapped
   void checkBoXClicked(bool? value, int index){
     setState(() {
-      toDoList[index][1] = ! toDoList[index][1];
+      db.toDoList[index][1] = ! db.toDoList[index][1];
     });
+    db.updateDatabse();
 
   }
   //when the save button is clicked
   void saveNewTask(){
     setState(() {
-      toDoList.add([_controller.text, false]);
+      db.toDoList.add([_controller.text, false]);
       _controller.clear();
 
     });
     Navigator.of(context).pop();
+    db.updateDatabse();
   }
   //when th floating action button is clicked
   void createNewTask(){
@@ -54,13 +76,15 @@ class _TasksState extends State<Tasks> {
         onCancel: ()=>Navigator.of(context).pop()
       );
     });
+
   }
 
   //delete task
   void deleteTask(int index){
     setState(() {
-      toDoList.removeAt(index);
+      db.toDoList.removeAt(index);
     });
+    db.updateDatabse();
 
   }
 
@@ -80,13 +104,14 @@ class _TasksState extends State<Tasks> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       body: ListView.builder(
-        itemCount: toDoList.length,
+        itemCount: db.toDoList.length,
         itemBuilder: (context, index){
           return ToDoTile(
-              taskName: toDoList[index][0],
-              taskCompleted: toDoList[index][1],
+              taskName: db.toDoList[index][0],
+              taskCompleted: db.toDoList[index][1],
               onChanged: (value)=> checkBoXClicked(value,index),
-            deleteFunction: (context)=> deleteTask,
+            //THE delete function should carry the index.
+            deleteFunction: (context)=> deleteTask(index),
 
           );
 

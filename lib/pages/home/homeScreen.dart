@@ -1,17 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import '../../constants/constants.dart';
-import '../../pages/addHabitButton.dart';
-import '../../pages/home/bottomNavButtons/addTask.dart';
-import '../../pages/home/bottomNavButtons/challenges.dart';
-import '../../pages/home/bottomNavButtons/habits.dart';
-import '../../pages/home/bottomNavButtons/homePage.dart';
-import '../../pages/profilePage.dart';
-import '../../pages/home/bottomNavButtons/tasks.dart';
+import '../addHabitButton.dart';
+import 'bottomNavButtons/addTask.dart';
+import 'bottomNavButtons/challenges.dart';
+import 'bottomNavButtons/habits.dart';
+import 'bottomNavButtons/homePage.dart';
+import '../../profile/profilePage.dart';
+import 'bottomNavButtons/tasks.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:habit_help/FirebaseAuthServices/authMethods.dart';
 
-import '../loginPage.dart';
+import '../../authentication/loginPage.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -103,13 +103,20 @@ Future<void> signOut()async {
                             const SizedBox(height: defaultSpacing*3,),
 
 
-                            TextButton.icon(onPressed: (){},
+                            TextButton.icon(onPressed: (){
+                              Navigator.pushNamed(context, "/profile");
+                            },
                               icon:  Icon(Icons.account_box_outlined,color: primaryDark,size: defaultSpacing* 3,
                                 shadows: [
                                   Shadow(offset: Offset(2.0,2.0),
                                       blurRadius: 6.0,color: const Color.fromARGB(255, 153, 153, 153).withOpacity(0.8))
                                 ],), label: Text("Profile",style: TextStyle(color: primaryDark, fontSize: defaultSpacing * 1.7),),),
-                            TextButton.icon(onPressed: (){},icon: Icon(Icons.favorite_outlined,color: primaryDark,size: defaultSpacing* 3,
+                            TextButton.icon(
+                              onPressed: (){
+
+
+                              },
+                              icon: Icon(Icons.favorite_outlined,color: primaryDark,size: defaultSpacing* 3,
                               shadows: [
                                 Shadow(offset: Offset(2.0,2.0),
                                     blurRadius: 6.0,color: const Color.fromARGB(255, 153, 153, 153).withOpacity(0.8))
