@@ -647,3 +647,205 @@ fit: BoxFit.cover,),
 //           ),
 //           ),
 //       ),
+
+
+///my code
+
+// Scaffold(
+// body:
+//
+//
+// //Euclidean Modulo: %
+//
+// //truncating division operator: ~/
+// //used nested scrollview so that the header wont
+// // be scrollable but the tabContents will be
+// NestedScrollView(
+// headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled)=>[
+//
+// SliverOverlapAbsorber(
+// handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+// sliver: SliverAppBar(
+// expandedHeight: 200,
+// pinned: true,
+// collapsedHeight: 280,
+//
+//
+// flexibleSpace: FlexibleSpaceBar(
+// background:  Container(
+// color: background,
+// child: Column(
+// children:  [
+// Stack(
+// children: [
+// SizedBox(
+// height: 180,
+// width: 400,
+// child: Image.asset("images/header.png"),
+// ),
+//
+// Positioned(
+// left: 155,
+// top: 88,
+// child: CircleAvatar(
+// radius: 43,
+// backgroundImage: AssetImage("images/profileImage.jpg") ,
+// )
+// )
+// ],
+// ),
+// SizedBox(height: 5,),
+// Container(
+// child: Column(
+// children: [
+// Text("Mary Peters",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+// Text("Live healthy and enjoy life",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w400,color: Colors.blueGrey)),
+//
+// SizedBox(height: 13,),
+//
+// Row(
+// mainAxisAlignment: MainAxisAlignment.center,
+// children: [
+// SizedBox(
+// width: 120,
+// height: 45,
+// child: TextButton(onPressed:(){},style: TextButton.styleFrom(
+// backgroundColor: primaryDark,
+// foregroundColor: Colors.white,
+//
+// ),
+// child: Text("Invite",style: TextStyle(fontSize: 15,),)),
+// ),
+// SizedBox(width: 9,),
+// SizedBox(
+// width: 120,
+// height: 45,
+// child: OutlinedButton(onPressed: (){},style: ButtonStyle(
+// shape: MaterialStateProperty.all(RoundedRectangleBorder(side:
+// BorderSide(color: primaryLight,width: 1,),borderRadius: BorderRadius.circular(4))
+// )
+//
+// ),
+// child: Text("Chat",style: TextStyle(fontSize: 15))
+//
+//
+// ),
+// )
+// ],
+// )
+//
+// ],
+// ),
+//
+// ),
+// SizedBox(height: 25,),
+//
+//
+// ]
+//
+// ),
+//
+// ),
+//
+//
+//
+// ),
+//
+//
+// ),
+// ),
+//
+//
+//
+//
+// ],
+// body: Expanded(
+// child: DefaultTabController(
+// length: 3, child: Column(
+// children: [
+//
+// TabBar(
+//
+//
+// // isScrollable: true,
+//
+// // indicator: BoxDecoration(
+// //   border: Border(
+// //     bottom: BorderSide(
+// //       color: primaryDark,
+// //     )
+// //   ),
+// // ),
+//
+//
+// indicatorColor: primaryDark,
+// indicatorSize: TabBarIndicatorSize.label,
+// indicatorWeight: 3,
+//
+// tabs: [
+// Text("Achievement",style: TextStyle(
+// color: fontDark,
+// height: 1.5,
+// fontWeight: FontWeight.w500,
+// fontSize: 17
+// ),),
+// Text("Leaderboard",style: TextStyle(
+// color: fontDark,
+// height: 1.5,
+// fontWeight: FontWeight.w500,
+// fontSize: 17
+// ),),
+// Text("Challenges",style: TextStyle(
+// color: fontDark,
+// height: 1.5,
+// fontWeight: FontWeight.w500,
+// fontSize: 17
+// ),),
+
+//
+//
+// SizedBox(height: 10,),
+// Expanded(child:
+// TabBarView(
+// children: [
+//
+// AchievementBoard(),
+// LeaderBoard(),
+// ChallengesBoard(),
+
+// ],
+// ),
+// )
+// ]
+//
+//
+// ),
+//
+//
+// ],
+// ),
+//
+//
+//
+//
+// )
+// ),
+//
+//
+//
+//
+//
+//
+//
+//
+// //physics: NeverScrollableScrollPhysics(),
+//
+//
+//
+//
+//
+// ),
+//
+//
+//
+// );

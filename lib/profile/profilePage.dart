@@ -5,9 +5,9 @@ import '../constants/constants.dart';
 class ProfilePage extends StatefulWidget  {
 
 
-   ProfilePage({
-     Key?key,
-     }) : super(key: key);
+  ProfilePage({
+    Key?key,
+  }) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -20,195 +20,137 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
 
   @override
   void initState(){
-  super.initState();
-  _tabController = TabController(length: 3, vsync: this);
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
 
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body:
+    return DefaultTabController(length: 3, child: Scaffold(
+      body: NestedScrollView(
+        headerSliverBuilder: (BuildContext context,bool innerBoxIsScrolled) {
+          return <Widget> [
+            SliverAppBar(
+              expandedHeight: 230,
+              pinned: true,
+              collapsedHeight: 250,
+              bottom:   TabBar(
+                isScrollable: true,
+                indicatorColor: primaryDark,
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorWeight: 3,
 
+                tabs: [
+                  Text("Achievement",style: TextStyle(
+                      color: fontDark,
+                      height: 1.5,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17
+                  ),),
+                  Text("Leaderboard",style: TextStyle(
+                      color: fontDark,
+                      height: 1.5,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17
+                  ),),
+                  Text("Challenges",style: TextStyle(
+                      color: fontDark,
+                      height: 1.5,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17
+                  ),),
 
-          //Euclidean Modulo: %
-
-      //truncating division operator: ~/
-          //used nested scrollview so that the header wont
-      // be scrollable but the tabContents will be
-      DefaultTabController(
-        length: 3,
-        child: NestedScrollView(
-            headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled)=>[
-          SliverOverlapAbsorber(
-            handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-          sliver:
-
-          SliverAppBar(
-            expandedHeight: 200,
-            pinned: true,
-            collapsedHeight: 280,
-
-
-            flexibleSpace: FlexibleSpaceBar(
-              background:  Container(
-                color: background,
-                child: Column(
-                    children:  [
-                      Stack(
-                        children: [
-                          SizedBox(
-                            height: 180,
-                            width: 400,
-                            child: Image.asset("images/header.png"),
-                          ),
-
-                          Positioned(
-                              left: 155,
-                              top: 88,
-                              child: CircleAvatar(
-                                radius: 43,
-                                backgroundImage: AssetImage("images/profileImage.jpg") ,
-                              )
-                          )
-                        ],
-                      ),
-                      SizedBox(height: 5,),
-                      Container(
-                        child: Column(
-                          children: [
-                            Text("Mary Peters",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
-                            Text("Live healthy and enjoy life",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w400,color: Colors.blueGrey)),
-
-                            SizedBox(height: 13,),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  width: 120,
-                                  height: 45,
-                                  child: TextButton(onPressed:(){},style: TextButton.styleFrom(
-                                    backgroundColor: primaryDark,
-                                    foregroundColor: Colors.white,
-
-                                  ),
-                                      child: Text("Invite",style: TextStyle(fontSize: 15,),)),
-                                ),
-                                SizedBox(width: 9,),
-                                SizedBox(
-                                  width: 120,
-                                  height: 45,
-                                  child: OutlinedButton(onPressed: (){},style: ButtonStyle(
-                                      shape: MaterialStateProperty.all(RoundedRectangleBorder(side:
-                                      BorderSide(color: primaryLight,width: 1,),borderRadius: BorderRadius.circular(4))
-                                      )
-
-                                  ),
-                                      child: Text("Chat",style: TextStyle(fontSize: 15))
-
-
-                                  ),
-                                )
-                              ],
-                            )
-
-                          ],
-                        ),
-
-                      ),
-                      SizedBox(height: 25,),
-
-
-                    ]
-
-                ),
-
+                ],
               ),
-
-
-
-            ),
-
-
-          ),
-
-          ),
-                
-                TabBar(
-
-
-                  // isScrollable: true,
-
-                  // indicator: BoxDecoration(
-                  //   border: Border(
-                  //     bottom: BorderSide(
-                  //       color: primaryDark,
-                  //     )
-                  //   ),
-                  // ),
-
-
-                    indicatorColor: primaryDark,
-                    indicatorSize: TabBarIndicatorSize.label,
-                    indicatorWeight: 3,
-
-                    tabs: [
-                      Text("Achievement",style: TextStyle(
-                          color: fontDark,
-                          height: 1.5,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17
-                      ),),
-                      Text("Leaderboard",style: TextStyle(
-                          color: fontDark,
-                          height: 1.5,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17
-                      ),),
-                      Text("Challenges",style: TextStyle(
-                          color: fontDark,
-                          height: 1.5,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17
-                      ),),
-
-
-                    ]
-
-
-                )
-
-
-
-              
-      ],
-       body: TabBarView(
-            controller: _tabController,
+              flexibleSpace:  FlexibleSpaceBar(
+              background:  Container(color: background,
+          child: Column(
+          children:  [
+          Stack(
           children: [
-            AchievementBoard(),
+          SizedBox(
+          height: 180,
+          width: 400,
+          child: Image.asset("images/header.png"),
+          ),
 
-
-             AchievementBoard(),
-
-
-          ChallengesBoard(),
-
-
-
+          Positioned(
+          left: 155,
+          top: 88,
+          child: CircleAvatar(
+          radius: 43,
+          backgroundImage: AssetImage("images/profileImage.jpg") ,
+          )
+          )
           ],
+          ),
+          SizedBox(height: 5,),
+          Container(
+          child: Column(
+          children: [
+          Text("Mary Peters",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+          Text("Live healthy and enjoy life",style: TextStyle(fontSize: 19,fontWeight: FontWeight.w400,color: Colors.blueGrey)),
 
-      )
-          //physics: NeverScrollableScrollPhysics(),
+          SizedBox(height: 13,),
+
+          Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+          SizedBox(
+          width: 120,
+          height: 45,
+          child: TextButton(onPressed:(){},style: TextButton.styleFrom(
+          backgroundColor: primaryDark,
+          foregroundColor: Colors.white,
+
+          ),
+          child: Text("Invite",style: TextStyle(fontSize: 15,),)),
+          ),
+          SizedBox(width: 9,),
+          SizedBox(
+          width: 120,
+          height: 45,
+          child: OutlinedButton(onPressed: (){},style: ButtonStyle(
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(side:
+          BorderSide(color: primaryLight,width: 1,),borderRadius: BorderRadius.circular(4))
+          )
+
+          ),
+          child: Text("Chat",style: TextStyle(fontSize: 15))
 
 
+          ),
+          )
+          ],
+          ),
+]
+          )
+          )
+          ]
+          )
+          )
 
+          )
+            ),
+          ];
+        },
+        body: Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: TabBarView(
+              controller: _tabController,
+              children: [
 
+                AchievementBoard(),
+                LeaderBoard(),
+                ChallengesBoard(),
 
+              ],
+            ),
+          ),
         ),
       ),
-
-
-
+    )
     );
   }
 }
@@ -536,13 +478,13 @@ class ChallengesBoard extends StatelessWidget {
             height: 200,
             width: 400,
             decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("images/water4.jpg"),
-                fit: BoxFit.fill
-              ),
-              border: Border.all(width: 1),
-              borderRadius: BorderRadius.vertical(top: Radius.circular(30)
-                  ,bottom: Radius.circular(5))
+                image: DecorationImage(
+                    image: AssetImage("images/water4.jpg"),
+                    fit: BoxFit.fill
+                ),
+                border: Border.all(width: 1),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(30)
+                    ,bottom: Radius.circular(5))
             ),
 
 
@@ -564,16 +506,16 @@ class ChallengesBoard extends StatelessWidget {
               Icon(Icons.dark_mode_sharp),
 
               Text("30 days",style: TextStyle(
-              color: secondaryLight,
-              fontWeight: FontWeight.w400,
+                  color: secondaryLight,
+                  fontWeight: FontWeight.w400,
                   fontSize: 17
               ),)
 
 
             ],
           ),
-          
-          
+
+
         ),
         Padding(
           padding: const EdgeInsets.only(left: 25.0),
