@@ -12,6 +12,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:habit_help/authentication/signUpPage.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'chat/chatPage.dart';
 import 'firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
 
         routes: {
           "/profile": (context)=> ProfilePage(),
+          "/chat": (context)=> ChatPage(),
         },
       ),
     );

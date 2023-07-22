@@ -34,11 +34,13 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
               expandedHeight: 230,
               pinned: true,
               collapsedHeight: 250,
+              // floating: true,
               bottom:   TabBar(
-                isScrollable: true,
+                // isScrollable: true,
                 indicatorColor: primaryDark,
                 indicatorSize: TabBarIndicatorSize.label,
                 indicatorWeight: 3,
+                
 
                 tabs: [
                   Text("Achievement",style: TextStyle(
@@ -110,7 +112,10 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
           SizedBox(
           width: 120,
           height: 45,
-          child: OutlinedButton(onPressed: (){},style: ButtonStyle(
+          child: OutlinedButton(onPressed: (){
+            Navigator.pushNamed(context, "/chat");
+
+          },style: ButtonStyle(
           shape: MaterialStateProperty.all(RoundedRectangleBorder(side:
           BorderSide(color: primaryLight,width: 1,),borderRadius: BorderRadius.circular(4))
           )
@@ -134,9 +139,8 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
             ),
           ];
         },
-        body: Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 10.0),
+        body:Padding(
+            padding: const EdgeInsets.only(top: 5.0),
             child: TabBarView(
               controller: _tabController,
               children: [
@@ -148,7 +152,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
               ],
             ),
           ),
-        ),
+
       ),
     )
     );
@@ -469,138 +473,140 @@ class ChallengesBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 15,right: 15.0),
-          child: Container(
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 15,right: 15.0),
+            child: Container(
 
-            height: 200,
-            width: 400,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("images/water4.jpg"),
-                    fit: BoxFit.fill
-                ),
-                border: Border.all(width: 1),
-                borderRadius: BorderRadius.vertical(top: Radius.circular(30)
-                    ,bottom: Radius.circular(5))
+              height: 200,
+              width: 400,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("images/water4.jpg"),
+                      fit: BoxFit.fill
+                  ),
+                  border: Border.all(width: 1),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)
+                      ,bottom: Radius.circular(5))
+              ),
+
+
+            ),
+          ),
+          SizedBox(height: 5,),
+          Padding(
+            padding: const EdgeInsets.only(left: 25,right: 25),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Water cleanses",style: TextStyle(
+                    color: fontDark,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 17
+                ),),
+                SizedBox(width: 165,),
+
+                Icon(Icons.dark_mode_sharp),
+
+                Text("30 days",style: TextStyle(
+                    color: secondaryLight,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 17
+                ),)
+
+
+              ],
             ),
 
 
           ),
-        ),
-        SizedBox(height: 5,),
-        Padding(
-          padding: const EdgeInsets.only(left: 25,right: 25),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Water cleanses",style: TextStyle(
-                  color: fontDark,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 17
-              ),),
-              SizedBox(width: 165,),
-
-              Icon(Icons.dark_mode_sharp),
-
-              Text("30 days",style: TextStyle(
-                  color: secondaryLight,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 17
-              ),)
+          Padding(
+            padding: const EdgeInsets.only(left: 25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Icon(Icons.people_alt_sharp,color: primaryDark,size: 29,),
+                Text("12 people",style: TextStyle(
+                    color: secondaryLight,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 17)),
+                // SizedBox(height: 5,)
 
 
-            ],
+
+
+              ],
+            ),
           ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15,right: 15.0),
+            child: Container(
+
+              height: 200,
+              width: 400,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("images/plateOfFruits2.jpg"),
+                      fit: BoxFit.fill
+                  ),
+                  border: Border.all(width: 1),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)
+                      ,bottom: Radius.circular(5))
+              ),
 
 
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 25.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Icon(Icons.people_alt_sharp,color: primaryDark,size: 29,),
-              Text("12 people",style: TextStyle(
-                  color: secondaryLight,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 17)),
-              // SizedBox(height: 5,)
-
-
-
-
-            ],
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 15,right: 15.0),
-          child: Container(
+          SizedBox(height: 5,),
+          Padding(
+            padding: const EdgeInsets.only(left: 25,right: 25),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Water cleanses",style: TextStyle(
+                    color: fontDark,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 17
+                ),),
+                SizedBox(width: 165,),
 
-            height: 200,
-            width: 400,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("images/plateOfFruits2.jpg"),
-                    fit: BoxFit.fill
-                ),
-                border: Border.all(width: 1),
-                borderRadius: BorderRadius.vertical(top: Radius.circular(30)
-                    ,bottom: Radius.circular(5))
+                Icon(Icons.dark_mode_sharp),
+
+                Text("30 days",style: TextStyle(
+                    color: secondaryLight,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 17
+                ),)
+
+
+              ],
             ),
 
 
           ),
-        ),
-        SizedBox(height: 5,),
-        Padding(
-          padding: const EdgeInsets.only(left: 25,right: 25),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Water cleanses",style: TextStyle(
-                  color: fontDark,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 17
-              ),),
-              SizedBox(width: 165,),
-
-              Icon(Icons.dark_mode_sharp),
-
-              Text("30 days",style: TextStyle(
-                  color: secondaryLight,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 17
-              ),)
+          Padding(
+            padding: const EdgeInsets.only(left: 25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Icon(Icons.people_alt_sharp,color: primaryDark,size: 29,),
+                Text("12 people",style: TextStyle(
+                    color: secondaryLight,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 17)),
+                // SizedBox(height: 5,)
 
 
-            ],
+
+
+              ],
+            ),
           ),
 
-
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 25.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Icon(Icons.people_alt_sharp,color: primaryDark,size: 29,),
-              Text("12 people",style: TextStyle(
-                  color: secondaryLight,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 17)),
-              // SizedBox(height: 5,)
-
-
-
-
-            ],
-          ),
-        ),
-
-      ],
+        ],
+      ),
     );
   }
 }
