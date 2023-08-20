@@ -1,5 +1,6 @@
 
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:habit_help/FirebaseAuthServices/widgets/showSnackBar.dart';
@@ -9,8 +10,12 @@ import '../authentication/checkEmail.dart';
 import '../authentication/loginPage.dart';
 
 class FirebaseAuthMethods {
+  //auth instance
 final FirebaseAuth _firebaseAuth;
 FirebaseAuthMethods(this._firebaseAuth);
+
+//firestore instance
+  final FirebaseFirestore _fireStore= FirebaseFirestore.instance;
 
 
 //get user
@@ -29,18 +34,27 @@ Future<void> signUpWithEmailAndPassword({
   required BuildContext   context
 }) async {
   try{
-    await _firebaseAuth.createUserWithEmailAndPassword(
+    UserCredential userCredential= await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password);
 
     await sendEmailVerification(context,"sent");
-  }
+
+    //after creating user,create a new document for the user in the users colection
+    _fireStore.collection('users').doc(userCredential.user!.uid).set({
+      'uid': userCredential.user!.uid,
+      'email':email,
+    });
+// return userCredential;
+}
   on FirebaseAuthException catch (e){
-    showSnackBar(context, e.message!);
+     showSnackBar(context, e.message!);
+    //throw Exception(e.message);
   }
 }
 
-//login
+
+// login
 
 Future<void> signInWithEmailAndPassword({
   required String email,
@@ -54,6 +68,14 @@ Future<void> signInWithEmailAndPassword({
         password: password
     );
 
+    //add  a new document for the user in users collection if it doesnt exist already
+    // _fireStore.collection('user').doc(userCredential.user!.uid).set({
+    //   'uid': userCredential.user!.uid,
+    //   'email':email,
+      //just incase thers a users whos doc hasnt been cretaed
+    // },SetOptions(merge: true));
+    // return userCredential;
+
     _user = userCred.user;
     
     Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomePage()));
@@ -61,6 +83,7 @@ Future<void> signInWithEmailAndPassword({
   }
   on FirebaseAuthException catch (e){
     showSnackBar(context, e.message!);
+   // throw Exception(e.message);
 
   }
 }

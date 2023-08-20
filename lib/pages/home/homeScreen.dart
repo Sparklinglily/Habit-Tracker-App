@@ -55,18 +55,14 @@ Future<void> signOut()async {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
+        title:
+
+             CircleAvatar(
+                radius: 19,
+                backgroundImage: NetworkImage(picture),
+              ),
 
 
-            CircleAvatar(
-              radius: 19,
-              backgroundImage: NetworkImage(picture),
-            )
-
-          ],
-        ),
         backgroundColor: const Color(0xFFFAFAFA),
         elevation: 0,
       ),
