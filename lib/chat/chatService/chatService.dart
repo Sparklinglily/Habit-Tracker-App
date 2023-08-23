@@ -37,9 +37,11 @@ Future<void> sendMessage(String receiverId, String message)async{
   // add new message to database
   await _fireStore
       .collection("chat_rooms")
-      .doc(chatRoomId).
-  collection("messagges").
+      .doc('chatRoomId').
+  collection("messages").
   add(newMessage.toMap());
+
+  print(newMessage.toMap());
 
 }
 
@@ -47,7 +49,7 @@ Future<void> sendMessage(String receiverId, String message)async{
 //GET MESSAGE
 
 Stream<QuerySnapshot> getMessages( String userId, String otherUserId) {
-  //construct chat rrom id from user ids( sorted to ensure  it matches the id used when sending messages
+  //construct chat r6om id from user ids( sorted to ensure  it matches the id used when sending messages
   List<String> ids = [userId, otherUserId];
   ids.sort();
   String chatRoomId =ids.join("_");
@@ -58,6 +60,7 @@ Stream<QuerySnapshot> getMessages( String userId, String otherUserId) {
       .collection("messages")
       .orderBy("timestamp",descending: false)
       .snapshots();
+
 
 
 }

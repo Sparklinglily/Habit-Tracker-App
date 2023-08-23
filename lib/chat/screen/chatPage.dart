@@ -51,19 +51,30 @@ class _ChatPageState extends State<ChatPage> {
   //build messagelist
   Widget _buildMessageList(){
     return StreamBuilder(
-        stream: _chatService.getMessages(
-            widget.receiverUserId, _firebaseAuth.currentUser!.uid
-        ),
+
+         stream:  FirebaseFirestore.instance.
+         collection("chat_rooms")
+            .doc("chatRoomId")
+             .collection("messages")
+           // .orderBy("timestamp",descending: false)
+            .snapshots(),
+        // _chatService.getMessages(
+        //     widget.receiverUserId, _firebaseAuth.currentUser!.uid
+        //),
         builder: (context, snapshot){
           if(snapshot.hasError){
-            return Text("Error${snapshot.error}");
+            print("oops");
+
+            //return Text("Error${snapshot.error}");
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Text("Loading..");
+            print("yayyy");
+            //return Text("Loading..");
           }
+          print(snapshot.data!.docs);
+
           return ListView(
-            children:
-             snapshot.data!.docs.map((document) =>_buildMessageItem(document)).toList(),
+          children: snapshot.data!.docs.map((document) =>_buildMessageItem(document)).toList(),
           );
         } );
   }
@@ -79,15 +90,23 @@ class _ChatPageState extends State<ChatPage> {
     var alignment =(data["senderId"]== _firebaseAuth.currentUser!.uid)
         ? Alignment.centerRight
         :Alignment.centerLeft;
+
     return Container(
       alignment: alignment,
       child: Column(
+        // // crossAxisAlignment: (data['senderId'] == _firebaseAuth).currentUser!.uid)
+        // //   ? CrossAxisAlignment.end
+        // //    :CrossAxisAlignment.start,
+        // mainAxisAlignment: (data['senderId'] == _firebaseAuth).currentUser!.uid)
+        //   ? MainAxisAlignment.end
+        //   :MainAxisAlignment.start,
+
         children: [
           Text(data["senderEmail"]),
           Text(data["message"]),
         ],
 
-    ),
+      )
     );
 
   }
@@ -98,7 +117,7 @@ class _ChatPageState extends State<ChatPage> {
 Widget _buildMessageInput (){
     return Row(
       children: [
-        //textfileld
+        //textfield
         Expanded(child: TextField(
           obscureText: false,
           controller:  _messageController,
