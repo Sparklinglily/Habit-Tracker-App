@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "477139515546",
+    "project_id": "habit-help",
+    "storage_bucket": "habit-help.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477139515546:android:99062bfb1182093426c723",
+        "android_client_info": {
+          "package_name": "com.habit.help.habit_help"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "477139515546-ae90o5v8fqlmhl5o296ul0cs8arua8jt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2ZlA5d3KjTTGR7tiTTKnhjFu9rdkU3m4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "477139515546-ae90o5v8fqlmhl5o296ul0cs8arua8jt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "477139515546-g551bsbedguiqf7de3iooaghb5aqroh4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.habit.help.habitHelp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

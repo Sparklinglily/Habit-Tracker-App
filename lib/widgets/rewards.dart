@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
-
+import '../core/constants/constants.dart';
 
 class Rewards extends StatefulWidget {
   const Rewards({Key? key}) : super(key: key);
@@ -15,18 +14,20 @@ class _RewardsState extends State<Rewards> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: const [
-        Text("Achievements",style: TextStyle(
-            color: fontDark,
-            fontSize: defaultSpacing * 1.4,
-            fontWeight: FontWeight.w500),
+        Text(
+          "Achievements",
+          style: TextStyle(
+              color: fontDark,
+              fontSize: defaultSpacing * 1.4,
+              fontWeight: FontWeight.w500),
         ),
-
-        Text("See all",style: TextStyle(
-            color: secondaryDark,
-            fontSize: defaultSpacing,
-            fontWeight: FontWeight.w400),
+        Text(
+          "See all",
+          style: TextStyle(
+              color: secondaryDark,
+              fontSize: defaultSpacing,
+              fontWeight: FontWeight.w400),
         ),
-
       ],
     );
   }

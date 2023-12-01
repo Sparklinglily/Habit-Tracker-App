@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
+import '../core/constants/constants.dart';
 
 class SetPriority extends StatefulWidget {
   const SetPriority({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit_help/screens/rewardPage.dart';
-import '../constants/constants.dart';
+import 'package:habit_help/presentation/views/onBoardingScreens/rewardPage.dart';
+import '../core/constants/constants.dart';
 
 
 class RewardList extends StatefulWidget {

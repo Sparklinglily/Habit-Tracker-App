@@ -1,23 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:habit_help/FirebaseAuthServices/authMethods.dart';
-import 'package:habit_help/authentication/checkEmail.dart';
-import 'package:habit_help/authentication/forgotPasswordPage.dart';
-import 'package:habit_help/pages/home/homeScreen.dart';
-import 'package:habit_help/authentication/loginPage.dart';
-import 'package:habit_help/profile/profilePage.dart';
-import 'package:habit_help/screens/onboardingPages/loginOrSignUpPage.dart';
-import 'package:habit_help/screens/onboardingPages/onboardOne.dart';
+import 'package:habit_help/presentation/views/authentication/authMethods.dart';
+import 'package:habit_help/presentation/views/authentication/checkEmail.dart';
+import 'package:habit_help/presentation/views/authentication/forgotPasswordPage.dart';
+import 'package:habit_help/presentation/views/home/homeScreen.dart';
+import 'package:habit_help/presentation/views/authentication/loginPage.dart';
+import 'package:habit_help/presentation/views/profile/profilePage.dart';
+import 'package:habit_help/presentation/views/onBoardingScreens/onboardingPages/loginOrSignUpPage.dart';
+import 'package:habit_help/presentation/views/onBoardingScreens/onboardingPages/onboardOne.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:habit_help/authentication/signUpPage.dart';
+import 'package:habit_help/presentation/views/authentication/signUpPage.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'chat/screen/chatHome.dart';
+import 'presentation/views/chat/screen/chatHome.dart';
 import 'firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'invite/invitePage.dart';
+import 'presentation/views/invite/invitePage.dart';
 
 
 
