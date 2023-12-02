@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/constants/constants.dart';
+import '../../../../core/constants/constants.dart';
 
 class DailyQuotes extends StatefulWidget {
   const DailyQuotes({Key? key}) : super(key: key);
@@ -11,12 +11,12 @@ class DailyQuotes extends StatefulWidget {
 class _DailyQuotesState extends State<DailyQuotes> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return const Padding(
+      padding: EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             "Daily Quotes",
             style: TextStyle(
                 color: fontDark,
@@ -30,7 +30,7 @@ class _DailyQuotesState extends State<DailyQuotes> {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: const [
+              children: [
                 Image(
                   image: AssetImage(
                     "images/quotes.png",

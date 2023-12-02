@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../core/constants/constants.dart';
 import 'package:habit_help/presentation/views/home/homeScreen.dart';
-import 'package:habit_help/presentation/views/home/bottomNavButtons/homePage.dart';
-
-
+import 'package:habit_help/presentation/views/home/homePage.dart';
 
 class ProceedToHomePage extends StatefulWidget {
   const ProceedToHomePage({Key? key}) : super(key: key);
@@ -16,37 +14,34 @@ class _ProceedToHomePageState extends State<ProceedToHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Column(
         children: const [
-          SizedBox(height: defaultSpacing* 9,),
+          SizedBox(
+            height: defaultSpacing * 9,
+          ),
           Center(
             child: Text("Congratulations",
                 style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: defaultSpacing * 3
-                )),
+                    fontWeight: FontWeight.w600, fontSize: defaultSpacing * 3)),
           ),
           Center(
-            child: Text("Youre set to explore habit App",
+            child: Text(
+              "Youre set to explore habit App",
               style: TextStyle(
-                color: secondaryLight,
+                  color: secondaryLight,
                   height: 1.8,
                   fontWeight: FontWeight.w500,
-                  fontSize: defaultSpacing* 1.3
-              ),
+                  fontSize: defaultSpacing * 1.3),
             ),
           ),
-          Image(image: AssetImage("images/achievement.png",
-          ),),
-
-
+          Image(
+            image: AssetImage(
+              "images/achievement.png",
+            ),
+          ),
           SizedBox(height: defaultSpacing * 2.8),
-
         ],
       ),
-
-      
     );
   }
 }

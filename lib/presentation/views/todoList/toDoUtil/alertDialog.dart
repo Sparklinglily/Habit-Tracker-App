@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:habit_help/core/constants/constants.dart';
-import 'package:habit_help/presentation/views/home/bottomNavButtons/toDoUtil/myButtons.dart';
+import 'package:habit_help/presentation/views/todoList/toDoUtil/myButtons.dart';
 
 class DialogBox extends StatelessWidget {
   final controller;
   VoidCallback onSave;
   VoidCallback onCancel;
 
-   DialogBox({Key? key,
-  required this.controller,
-   required this.onSave,
-   required this.onCancel}) : super(key: key);
+  DialogBox(
+      {Key? key,
+      required this.controller,
+      required this.onSave,
+      required this.onCancel})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +28,10 @@ class DialogBox extends StatelessWidget {
             TextField(
               controller: controller,
               decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                    hintText: "Add new Task"
-
-              ),
-
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  hintText: "Add new Task"),
             ),
             //save and cancel button
             Row(
@@ -40,24 +39,15 @@ class DialogBox extends StatelessWidget {
               children: [
                 //save button
                 MyButtons(text: "Save", onPressed: onSave),
-                SizedBox(width: 5,),
+                SizedBox(
+                  width: 5,
+                ),
 
                 //cancel button
-                MyButtons(text: "Cancel", onPressed:onCancel )
-
+                MyButtons(text: "Cancel", onPressed: onCancel)
               ],
             )
-
-
-
-
-
-
           ],
-
-
-
-
         ),
       ),
     );

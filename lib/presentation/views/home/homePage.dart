@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/constants.dart';
+import '../../../core/constants/constants.dart';
 import 'package:habit_help/widgets/spactBtw.dart';
 
-import '../../../../widgets/dailyQuotes.dart';
-import '../../../../widgets/due.dart';
-import '../../../../widgets/imageGrid.dart';
-import '../../../../widgets/rewards.dart';
-import '../../../../widgets/rewardsList.dart';
-
-
+import 'Wigets/dailyQuotes.dart';
+import 'Wigets/due.dart';
+import 'Wigets/imageGrid.dart';
+import '../../../widgets/rewards.dart';
+import '../../../widgets/rewardsList.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -26,17 +24,16 @@ class _HomeState extends State<Home> {
         child: ListView(
           children: const [
             //FIRST
-            Padding(padding: EdgeInsets.only(bottom: defaultSpacing -4 )),
+            Padding(padding: EdgeInsets.only(bottom: defaultSpacing - 4)),
             DailyQuotes(),
             Padding(padding: EdgeInsets.only(bottom: defaultSpacing * 1.6)),
             DueToday(),
             Padding(padding: EdgeInsets.only(bottom: defaultSpacing / 7)),
             ImageGrids(),
-            Padding(padding: EdgeInsets.only(bottom: defaultSpacing )),
+            Padding(padding: EdgeInsets.only(bottom: defaultSpacing)),
             Rewards(),
-            Padding(padding: EdgeInsets.only(bottom: defaultSpacing /3 )),
+            Padding(padding: EdgeInsets.only(bottom: defaultSpacing / 3)),
             RewardList(),
-
           ],
         ),
       ),
