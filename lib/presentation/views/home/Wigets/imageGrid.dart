@@ -46,3 +46,5 @@ class _ImageGridsState extends State<ImageGrids> {
     );
   }
 }
+
+class ImageGrid {}
