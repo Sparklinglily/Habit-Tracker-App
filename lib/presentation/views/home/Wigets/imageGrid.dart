@@ -36,6 +36,7 @@ class ImageGrids extends StatelessWidget {
                 // height: constraints.maxHeight * 0.3,
                 borderRadius: 8,
                 width: size.width,
+                height: double.maxFinite,
                 padding: EdgeInsets.zero,
                 child: Align(
                     alignment: Alignment.centerLeft,
@@ -43,7 +44,7 @@ class ImageGrids extends StatelessWidget {
                       data.text,
                       textAlign: TextAlign.start,
                       maxLines: 2,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.black,
                         overflow: TextOverflow.ellipsis,
                         fontSize: 12,
