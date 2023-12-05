@@ -45,17 +45,29 @@ class _HomePageState extends State<HomePage> {
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => LoginPage()));
+        .push(MaterialPageRoute(builder: (context) => const LoginPage()));
+  }
+
+  void navigateToProfileScreen() {
+    Navigator.pushNamed(context, '/profile');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: CircleAvatar(
-          radius: 19,
-          backgroundImage: NetworkImage(picture),
-        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: InkWell(
+              onTap: navigateToProfileScreen,
+              child: CircleAvatar(
+                radius: 19,
+                backgroundImage: NetworkImage(picture),
+              ),
+            ),
+          ),
+        ],
         backgroundColor: const Color(0xFFFAFAFA),
         elevation: 0,
       ),
@@ -105,13 +117,13 @@ class _HomePageState extends State<HomePage> {
                     size: defaultSpacing * 3,
                     shadows: [
                       Shadow(
-                          offset: Offset(2.0, 2.0),
+                          offset: const Offset(2.0, 2.0),
                           blurRadius: 6.0,
                           color: const Color.fromARGB(255, 153, 153, 153)
                               .withOpacity(0.8))
                     ],
                   ),
-                  label: Text(
+                  label: const Text(
                     "Profile",
                     style: TextStyle(
                         color: primaryDark, fontSize: defaultSpacing * 1.7),
@@ -125,13 +137,13 @@ class _HomePageState extends State<HomePage> {
                     size: defaultSpacing * 3,
                     shadows: [
                       Shadow(
-                          offset: Offset(2.0, 2.0),
+                          offset: const Offset(2.0, 2.0),
                           blurRadius: 6.0,
                           color: const Color.fromARGB(255, 153, 153, 153)
                               .withOpacity(0.8))
                     ],
                   ),
-                  label: Text(
+                  label: const Text(
                     "Favorites",
                     style: TextStyle(
                         color: primaryDark, fontSize: defaultSpacing * 1.7),
@@ -145,13 +157,13 @@ class _HomePageState extends State<HomePage> {
                       size: defaultSpacing * 3,
                       shadows: [
                         Shadow(
-                            offset: Offset(2.0, 2.0),
+                            offset: const Offset(2.0, 2.0),
                             blurRadius: 6.0,
                             color: const Color.fromARGB(255, 153, 153, 153)
                                 .withOpacity(0.8))
                       ],
                     ),
-                    label: Text(
+                    label: const Text(
                       "Settings",
                       style: TextStyle(
                           color: primaryDark, fontSize: defaultSpacing * 1.7),
@@ -164,13 +176,13 @@ class _HomePageState extends State<HomePage> {
                       size: defaultSpacing * 3,
                       shadows: [
                         Shadow(
-                            offset: Offset(2.0, 2.0),
+                            offset: const Offset(2.0, 2.0),
                             blurRadius: 6.0,
                             color: const Color.fromARGB(255, 153, 153, 153)
                                 .withOpacity(0.8))
                       ],
                     ),
-                    label: Text(
+                    label: const Text(
                       "Contact Us",
                       style: TextStyle(
                           color: primaryDark, fontSize: defaultSpacing * 1.7),
@@ -185,13 +197,13 @@ class _HomePageState extends State<HomePage> {
                     size: defaultSpacing * 3,
                     shadows: [
                       Shadow(
-                          offset: Offset(2.0, 2.0),
+                          offset: const Offset(2.0, 2.0),
                           blurRadius: 6.0,
                           color: const Color.fromARGB(255, 153, 153, 153)
                               .withOpacity(0.8))
                     ],
                   ),
-                  label: Text(
+                  label: const Text(
                     "Log out",
                     style: TextStyle(
                         color: primaryDark, fontSize: defaultSpacing * 1.7),

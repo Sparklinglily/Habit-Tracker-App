@@ -16,6 +16,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final List<ImageGridData> imageGridItems = [
+    ImageGridData(
+        image: 'images/readingAbook.png',
+        checkBox: Checkbox(value: null, onChanged: null),
+        text: 'Read a book'),
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,7 +30,7 @@ class _HomeState extends State<Home> {
         child: ListView(
           children: const [
             //FIRST
-            Padding(padding: EdgeInsets.only(bottom: defaultSpacing - 4)),
+
             DailyQuotes(),
             Padding(padding: EdgeInsets.only(bottom: defaultSpacing * 1.6)),
             DueToday(),
