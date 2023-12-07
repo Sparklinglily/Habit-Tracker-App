@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import '../../../core/constants/constants.dart';
-import '../addHabit/addHabitButton.dart';
+import '../addHabit/addHabitPage.dart';
 import 'bottomNavButtons/addTask.dart';
 import 'bottomNavButtons/challenges.dart';
 import 'bottomNavButtons/habits.dart';
@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const AddHabit(),
+                builder: (context) => const AddHabitPage(),
               ));
         },
         foregroundColor: background,

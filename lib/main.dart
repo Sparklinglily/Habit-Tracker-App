@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:habit_help/presentation/views/addHabit/addHabitMethod.dart';
 import 'package:habit_help/presentation/views/authentication/authMethods.dart';
 import 'package:habit_help/presentation/views/authentication/checkEmail.dart';
 import 'package:habit_help/presentation/views/authentication/forgotPasswordPage.dart';
@@ -18,8 +19,6 @@ import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'presentation/views/invite/invitePage.dart';
-
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,24 +42,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<FirebaseAuthMethods> (create: (_)=>FirebaseAuthMethods(FirebaseAuth.instance)
-        ),
-        StreamProvider(create: (context)=> context.read<FirebaseAuthMethods>().authState,
+        ChangeNotifierProvider(create: (context) => HabitProvider()),
+        Provider<FirebaseAuthMethods>(
+            create: (_) => FirebaseAuthMethods(FirebaseAuth.instance)),
+        StreamProvider(
+            create: (context) => context.read<FirebaseAuthMethods>().authState,
             initialData: null)
-
       ],
-
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.orange,
         ),
-        home:   AuthWrapper(),
-          debugShowCheckedModeBanner: false,
-
+        home: AuthWrapper(),
+        debugShowCheckedModeBanner: false,
         routes: {
-          "/profile": (context)=> ProfilePage(),
-          "/chat": (context)=> ChatHomePage(),
+          "/profile": (context) => ProfilePage(),
+          "/chat": (context) => ChatHomePage(),
         },
       ),
     );
@@ -73,19 +71,10 @@ class AuthWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final firebaseUser = context.watch<User?>();
-    if (firebaseUser != null)
-    {
-         return HomePage();}
-      else
-        {
-          return LoginPage();
-        }
+    if (firebaseUser != null) {
+      return HomePage();
+    } else {
+      return LoginPage();
     }
   }
-
-
-
-
-
-
-
+}
