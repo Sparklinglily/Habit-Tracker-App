@@ -3,51 +3,61 @@ import 'package:habit_help/presentation/views/AppComponents/blurredContainer.dar
 import '../../../../core/constants/constants.dart';
 import '../../authentication/loginPage.dart';
 
-class ImageGrids extends StatelessWidget {
-  ImageGrids({Key? key, required this.data, required this.onTap})
-      : super(key: key);
+class ImageGrids extends StatefulWidget {
+  ImageGrids({
+    Key? key,
+    required this.gridData,
+  }) : super(key: key);
 
-  bool isClicked = false;
+  final ImageGridData gridData;
 
-  final ImageGridData data;
+  @override
+  State<ImageGrids> createState() => _ImageGridsState();
+}
 
-  final VoidCallback onTap;
-
+class _ImageGridsState extends State<ImageGrids> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    return InkWell(
-      onTap: onTap,
-      child: Card(
-        child: Stack(
-          children: [
-            Image.asset(
-              data.image, fit: BoxFit.cover,
-              height: size.height,
-              width: size.width,
+    return Card(
+      child: Stack(
+        children: [
+          Image.asset(
+            widget.gridData.imagePath, fit: BoxFit.cover,
+            height: size.height,
+            width: size.width,
 
-              // color: Colors.black,
+            // color: Colors.black,
+          ),
+          Positioned(
+            child: Checkbox(
+              value: widget.gridData.isChecked,
+              onChanged: (value) {
+                setState(() {
+                  if (value != null) widget.gridData.isChecked = value;
+                });
+              },
+              checkColor: Colors.amber,
+              fillColor: MaterialStatePropertyAll(Colors.grey),
             ),
-            Positioned(
-              child: Checkbox(value: isClicked, onChanged: null),
-              right: 16,
-            ),
-            BlurredContainer(
-                // height: constraints.maxHeight * 0.3,
+            right: 5,
+          ),
+          Positioned(
+              bottom: 0,
+              child: BlurredContainer(
                 borderRadius: 8,
-                width: size.width,
-                height: double.maxFinite,
+                width: size.width * 0.4,
                 padding: EdgeInsets.zero,
                 child: Align(
-                    alignment: Alignment.centerLeft,
+                    alignment: Alignment.bottomCenter,
                     child: Text(
-                      data.text,
+                      widget.gridData.title,
                       textAlign: TextAlign.start,
                       maxLines: 2,
                       style: const TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         overflow: TextOverflow.ellipsis,
-                        fontSize: 12,
+                        fontSize: 15,
                         fontWeight: FontWeight.w600,
                       ),
                     ))
@@ -55,22 +65,24 @@ class ImageGrids extends StatelessWidget {
                 // padding:
                 //     const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                 // ),
-                ),
-          ],
-        ),
+                ,
+              ))
+        ],
       ),
     );
   }
 }
 
 class ImageGridData {
-  final String image;
-  final Widget checkBox;
-  final String text;
+  final int id;
+  final String imagePath;
+  bool isChecked;
+  final String title;
 
   ImageGridData({
-    required this.image,
-    required this.checkBox,
-    required this.text,
+    required this.id,
+    required this.imagePath,
+    required this.isChecked,
+    required this.title,
   });
 }

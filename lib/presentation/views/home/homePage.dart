@@ -16,52 +16,51 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  bool isClicked = false;
-  final List<ImageGridData> imageGridItems = [
-    ImageGridData(
-        image: 'images/readingAbook.jpg',
-        checkBox: Checkbox(value: null, onChanged: null),
-        text: 'Read a book'),
-    ImageGridData(
-        image: 'images/eatingFruits.jpg',
-        checkBox: Checkbox(value: null, onChanged: null),
-        text: 'Eating a fruit'),
-    ImageGridData(
-        image: 'images/trackRace.jpg',
-        checkBox: Checkbox(value: null, onChanged: null),
-        text: 'Run 10km'),
-    ImageGridData(
-        image: 'images/sleeping.jpg',
-        checkBox: Checkbox(value: null, onChanged: null),
-        text: 'Read a book'),
-    ImageGridData(
-        image: 'images/readingAbook.png',
-        checkBox: Checkbox(value: null, onChanged: null),
-        text: 'Read a book'),
-    ImageGridData(
-        image: 'images/eatingFruits.jpg',
-        checkBox: Checkbox(value: null, onChanged: null),
-        text: 'Eating a fruit'),
-  ];
+  List<ImageGridData> gridItems = List.generate(
+      6,
+      (index) => ImageGridData(
+          id: index,
+          imagePath: 'assets/image${index % 5 + 1}.jpg',
+          isChecked: false,
+          title: 'run 10km'));
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
-        child: Column(
-          children: const [
-            //FIRST
+        child: Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 15, right: 15),
+            child: Column(
+              children: [
+                //FIRST
 
-            DailyQuotes(),
-            Padding(padding: EdgeInsets.only(bottom: defaultSpacing * 1.6)),
-            DueToday(),
-            Padding(padding: EdgeInsets.only(bottom: defaultSpacing / 5)),
+                DailyQuotes(),
+                Padding(padding: EdgeInsets.only(bottom: defaultSpacing * 1.6)),
+                DueToday(),
+                Padding(padding: EdgeInsets.only(bottom: defaultSpacing / 5)),
 
-            Padding(padding: EdgeInsets.only(bottom: defaultSpacing)),
-            Rewards(),
-            Padding(padding: EdgeInsets.only(bottom: defaultSpacing / 3)),
-            RewardList(),
-          ],
+                GridView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 6,
+                        childAspectRatio: 17 / 14,
+                        crossAxisSpacing: 6),
+                    itemCount: gridItems.length,
+                    itemBuilder: (context, index) {
+                      return ImageGrids(gridData: gridItems[index]);
+                    }),
+
+                Padding(padding: EdgeInsets.only(bottom: defaultSpacing)),
+                Rewards(),
+                Padding(padding: EdgeInsets.only(bottom: defaultSpacing / 3)),
+                RewardList(),
+              ],
+            ),
+          ),
         ),
       ),
     );
