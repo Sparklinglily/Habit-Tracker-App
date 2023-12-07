@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/constants/constants.dart';
+import '../../../../core/constants/constants.dart';
 
 class Rewards extends StatefulWidget {
   const Rewards({Key? key}) : super(key: key);
@@ -11,9 +11,9 @@ class Rewards extends StatefulWidget {
 class _RewardsState extends State<Rewards> {
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
+      children: [
         Text(
           "Achievements",
           style: TextStyle(

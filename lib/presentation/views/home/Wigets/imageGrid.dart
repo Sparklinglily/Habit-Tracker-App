@@ -46,7 +46,8 @@ class _ImageGridsState extends State<ImageGrids> {
               bottom: 0,
               child: BlurredContainer(
                 borderRadius: 8,
-                width: size.width * 0.4,
+                //check
+                width: size.width * 0.45,
                 padding: EdgeInsets.zero,
                 child: Align(
                     alignment: Alignment.bottomCenter,
