@@ -4,6 +4,7 @@ import 'package:habit_help/presentation/views/addHabit/addHabitMethod.dart';
 import 'package:habit_help/presentation/views/authentication/authMethods.dart';
 import 'package:habit_help/presentation/views/authentication/checkEmail.dart';
 import 'package:habit_help/presentation/views/authentication/forgotPasswordPage.dart';
+import 'package:habit_help/presentation/views/home/bottomNavButtons/habits.dart';
 import 'package:habit_help/presentation/views/home/homeScreen.dart';
 import 'package:habit_help/presentation/views/authentication/loginPage.dart';
 import 'package:habit_help/presentation/views/profile/profilePage.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
         routes: {
           "/profile": (context) => ProfilePage(),
           "/chat": (context) => ChatHomePage(),
+          '/habits': (context)=> HabitsPage(),
         },
       ),
     );

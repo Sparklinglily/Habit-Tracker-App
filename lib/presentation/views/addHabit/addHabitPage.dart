@@ -58,8 +58,9 @@ class _AddHabitPageState extends State<AddHabitPage> {
                         habitDescriptionController.text);
                     habitNameController.clear();
                     habitDescriptionController.clear();
+                    Navigator.pushNamed(context, '/habits');
                   },
-                  child: Text('Add Habit')),
+                  child: Text('Save')),
             ]),
           ),
         ));

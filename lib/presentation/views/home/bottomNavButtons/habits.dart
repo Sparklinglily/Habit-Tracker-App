@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constants/constants.dart';
 
-class GridViewTab extends StatefulWidget {
-  const GridViewTab({Key? key}) : super(key: key);
+class HabitsPage extends StatefulWidget {
+  const HabitsPage({Key? key}) : super(key: key);
 
   @override
-  State<GridViewTab> createState() => _GridViewTabState();
+  State<HabitsPage> createState() => _HabitsPageState();
 }
 
-class _GridViewTabState extends State<GridViewTab> {
+class _HabitsPageState extends State<HabitsPage> {
 
   List <String> pics = [
 
@@ -102,8 +102,8 @@ class _HabitsState extends State<Habits> {
 
 
         body: const TabBarView(children: [
-          GridViewTab(),
-          GridViewTab(),
+          HabitsPage(),
+          HabitsPage(),
 
         ],
 
