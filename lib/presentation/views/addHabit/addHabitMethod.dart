@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -14,20 +16,46 @@ class HabitProvider extends ChangeNotifier {
 
   //add habit
   Future<void> addHabit(String habitName, String description) async {
-    _habits.add(HabitModel(
+    final newHabit = HabitModel(
       name: habitName,
       completed: false,
       description: description,
-    ));
+      status: 'ongoing',
+    );
+    _habits.add(newHabit);
     notifyListeners();
     try {
-      await habitCollection.add({
+      //add habit to firestore with status ongoing
+      DocumentReference documentReference = await habitCollection.add({
         'name': habitName,
         'completed': false,
-        description: description,
+        'description': description,
+        'status': 'ongoing',
       });
+
+      newHabit.id.value = documentReference.id;
+      notifyListeners();
     } catch (e) {
       print('Error adding habit to FireStoore: $e');
+    }
+  }
+
+  //fetching habits from firestore
+  Future<void> fetchHabit() async {
+    try {
+      //fetch habits from firestore
+      QuerySnapshot querySnapshot = await habitCollection.get();
+
+      //update localist with fetched habits
+      _habits = querySnapshot.docs.map((doc) {
+        return HabitModel(
+            name: doc['name'],
+            completed: doc['completed'],
+            description: doc['description']);
+      }).toList();
+      notifyListeners();
+    } catch (e) {
+      print('error fetching habits from firestore:$e');
     }
   }
 }

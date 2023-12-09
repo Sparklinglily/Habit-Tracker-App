@@ -15,6 +15,8 @@ class _AddHabitPageState extends State<AddHabitPage> {
   final TextEditingController habitDescriptionController =
       TextEditingController();
 
+  //initState for habitProvider.fetchHabits()
+
   @override
   Widget build(BuildContext context) {
     final habitProvider = Provider.of<HabitProvider>(context);
