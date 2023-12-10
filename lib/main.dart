@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
         routes: {
           "/profile": (context) => ProfilePage(),
           "/chat": (context) => ChatHomePage(),
-          '/habits': (context) => HabitsTab(),
+          '/habits': (context) => HabitsPage(),
         },
       ),
     );

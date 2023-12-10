@@ -6,33 +6,24 @@ import '../../../../core/constants/constants.dart';
 
 class HabitsTab extends StatefulWidget {
   final List<HabitModel> habit;
-  
-  
-
-  const HabitsTab({Key? key,required this.habit}) : super(key: key);
+  const HabitsTab({Key? key, required this.habit}) : super(key: key);
 
   @override
   State<HabitsTab> createState() => _HabitsTabState();
 }
 
 class _HabitsTabState extends State<HabitsTab> {
-   
-   
-
   @override
   Widget build(BuildContext context) {
-   
     return Padding(
-      padding: const EdgeInsets.all(11.0),
-      child: GridView.count(
-        crossAxisCount: 2,
-        mainAxisSpacing: 4,
-        children: habit.map((habits) => HabitListItem(habit: habits)).toList();
-      
-      )
-    );
+        padding: const EdgeInsets.all(11.0),
+        child: ListView(
+            children: widget.habit
+                .map((habits) => HabitListItem(habit: habits))
+                .toList()));
   }
 }
+
 class HabitListItem extends StatelessWidget {
   final HabitModel habit;
 
@@ -52,13 +43,13 @@ class HabitsPage extends StatefulWidget {
   const HabitsPage({Key? key}) : super(key: key);
 
   @override
-  State<HabitsTab> createState() => _HabitsTabState();
+  State<HabitsPage> createState() => _HabitsPageState();
 }
 
-class _HabitsPageState extends State<HabitsTab> {
+class _HabitsPageState extends State<HabitsPage> {
   @override
   Widget build(BuildContext context) {
-     final habitProvider = Provider.of<HabitProvider>(context);
+    final habitProvider = Provider.of<HabitProvider>(context);
     final onGoingHabits = habitProvider.habits
         .where((habits) => habits.status == 'ongoing')
         .toList();
@@ -105,11 +96,11 @@ class _HabitsPageState extends State<HabitsTab> {
               ),
               elevation: 0,
             ),
-            body:  TabBarView(
+            body: TabBarView(
               children: [
-                HabitsTab(habit:onGoingHabits ),
+                HabitsTab(habit: onGoingHabits),
                 HabitsTab(habit: completedHabits),
-                ],
+              ],
             ),
           )),
     );

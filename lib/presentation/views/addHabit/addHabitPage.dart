@@ -14,6 +14,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
   final TextEditingController habitNameController = TextEditingController();
   final TextEditingController habitDescriptionController =
       TextEditingController();
+  final TextEditingController habitDurationController = TextEditingController();
 
   //initState for habitProvider.fetchHabits()
 
@@ -54,10 +55,26 @@ class _AddHabitPageState extends State<AddHabitPage> {
               SizedBox(
                 height: 20,
               ),
+              TextField(
+                controller: habitDurationController,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(), hintText: 'duration'),
+              ),
+              SizedBox(
+                height: 20,
+              ),
               ElevatedButton(
-                  onPressed: () async {
-                    await habitProvider.addHabit(habitNameController.text,
-                        habitDescriptionController.text);
+                  onPressed: () {
+                    habitProvider.addHabit(
+                      habitNameController.text,
+                      habitDurationController.text,
+                      habitName: '',
+                      description: ' ',
+                      imageAssetPath: '',
+                      duration: null,
+                      startDate: null,
+                      endDate: null,
+                    );
                     habitNameController.clear();
                     habitDescriptionController.clear();
                     Navigator.pushNamed(context, '/habits');

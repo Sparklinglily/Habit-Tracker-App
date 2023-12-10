@@ -15,12 +15,24 @@ class HabitProvider extends ChangeNotifier {
   List<HabitModel> get habits => _habits;
 
   //add habit
-  Future<void> addHabit(String habitName, String description) async {
+  Future<void> addHabit(
+    String text, {
+    required String habitName,
+    required String description,
+    required String imageAssetPath,
+    required int duration,
+    required DateTime startDate,
+    required DateTime endDate,
+  }) async {
     final newHabit = HabitModel(
       name: habitName,
       completed: false,
       description: description,
       status: 'ongoing',
+      imageAssetPath: imageAssetPath,
+      duration: duration,
+      endDate: endDate,
+      startDate: startDate,
     );
     _habits.add(newHabit);
     notifyListeners();
@@ -31,6 +43,10 @@ class HabitProvider extends ChangeNotifier {
         'completed': false,
         'description': description,
         'status': 'ongoing',
+        'imageAssetPath ': imageAssetPath,
+        'duration': duration,
+        'startDate': Timestamp.fromDate(startDate),
+        'endDate': Timestamp.fromDate(endDate)
       });
 
       newHabit.id = documentReference.id;
@@ -49,10 +65,15 @@ class HabitProvider extends ChangeNotifier {
       //update localist with fetched habits
       _habits = querySnapshot.docs.map((doc) {
         return HabitModel(
-            name: doc['name'],
-            completed: doc['completed'],
-            description: doc['description'],
-            status: doc['ongoing']);
+          name: doc['name'],
+          completed: doc['completed'],
+          description: doc['description'],
+          status: doc['ongoing'],
+          duration: doc['duration'],
+          endDate: doc['endDate'],
+          startDate: doc['startDate'],
+          imageAssetPath: doc['imageAssetPath'],
+        );
       }).toList();
       notifyListeners();
     } catch (e) {
