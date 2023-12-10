@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> screens = [
     const Home(),
-    const Habits(),
+    const HabitsPage(),
     const Tasks(),
     const Challenges(),
   ];

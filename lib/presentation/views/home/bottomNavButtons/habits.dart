@@ -1,114 +1,117 @@
 import 'package:flutter/material.dart';
+import 'package:habit_help/presentation/views/addHabit/addHabitMethod.dart';
+import 'package:habit_help/presentation/views/addHabit/model.dart';
+import 'package:provider/provider.dart';
 import '../../../../core/constants/constants.dart';
+
+class HabitsTab extends StatefulWidget {
+  final List<HabitModel> habit;
+  
+  
+
+  const HabitsTab({Key? key,required this.habit}) : super(key: key);
+
+  @override
+  State<HabitsTab> createState() => _HabitsTabState();
+}
+
+class _HabitsTabState extends State<HabitsTab> {
+   
+   
+
+  @override
+  Widget build(BuildContext context) {
+   
+    return Padding(
+      padding: const EdgeInsets.all(11.0),
+      child: GridView.count(
+        crossAxisCount: 2,
+        mainAxisSpacing: 4,
+        children: habit.map((habits) => HabitListItem(habit: habits)).toList();
+      
+      )
+    );
+  }
+}
+class HabitListItem extends StatelessWidget {
+  final HabitModel habit;
+
+  HabitListItem({required this.habit});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(habit.name),
+      subtitle: Text(habit.description),
+      trailing: habit.completed ? Icon(Icons.check) : null,
+    );
+  }
+}
 
 class HabitsPage extends StatefulWidget {
   const HabitsPage({Key? key}) : super(key: key);
 
   @override
-  State<HabitsPage> createState() => _HabitsPageState();
+  State<HabitsTab> createState() => _HabitsTabState();
 }
 
-class _HabitsPageState extends State<HabitsPage> {
-
-  List <String> pics = [
-
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Q7sDOUfHqXFWRCz2_S1rAfwMXA9EtbCdjA&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJPqMslDlwM_DKFoTWwtIG8pD7kNxoywMdRg&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3XP8FxcHHiX0v2PqEjIetQd1F-oxPriW36Q&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQwwD5k1VcEas0W_2QwWHL67DVpmHxxZhrFA&usqp=CAU",
-
-
-  ];
-
-
+class _HabitsPageState extends State<HabitsTab> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all( 11.0),
-      child: GridView.count(crossAxisCount: 2,
-        mainAxisSpacing: 4,
+     final habitProvider = Provider.of<HabitProvider>(context);
+    final onGoingHabits = habitProvider.habits
+        .where((habits) => habits.status == 'ongoing')
+        .toList();
 
-        children: pics.map((image) {
-          return Container(
-            margin: EdgeInsets.all(11),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(11),
+    final completedHabits = habitProvider.habits
+        .where((habits) => habits.status == 'completed')
+        .toList();
 
-            ),
-            child: Image.network(image,
-              fit: BoxFit.cover,),
-          );
-
-
-        }).toList(),
-      ),
-
-    );
-  }
-}
-
-
-
-
-class Habits extends StatefulWidget {
-  const Habits({Key? key}) : super(key: key);
-
-  @override
-  State<Habits> createState() => _HabitsState();
-}
-
-class _HabitsState extends State<Habits> {
-  @override
-  Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DefaultTabController(length: 2, child: Scaffold(
-        appBar: AppBar(
-          //instead of using an appBar that can be so wide
-          // use a flexible space to reduce the space that the app bar occupies
-          backgroundColor: const Color(0xFFFAFAFA),
-          flexibleSpace: Column (
-            mainAxisAlignment:MainAxisAlignment.end ,
-            children: const [
-              TabBar(tabs: [
-                Text("Ongoing",
-                  style: TextStyle(
-                      color: fontDark,
-                      height: 1.5,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 21
-                  ),),
-
-                Text("Completed",
-                  style: TextStyle(
-                      color: fontDark,
-                      height: 1.5,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 21
-                  ),)
-
-              ],
-                indicatorColor: primaryLight,
-                indicatorSize: TabBarIndicatorSize.label,
-
-              )
-
-          ],
-
-          ),
-          elevation: 0,
-
-        ),
-
-
-        body: const TabBarView(children: [
-          HabitsPage(),
-          HabitsPage(),
-
-        ],
-
-        ),
-      )),
+      home: DefaultTabController(
+          length: 2,
+          child: Scaffold(
+            appBar: AppBar(
+              //instead of using an appBar that can be so wide
+              // use a flexible space to reduce the space that the app bar occupies
+              backgroundColor: const Color(0xFFFAFAFA),
+              flexibleSpace: const Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TabBar(
+                    tabs: [
+                      Text(
+                        "Ongoing",
+                        style: TextStyle(
+                            color: fontDark,
+                            height: 1.5,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 21),
+                      ),
+                      Text(
+                        "Completed",
+                        style: TextStyle(
+                            color: fontDark,
+                            height: 1.5,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 21),
+                      )
+                    ],
+                    indicatorColor: primaryLight,
+                    indicatorSize: TabBarIndicatorSize.label,
+                  )
+                ],
+              ),
+              elevation: 0,
+            ),
+            body:  TabBarView(
+              children: [
+                HabitsTab(habit:onGoingHabits ),
+                HabitsTab(habit: completedHabits),
+                ],
+            ),
+          )),
     );
   }
 }

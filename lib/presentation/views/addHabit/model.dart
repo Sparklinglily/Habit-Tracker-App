@@ -12,4 +12,6 @@ class HabitModel {
       required this.completed,
       required this.description,
       required this.status});
+
+  set id(String id) {}
 }

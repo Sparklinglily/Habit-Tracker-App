@@ -31,7 +31,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
           child: Padding(
             padding: const EdgeInsets.only(top: 30.0, left: 15, right: 15),
             child: Column(children: [
-              Text(
+              const Text(
                 'Add a Habit ',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
@@ -55,8 +55,8 @@ class _AddHabitPageState extends State<AddHabitPage> {
                 height: 20,
               ),
               ElevatedButton(
-                  onPressed: () {
-                    habitProvider.addHabit(habitNameController.text,
+                  onPressed: () async {
+                    await habitProvider.addHabit(habitNameController.text,
                         habitDescriptionController.text);
                     habitNameController.clear();
                     habitDescriptionController.clear();

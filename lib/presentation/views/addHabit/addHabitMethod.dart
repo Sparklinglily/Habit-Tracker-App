@@ -33,7 +33,7 @@ class HabitProvider extends ChangeNotifier {
         'status': 'ongoing',
       });
 
-      newHabit.id.value = documentReference.id;
+      newHabit.id = documentReference.id;
       notifyListeners();
     } catch (e) {
       print('Error adding habit to FireStoore: $e');
@@ -51,7 +51,8 @@ class HabitProvider extends ChangeNotifier {
         return HabitModel(
             name: doc['name'],
             completed: doc['completed'],
-            description: doc['description']);
+            description: doc['description'],
+            status: doc['ongoing']);
       }).toList();
       notifyListeners();
     } catch (e) {
