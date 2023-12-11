@@ -65,15 +65,15 @@ class _AddHabitPageState extends State<AddHabitPage> {
               ),
               ElevatedButton(
                   onPressed: () {
+                    //making all required or not required in the addHabit Function.
                     habitProvider.addHabit(
-                      habitNameController.text,
-                      habitDurationController.text,
                       habitName: '',
                       description: ' ',
                       imageAssetPath: '',
                       duration: null,
                       startDate: null,
                       endDate: null,
+                      completed: null,
                     );
                     habitNameController.clear();
                     habitDescriptionController.clear();

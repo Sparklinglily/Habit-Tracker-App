@@ -19,6 +19,7 @@ class HabitProvider extends ChangeNotifier {
     String text, {
     required String habitName,
     required String description,
+    required Bool completed,
     required String imageAssetPath,
     required int duration,
     required DateTime startDate,
