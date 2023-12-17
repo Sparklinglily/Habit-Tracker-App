@@ -37,7 +37,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                height: 40,
+                height: 41,
               ),
               TextField(
                 controller: habitNameController,
@@ -45,7 +45,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                     hintText: 'Name', border: OutlineInputBorder()),
               ),
               SizedBox(
-                height: 20,
+                height: 21,
               ),
               TextField(
                 controller: habitDescriptionController,
