@@ -58,7 +58,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
               TextField(
                 controller: habitDurationController,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(), hintText: 'duration'),
+                    border: OutlineInputBorder(), hintText: 'duration of habit'),
               ),
               SizedBox(
                 height: 20,
