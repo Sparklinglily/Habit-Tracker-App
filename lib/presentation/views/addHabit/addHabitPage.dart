@@ -30,37 +30,38 @@ class _AddHabitPageState extends State<AddHabitPage> {
         ),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(top: 30.0, left: 15, right: 15),
+            padding: const EdgeInsets.only(top: 40.0, left: 15, right: 15),
             child: Column(children: [
               const Text(
                 'Add a Habit ',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
-                height: 41,
+              const SizedBox(
+                height: 45,
               ),
               TextField(
                 controller: habitNameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: 'Name', border: OutlineInputBorder()),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 21,
               ),
               TextField(
                 controller: habitDescriptionController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(), hintText: 'description'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 21,
               ),
               TextField(
                 controller: habitDurationController,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(), hintText: 'duration of habit'),
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'duration of habit'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               ElevatedButton(
@@ -79,7 +80,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                     habitDescriptionController.clear();
                     Navigator.pushNamed(context, '/habits');
                   },
-                  child: Text('Save')),
+                  child: const Text('Save')),
             ]),
           ),
         ));
