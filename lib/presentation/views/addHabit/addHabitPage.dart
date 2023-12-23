@@ -34,7 +34,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
             child: Column(children: [
               const Text(
                 'Add a Habit ',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 45,
