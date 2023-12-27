@@ -33,7 +33,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
             padding: const EdgeInsets.only(top: 40.0, left: 15, right: 15),
             child: Column(children: [
               const Text(
-                'Add a Habit ',
+                'Add you first Habit ',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
