@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
 class HabitModel {
-  // final String id;
+  final String id;
   final String name;
   final bool completed;
   final String description;
@@ -13,7 +13,8 @@ class HabitModel {
   final DateTime startDate;
   final DateTime endDate;
   HabitModel(
-      {required this.name,
+      {required this.id,
+      required this.name,
       required this.duration,
       required this.imageAssetPath,
       required this.startDate,

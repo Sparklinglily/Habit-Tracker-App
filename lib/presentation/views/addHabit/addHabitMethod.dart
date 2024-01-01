@@ -26,6 +26,7 @@ class HabitProvider extends ChangeNotifier {
     required DateTime endDate,
   }) async {
     final newHabit = HabitModel(
+      id: '',
       name: habitName,
       completed: false,
       description: description,
@@ -66,6 +67,7 @@ class HabitProvider extends ChangeNotifier {
       //update localist with fetched habits
       _habits = querySnapshot.docs.map((doc) {
         return HabitModel(
+          id: doc['id'],
           name: doc['name'],
           completed: doc['completed'],
           description: doc['description'],
