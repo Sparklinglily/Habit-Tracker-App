@@ -15,11 +15,9 @@ class HabitProvider extends ChangeNotifier {
   List<HabitModel> get habits => _habits;
 
   //add habit
-  Future<void> addHabit(
-    String text, {
-    required String habitName,
+  Future<void> addHabit({
+    required String name,
     required String description,
-    required Bool completed,
     required String imageAssetPath,
     required int duration,
     required DateTime startDate,
@@ -27,7 +25,7 @@ class HabitProvider extends ChangeNotifier {
   }) async {
     final newHabit = HabitModel(
       id: '',
-      name: habitName,
+      name: name,
       completed: false,
       description: description,
       status: 'ongoing',
@@ -41,7 +39,8 @@ class HabitProvider extends ChangeNotifier {
     try {
       //add habit to firestore with status ongoing
       DocumentReference documentReference = await habitCollection.add({
-        'name': habitName,
+        'id': '',
+        'name': name,
         'completed': false,
         'description': description,
         'status': 'ongoing',

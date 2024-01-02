@@ -68,16 +68,16 @@ class _AddHabitPageState extends State<AddHabitPage> {
                   onPressed: () {
                     //making all required or not required in the addHabit Function.
                     habitProvider.addHabit(
-                      habitName: habitNameController.text,
-                      description: habitDescriptionController.text,
-                      imageAssetPath: '',
-                      duration: 30,
                       startDate: DateTime.now(),
-                      endDate: DateTime.now().add(Duration(days: 30)),
-                      completed: ,
+                      endDate: DateTime.now().add(const Duration(days: 30)),
+                      name: habitNameController.text,
+                      imageAssetPath: 'assets/images/water2.jpg',
+                      description: habitDescriptionController.text,
+                      duration: int.parse(habitDurationController.text),
                     );
                     habitNameController.clear();
                     habitDescriptionController.clear();
+                    habitDurationController.clear();
                     Navigator.pushNamed(context, '/habits');
                   },
                   child: const Text('Save')),

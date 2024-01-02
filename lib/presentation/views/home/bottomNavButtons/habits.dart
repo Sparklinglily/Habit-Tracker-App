@@ -31,16 +31,43 @@ class HabitListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(habit.name),
-      subtitle: Text(habit.description),
-      trailing: habit.completed ? Icon(Icons.check) : null,
+    return Column(
+      children: [
+        ListTile(
+          title: Text(habit.name),
+          subtitle: Text(habit.description),
+          trailing: habit.completed
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    const Icon(
+                      Icons.check,
+                      color: Colors.amber,
+                    ),
+                    Text(
+                      'Completed on ${habit.completedTimeStamp}',
+                      style: TextStyle(fontSize: 13),
+                    )
+                  ],
+                )
+              : null,
+          onTap: () {
+            //check if the habit is not completed before navigating
+            if (!habit.completed) {
+              habit.markAsCompleted();
+              Navigator.pushNamed(context, '/completedHabits');
+            }
+          },
+        ),
+      ],
     );
   }
 }
 
 class HabitsPage extends StatefulWidget {
   const HabitsPage({Key? key}) : super(key: key);
+
+  get completedHabits => completedHabits;
 
   @override
   State<HabitsPage> createState() => _HabitsPageState();

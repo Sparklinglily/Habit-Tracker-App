@@ -61,6 +61,7 @@ class MyApp extends StatelessWidget {
           "/profile": (context) => ProfilePage(),
           "/chat": (context) => ChatHomePage(),
           '/habits': (context) => HabitsPage(),
+          '/completedHabits': (context) => HabitsPage().completedHabits
         },
       ),
     );
