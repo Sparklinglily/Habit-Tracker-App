@@ -46,7 +46,7 @@ class HabitListItem extends StatelessWidget {
                     ),
                     Text(
                       'Completed on ${habit.completedTimeStamp}',
-                      style: TextStyle(fontSize: 13),
+                      style: const TextStyle(fontSize: 13),
                     )
                   ],
                 )
