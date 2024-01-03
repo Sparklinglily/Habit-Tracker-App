@@ -31,26 +31,32 @@ class HabitListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final habitProvider = Provider.of<HabitProvider>(context);
     return Column(
       children: [
         ListTile(
           title: Text(habit.name),
           subtitle: Text(habit.description),
-          trailing: habit.completed
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    const Icon(
-                      Icons.check,
-                      color: Colors.amber,
-                    ),
-                    Text(
-                      'Completed on ${habit.completedTimeStamp}',
-                      style: const TextStyle(fontSize: 13),
-                    )
-                  ],
-                )
-              : null,
+          trailing: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              if (habit.completed)
+                const Icon(
+                  Icons.check,
+                  color: Colors.amber,
+                ),
+              if (habitProvider.pickedImage != null)
+                Image.file(
+                  habitProvider.pickedImage!,
+                  width: 50,
+                  height: 50,
+                ),
+              Text(
+                'Completed on ${habit.completedTimeStamp}',
+                style: const TextStyle(fontSize: 13),
+              )
+            ],
+          ),
           onTap: () {
             //check if the habit is not completed before navigating
             if (!habit.completed) {

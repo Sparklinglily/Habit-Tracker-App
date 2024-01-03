@@ -1,7 +1,9 @@
 import 'dart:ffi';
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/addHabit/model.dart';
 
@@ -11,6 +13,9 @@ class HabitProvider extends ChangeNotifier {
   final CollectionReference habitCollection =
       FirebaseFirestore.instance.collection('habits');
   List<HabitModel> _habits = [];
+
+  File? _pickedImage;
+  File? get pickedImage => _pickedImage;
 
   List<HabitModel> get habits => _habits;
 
@@ -54,6 +59,17 @@ class HabitProvider extends ChangeNotifier {
       notifyListeners();
     } catch (e) {
       print('Error adding habit to FireStoore: $e');
+    }
+  }
+  //function to add image
+
+  Future<void> pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      _pickedImage = File(pickedFile.path);
+      notifyListeners();
     }
   }
 

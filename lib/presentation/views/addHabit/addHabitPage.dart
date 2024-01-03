@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/addHabit/addHabitMethod.dart';
 import 'package:provider/provider.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../../core/constants/constants.dart';
 
 class AddHabitPage extends StatefulWidget {
@@ -64,6 +65,12 @@ class _AddHabitPageState extends State<AddHabitPage> {
               const SizedBox(
                 height: 20,
               ),
+              ElevatedButton.icon(
+                  onPressed: () async {
+                    await habitProvider.pickImage();
+                  },
+                  icon: Icon(Icons.arrow_downward_outlined),
+                  label: Text('Pick Image')),
               ElevatedButton(
                   onPressed: () {
                     //making all required or not required in the addHabit Function.
