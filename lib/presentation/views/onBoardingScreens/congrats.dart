@@ -13,9 +13,9 @@ class ProceedToHomePage extends StatefulWidget {
 class _ProceedToHomePageState extends State<ProceedToHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Column(
-        children: const [
+        children: [
           SizedBox(
             height: defaultSpacing * 9,
           ),

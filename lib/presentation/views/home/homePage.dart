@@ -28,22 +28,24 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.only(left: 15, right: 15),
           child: Column(
             children: [
               //FIRST
 
-              DailyQuotes(),
-              Padding(padding: EdgeInsets.only(bottom: defaultSpacing * 1.6)),
-              DueToday(),
-              Padding(padding: EdgeInsets.only(bottom: defaultSpacing / 5)),
+              const DailyQuotes(),
+              const Padding(
+                  padding: EdgeInsets.only(bottom: defaultSpacing * 1.6)),
+              const DueToday(),
+              const Padding(
+                  padding: EdgeInsets.only(bottom: defaultSpacing / 5)),
 
               GridView.builder(
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 6,
                       childAspectRatio: 17 / 14,
@@ -53,10 +55,11 @@ class _HomeState extends State<Home> {
                     return ImageGrids(gridData: gridItems[index]);
                   }),
 
-              Padding(padding: EdgeInsets.only(bottom: defaultSpacing)),
-              Rewards(),
-              Padding(padding: EdgeInsets.only(bottom: defaultSpacing / 3)),
-              RewardList(),
+              const Padding(padding: EdgeInsets.only(bottom: defaultSpacing)),
+              const Rewards(),
+              const Padding(
+                  padding: EdgeInsets.only(bottom: defaultSpacing / 3)),
+              const RewardList(),
             ],
           ),
         ),
