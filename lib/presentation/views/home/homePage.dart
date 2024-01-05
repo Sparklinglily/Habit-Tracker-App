@@ -47,7 +47,7 @@ class _HomeState extends State<Home> {
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisSpacing: 6,
+                      mainAxisSpacing: 5,
                       childAspectRatio: 17 / 14,
                       crossAxisSpacing: 6),
                   itemCount: gridItems.length,
