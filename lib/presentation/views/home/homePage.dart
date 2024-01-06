@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.only(left: 15, right: 15),
+          padding: const EdgeInsets.only(left: 16, right: 16),
           child: Column(
             children: [
               //FIRST
