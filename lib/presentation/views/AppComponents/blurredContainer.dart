@@ -30,7 +30,7 @@ class BlurredContainer extends StatelessWidget {
         filter: ImageFilter.blur(sigmaX: sigmaX ?? 5.0, sigmaY: sigmaY ?? 5.0),
         child: Container(
           color: Theme.of(context).brightness == Brightness.dark
-              ? const Color.fromRGBO(255, 255, 255, 0.70).withOpacity(0.1)
+              ? const Color.fromRGBO(255, 255, 255, 0.71).withOpacity(0.1)
               : Color.fromARGB(177, 255, 255, 255).withOpacity(0.1),
           // : AppColors.gray.shade500.withOpacity(0.8),
           padding: padding ??
