@@ -40,7 +40,7 @@ class BlurredContainer extends StatelessWidget {
           child: Stack(
             children: [
               Positioned.fill(
-                child: Container(color: Colors.amber.withOpacity(0.3)
+                child: Container(color: Colors.amber.withOpacity(0.29)
                     //AppColors.gray.shade500.withOpacity(0.3),
                     ),
               ),
