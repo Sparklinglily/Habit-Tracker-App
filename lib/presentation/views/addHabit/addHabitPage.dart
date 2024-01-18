@@ -38,7 +38,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 45,
+                height: 40,
               ),
               TextField(
                 controller: habitNameController,
