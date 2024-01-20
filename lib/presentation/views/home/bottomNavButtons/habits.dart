@@ -119,7 +119,7 @@ class _HabitsPageState extends State<HabitsPage> {
                             color: fontDark,
                             height: 1.5,
                             fontWeight: FontWeight.w500,
-                            fontSize: 21),
+                            fontSize: 24),
                       )
                     ],
                     indicatorColor: primaryLight,
