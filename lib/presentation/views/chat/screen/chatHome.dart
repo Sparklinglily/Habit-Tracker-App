@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'chatPage.dart';
 
 class ChatHomePage extends StatefulWidget {
-   ChatHomePage({Key? key}) : super(key: key);
+  ChatHomePage({Key? key}) : super(key: key);
   @override
   State<ChatHomePage> createState() => _ChatHomePageState();
 }
@@ -27,45 +27,43 @@ class _ChatHomePageState extends State<ChatHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
-        elevation: 3,
+        elevation: 5,
         // toolbarHeight: 150,
-        leading: IconButton(   onPressed: () {
-          Navigator.of(context).pop();
-        },
-        icon:const Padding(
-          padding: EdgeInsets.only(bottom: 68.0),
-          child: Icon(Icons.arrow_back_ios,size:25,color: Colors.white),
-        )),
-        title: Center(
-          // child: Column(
-          //   children: [
-          //     const Align(alignment: AlignmentDirectional.topStart,
-          //         child: Text("Messages",style: TextStyle(fontSize: 25,color: Colors.white),)),
-          //     Padding(padding: EdgeInsets.only(bottom: 12)),
-          //     Padding(
-          //       padding: const EdgeInsets.only(right:38.0),
-          //       child: TextField(
-          //         cursorColor: Colors.black,
-          //           decoration: InputDecoration(
-          //             filled: true,
-          //             fillColor: Colors.white,
-          //               //label: Icon(Icons.arrow_back_ios,color: Colors.white),
-          //
-          //               border: OutlineInputBorder(
-          //                 borderRadius: BorderRadius.circular(15),
-          //               ),
-          //               hintText: "search friends"
-          //           ),
-          //         ),
-          //     ),
-          //   ],
-          // ),
-        ),
-
+        leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Padding(
+              padding: EdgeInsets.only(bottom: 68.0),
+              child: Icon(Icons.arrow_back_ios, size: 24, color: Colors.white),
+            )),
+        title: const Center(
+            // child: Column(
+            //   children: [
+            //     const Align(alignment: AlignmentDirectional.topStart,
+            //         child: Text("Messages",style: TextStyle(fontSize: 25,color: Colors.white),)),
+            //     Padding(padding: EdgeInsets.only(bottom: 12)),
+            //     Padding(
+            //       padding: const EdgeInsets.only(right:38.0),
+            //       child: TextField(
+            //         cursorColor: Colors.black,
+            //           decoration: InputDecoration(
+            //             filled: true,
+            //             fillColor: Colors.white,
+            //               //label: Icon(Icons.arrow_back_ios,color: Colors.white),
+            //
+            //               border: OutlineInputBorder(
+            //                 borderRadius: BorderRadius.circular(15),
+            //               ),
+            //               hintText: "search friends"
+            //           ),
+            //         ),
+            //     ),
+            //   ],
+            // ),
+            ),
       ),
-      body:
-        _buildListOfUsers(),
+      body: _buildListOfUsers(),
       // SafeArea(
       //   child: Padding(
       //     padding: const EdgeInsets.all(10),
@@ -100,55 +98,47 @@ class _ChatHomePageState extends State<ChatHomePage> {
       //
       //
       // ),
-
-
-
     );
-
-
   }
+
   //build a list of users except for the current logged in user.
   Widget _buildListOfUsers() {
     return StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('users').snapshots(),
-        builder: (context, snapshot){
-          if (snapshot.hasError){
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
             return Text('error');
           }
-          if (snapshot.connectionState== ConnectionState.waiting){
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return const Text('Loading..');
           }
           return ListView(
-            children: snapshot.data!.docs.map<Widget>((doc) =>
-                  _buildUserListItem(doc)).toList()
-
-
-          );
-        }
-
-        );
-
+              children: snapshot.data!.docs
+                  .map<Widget>((doc) => _buildUserListItem(doc))
+                  .toList());
+        });
   }
+
   //Build individual userList items
-Widget _buildUserListItem(DocumentSnapshot document){
-    Map<String,dynamic> data = document.data()! as Map<String, dynamic>;
+  Widget _buildUserListItem(DocumentSnapshot document) {
+    Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
 
     //display all users except current User
-  if(_auth.currentUser!.email !=data['email']){
-return ListTile(
-  title: Text(data['email']),
-  onTap: (){
-    //pass the cicked UID TO THE chat page
-    Navigator.push(context, MaterialPageRoute(builder: (context)=> ChatPage(
-      receiverUserEmail: data['email'],
-       receiverUserId: data['uid'],)));
-  },
-);
-
+    if (_auth.currentUser!.email != data['email']) {
+      return ListTile(
+        title: Text(data['email']),
+        onTap: () {
+          //pass the cicked UID TO THE chat page
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ChatPage(
+                        receiverUserEmail: data['email'],
+                        receiverUserId: data['uid'],
+                      )));
+        },
+      );
+    }
+    return Container();
   }
-  return  Container();
-
-
-}
-
 }
