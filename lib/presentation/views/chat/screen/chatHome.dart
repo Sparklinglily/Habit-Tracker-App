@@ -34,70 +34,12 @@ class _ChatHomePageState extends State<ChatHomePage> {
               Navigator.of(context).pop();
             },
             icon: const Padding(
-              padding: EdgeInsets.only(bottom: 68.0),
+              padding: EdgeInsets.only(bottom: 73.0),
               child: Icon(Icons.arrow_back_ios, size: 24, color: Colors.white),
             )),
-        title: const Center(
-            // child: Column(
-            //   children: [
-            //     const Align(alignment: AlignmentDirectional.topStart,
-            //         child: Text("Messages",style: TextStyle(fontSize: 25,color: Colors.white),)),
-            //     Padding(padding: EdgeInsets.only(bottom: 12)),
-            //     Padding(
-            //       padding: const EdgeInsets.only(right:38.0),
-            //       child: TextField(
-            //         cursorColor: Colors.black,
-            //           decoration: InputDecoration(
-            //             filled: true,
-            //             fillColor: Colors.white,
-            //               //label: Icon(Icons.arrow_back_ios,color: Colors.white),
-            //
-            //               border: OutlineInputBorder(
-            //                 borderRadius: BorderRadius.circular(15),
-            //               ),
-            //               hintText: "search friends"
-            //           ),
-            //         ),
-            //     ),
-            //   ],
-            // ),
-            ),
+        title: const Center(),
       ),
       body: _buildListOfUsers(),
-      // SafeArea(
-      //   child: Padding(
-      //     padding: const EdgeInsets.all(10),
-      //     child: Container(
-      //         child: ListView.builder(
-      //           scrollDirection: Axis.horizontal,
-      //           itemCount: 5,
-      //             itemBuilder: (BuildContext context,int index){
-      //             return  const Padding(
-      //               padding: EdgeInsets.only(right: 15),
-      //               child: SizedBox(
-      //                   child: Column(
-      //                     children: [
-      //                       CircleAvatar(
-      //                         backgroundImage: AssetImage(
-      //                             "images/readingAbOOK.png"),
-      //                         radius: 45,
-      //
-      //                       ),
-      //                       Text("Readers are Leaders")
-      //                     ],
-      //                   ),
-      //
-      //                 ),
-      //             )  ;
-      //             }),
-      //
-      //
-      //
-      //     ),
-      //   ),
-      //
-      //
-      // ),
     );
   }
 
