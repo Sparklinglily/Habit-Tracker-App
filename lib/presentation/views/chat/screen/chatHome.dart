@@ -1,11 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'chatPage.dart';
 
 class ChatHomePage extends StatefulWidget {
-  ChatHomePage({Key? key}) : super(key: key);
+  const ChatHomePage({Key? key}) : super(key: key);
   @override
   State<ChatHomePage> createState() => _ChatHomePageState();
 }
@@ -14,21 +13,11 @@ class _ChatHomePageState extends State<ChatHomePage> {
 // auth instance
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  // TextEditingController searchController = TextEditingController();
-  // List<Map> searchResults = [];
-  // bool isLoading = false;
-  //
-  //
-  //
-  // void onSearch() async{
-  //
-  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 5,
-        // toolbarHeight: 150,
+        elevation: 9,
         leading: IconButton(
             onPressed: () {
               Navigator.of(context).pop();
@@ -43,13 +32,12 @@ class _ChatHomePageState extends State<ChatHomePage> {
     );
   }
 
-  //build a list of users except for the current logged in user.
   Widget _buildListOfUsers() {
     return StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('users').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return Text('error');
+            return const Text('error');
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Text('Loading..');
@@ -61,7 +49,6 @@ class _ChatHomePageState extends State<ChatHomePage> {
         });
   }
 
-  //Build individual userList items
   Widget _buildUserListItem(DocumentSnapshot document) {
     Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
 
