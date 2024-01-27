@@ -17,7 +17,7 @@ class _ChatHomePageState extends State<ChatHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 9,
+        elevation: 0,
         leading: IconButton(
             onPressed: () {
               Navigator.of(context).pop();
