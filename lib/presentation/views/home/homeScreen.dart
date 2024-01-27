@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
             child: InkWell(
               onTap: navigateToProfileScreen,
               child: CircleAvatar(
-                radius: 19,
+                radius: 24,
                 backgroundImage: NetworkImage(picture),
               ),
             ),
