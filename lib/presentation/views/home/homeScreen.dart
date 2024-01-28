@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
               // mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: defaultSpacing * 5,
+                  height: defaultSpacing * 4,
                 ),
                 CircleAvatar(
                   radius: defaultRadius * 4,
