@@ -43,7 +43,7 @@ class _StreakGridsState extends State<StreakGrids> {
                 child: const Center(
                   child: Text(
                     "You completed:\n 50days",
-                    style: TextStyle(fontSize: 19),
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
               )),
@@ -51,7 +51,7 @@ class _StreakGridsState extends State<StreakGrids> {
               GridTile(
                   child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(9),
+                  borderRadius: BorderRadius.circular(10),
                   color: const Color(0xFFB2EBF2),
                 ),
                 child: const Center(
