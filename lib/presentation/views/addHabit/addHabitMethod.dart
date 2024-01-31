@@ -95,7 +95,7 @@ class HabitProvider extends ChangeNotifier {
       }).toList();
       notifyListeners();
     } catch (e) {
-      print('error fetching habits from firestore:$e');
+      // print('error fetching habits from firestore:$e');
     }
   }
 }
