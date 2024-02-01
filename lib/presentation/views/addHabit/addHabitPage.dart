@@ -69,8 +69,8 @@ class _AddHabitPageState extends State<AddHabitPage> {
                   onPressed: () async {
                     await habitProvider.pickImage();
                   },
-                  icon: Icon(Icons.arrow_downward_outlined),
-                  label: Text('Pick Image')),
+                  icon: const Icon(Icons.arrow_downward_outlined),
+                  label: const Text('Pick Image')),
               ElevatedButton(
                   onPressed: () {
                     //making all required or not required in the addHabit Function.
