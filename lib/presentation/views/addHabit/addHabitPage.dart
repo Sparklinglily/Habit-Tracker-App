@@ -63,7 +63,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                     hintText: 'duration of habit'),
               ),
               const SizedBox(
-                height: 22,
+                height: 25,
               ),
               ElevatedButton.icon(
                   onPressed: () async {
