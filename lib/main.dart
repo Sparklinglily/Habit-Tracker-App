@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:habit_help/presentation/views/addHabit/addHabitMethod.dart';
 import 'package:habit_help/presentation/views/authentication/authMethods.dart';
 
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
             create: (context) => context.read<FirebaseAuthMethods>().authState,
             initialData: null)
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.orange,

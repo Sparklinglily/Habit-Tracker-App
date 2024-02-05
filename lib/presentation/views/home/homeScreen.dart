@@ -1,15 +1,15 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:habit_help/presentation/views/Settings/settingsPage.dart';
 import '../../../core/constants/constants.dart';
 import '../addHabit/addHabitPage.dart';
-import 'bottomNavButtons/addTask.dart';
+
 import 'bottomNavButtons/challenges.dart';
 import 'bottomNavButtons/habits.dart';
 import 'homePage.dart';
-import '../profile/profilePage.dart';
+
 import 'bottomNavButtons/tasks.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:habit_help/presentation/views/authentication/authMethods.dart';
 
 import '../authentication/loginPage.dart';
 
@@ -150,7 +150,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => const SettingsPage());
+                    },
                     icon: Icon(
                       Icons.settings,
                       color: primaryDark,
