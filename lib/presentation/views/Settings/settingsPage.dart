@@ -18,10 +18,10 @@ class SettingsPage extends StatelessWidget {
               padding: EdgeInsets.only(left: 16.0),
               child: Text(
                 'Settings',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Padding(
@@ -29,11 +29,11 @@ class SettingsPage extends StatelessWidget {
               child: Row(
                 children: [
                   CircleAvatar(
-                    radius: 16,
+                    radius: 28,
                     backgroundImage: NetworkImage(picture),
                   ),
-                  SizedBox(
-                    width: 16,
+                  const SizedBox(
+                    width: 8,
                   ),
                   const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +54,12 @@ class SettingsPage extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+
+            
           ],
         )),
       ),
