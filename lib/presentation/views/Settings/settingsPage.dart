@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_help/widgets/settingsPageTiles.dart';
 
 class SettingsPage extends StatelessWidget {
   final picture =
@@ -58,6 +59,9 @@ class SettingsPage extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
+
+            SettingsOptionTiles(iconOption: Icon(Icons.),option: '',),
+            SizedBox(height: 10,)
 
             
           ],
