@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_help/core/constants/constants.dart';
 import 'package:habit_help/widgets/settingsPageTiles.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -44,6 +45,9 @@ class SettingsPage extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.w500, fontSize: 16),
                       ),
+                      SizedBox(
+                        height: 8,
+                      ),
                       Text(
                         'marypeters@gmail.com',
                         style: TextStyle(
@@ -60,10 +64,56 @@ class SettingsPage extends StatelessWidget {
               height: 30,
             ),
 
-            SettingsOptionTiles(iconOption: Icon(Icons.),option: '',),
-            SizedBox(height: 10,)
+            SettingsOptionTiles(
+              iconOption: const Icon(
+                Icons.person,
+                color: primaryDark,
+                size: 24,
+              ),
+              option: 'Account',
+              onTap: () {},
+            ),
 
-            
+            SettingsOptionTiles(
+              iconOption: const Icon(
+                Icons.lock,
+                color: primaryDark,
+                size: 24,
+              ),
+              option: 'Privacy',
+              onTap: () {},
+            ),
+
+            SettingsOptionTiles(
+              iconOption: const Icon(
+                Icons.language,
+                color: primaryDark,
+                size: 24,
+              ),
+              option: 'Language',
+              onTap: () {},
+            ),
+
+            SettingsOptionTiles(
+              iconOption: const Icon(
+                Icons.info_outline,
+                size: 24,
+                color: primaryDark,
+              ),
+              option: 'About Us',
+              onTap: () {},
+            ),
+
+            SettingsOptionTiles(
+              iconOption: const Icon(
+                Icons.logout,
+                color: primaryDark,
+                size: 24,
+              ),
+              option: 'Log Out',
+              onTap: () {},
+            ),
+            //SizedBox(height: 10,),
           ],
         )),
       ),
