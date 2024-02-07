@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_help/core/constants/constants.dart';
+import 'package:habit_help/presentation/styles/constants.dart';
 import 'package:habit_help/widgets/settingsPageTiles.dart';
 
 class SettingsPage extends StatelessWidget {

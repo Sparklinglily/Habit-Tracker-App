@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/addHabit/addHabitMethod.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../../core/constants/constants.dart';
+import '../../styles/constants.dart';
 
 class AddHabitPage extends StatefulWidget {
   const AddHabitPage({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constants/constants.dart';
+import '../../../styles/constants.dart';
 
 class DailyQuotes extends StatefulWidget {
   const DailyQuotes({Key? key}) : super(key: key);

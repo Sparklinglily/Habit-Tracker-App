@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/constants/constants.dart';
+import '../../styles/constants.dart';
 
 // class TabCards extends StatelessWidget {
 //   final int image ;

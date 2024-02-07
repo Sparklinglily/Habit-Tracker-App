@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/AppComponents/blurredContainer.dart';
-import '../../../../core/constants/constants.dart';
+import '../../../styles/constants.dart';
 import '../../authentication/loginPage.dart';
 
 class ImageGrids extends StatefulWidget {

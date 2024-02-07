@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/constants/constants.dart';
+import '../../styles/constants.dart';
 import 'package:habit_help/widgets/spactBtw.dart';
 
 import 'Wigets/dailyQuotes.dart';

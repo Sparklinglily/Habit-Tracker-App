@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:habit_help/core/constants/constants.dart';
+import 'package:habit_help/presentation/styles/constants.dart';
 import 'package:habit_help/presentation/views/authentication/authMethods.dart';
 import 'package:provider/provider.dart';
 import 'package:email_validator/email_validator.dart';

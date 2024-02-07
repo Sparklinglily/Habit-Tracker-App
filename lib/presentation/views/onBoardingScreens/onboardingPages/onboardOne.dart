@@ -1,10 +1,8 @@
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import '../../../../core/constants/constants.dart';
+import '../../../styles/constants.dart';
 import 'package:habit_help/presentation/views/onBoardingScreens/onboardingPages/onboardingTwo.dart';
-
 
 class onboardingOne extends StatefulWidget {
   const onboardingOne({Key? key}) : super(key: key);
@@ -15,16 +13,12 @@ class onboardingOne extends StatefulWidget {
 
 class _onboardingOneState extends State<onboardingOne> {
   @override
-
-  void initState(){
+  void initState() {
     super.initState();
-      Timer(Duration(seconds: 3),
-          ()=>Navigator.pushReplacement(context,
-              MaterialPageRoute(builder:
-              (context)=>   onboardingTwo()
-              )
-          )
-      );
+    Timer(
+        Duration(seconds: 3),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => onboardingTwo())));
   }
 
   Widget build(BuildContext context) {
@@ -36,22 +30,20 @@ class _onboardingOneState extends State<onboardingOne> {
           const SizedBox(
             height: defaultSpacing,
           ),
-           const Image(image: AssetImage("images/logo.png"),
-           height: 160,
-           width: 160),
-           Center(
-             child: Text(
-                "habitHelp",
+          const Image(
+              image: AssetImage("images/logo.png"), height: 160, width: 160),
+          Center(
+            child: Text(
+              "habitHelp",
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-fontSize: defaultSpacing * 3,
-                color: Colors.black,
-                fontWeight: FontWeight.w400,
-              ),
+                    fontSize: defaultSpacing * 3,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400,
+                  ),
+            ),
           ),
-           ),
         ],
       ),
-
     );
   }
 }

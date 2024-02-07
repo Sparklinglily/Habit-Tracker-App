@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/authentication/authMethods.dart';
 import 'package:habit_help/presentation/views/authentication/loginPage.dart';
 
-import '../../../core/constants/constants.dart';
+import '../../styles/constants.dart';
 
 class CheckEmail extends StatefulWidget {
   const CheckEmail({Key? key, required this.email}) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/constants/constants.dart';
+import '../../styles/constants.dart';
 import 'package:habit_help/presentation/views/home/homeScreen.dart';
 import 'package:habit_help/presentation/views/home/homePage.dart';
 

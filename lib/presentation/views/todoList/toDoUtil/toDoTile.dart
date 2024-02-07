@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:habit_help/core/constants/constants.dart';
+import 'package:habit_help/presentation/styles/constants.dart';
 
 class ToDoTile extends StatelessWidget {
   //THREE key things will vary for every tile, and they

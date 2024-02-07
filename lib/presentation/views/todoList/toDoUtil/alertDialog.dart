@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_help/core/constants/constants.dart';
+import 'package:habit_help/presentation/styles/constants.dart';
 import 'package:habit_help/presentation/views/todoList/toDoUtil/myButtons.dart';
 
 class DialogBox extends StatelessWidget {

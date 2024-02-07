@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/Settings/settingsPage.dart';
-import '../../../core/constants/constants.dart';
+import '../../styles/constants.dart';
 import '../addHabit/addHabitPage.dart';
 
 import 'bottomNavButtons/challenges.dart';

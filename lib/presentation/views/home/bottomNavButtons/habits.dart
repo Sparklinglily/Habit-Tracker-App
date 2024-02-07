@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/addHabit/addHabitMethod.dart';
 import 'package:habit_help/presentation/views/addHabit/model.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/constants/constants.dart';
+import '../../../styles/constants.dart';
 
 class HabitsTab extends StatefulWidget {
   final List<HabitModel> habit;

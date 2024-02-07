@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/constants/constants.dart';
+import '../presentation/styles/constants.dart';
 
 class SetTime extends StatefulWidget {
   const SetTime({Key? key}) : super(key: key);
@@ -16,14 +16,12 @@ class _SetTimeState extends State<SetTime> {
         minimumSize: const Size(23, 32),
         backgroundColor: background,
       ),
-      onPressed: () {  }, child: const Text("Set Time",
-      style: TextStyle(
-          color: primaryDark,
-          fontSize: 17,
-          fontWeight: FontWeight.bold
+      onPressed: () {},
+      child: const Text(
+        "Set Time",
+        style: TextStyle(
+            color: primaryDark, fontSize: 17, fontWeight: FontWeight.bold),
       ),
-    ),
-
     );
   }
 }

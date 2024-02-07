@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../core/constants/constants.dart';
+import '../../styles/constants.dart';
 import '../../../widgets/streakGrid.dart';
 
 class Achievement extends StatefulWidget {

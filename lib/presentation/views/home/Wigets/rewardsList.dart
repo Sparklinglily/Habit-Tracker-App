@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/onBoardingScreens/rewardPage.dart';
-import '../../../../core/constants/constants.dart';
+import '../../../styles/constants.dart';
 
 class RewardList extends StatefulWidget {
   const RewardList({Key? key}) : super(key: key);

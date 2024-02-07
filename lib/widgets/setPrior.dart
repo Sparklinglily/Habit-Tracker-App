@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/constants/constants.dart';
+import '../presentation/styles/constants.dart';
 
 class SetPriority extends StatefulWidget {
   const SetPriority({Key? key}) : super(key: key);
@@ -18,14 +18,12 @@ class _SetPriorityState extends State<SetPriority> {
           minimumSize: const Size(23, 32),
           backgroundColor: primaryDark,
         ),
-        onPressed: () {  }, child: const Text("Set Priority",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 17,
-          fontWeight: FontWeight.bold
+        onPressed: () {},
+        child: const Text(
+          "Set Priority",
+          style: TextStyle(
+              color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
         ),
-      ),
-
       ),
     );
   }
