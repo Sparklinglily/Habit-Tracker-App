@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:habit_help/presentation/views/chat/screen/chatHome.dart';
 import 'package:habit_help/presentation/views/profile/tabCards.dart';
 import '../../styles/constants.dart';
 
@@ -136,8 +139,7 @@ class _ProfilePageState extends State<ProfilePage>
                                       height: 45,
                                       child: OutlinedButton(
                                           onPressed: () {
-                                            Navigator.pushNamed(
-                                                context, "/chat");
+                                            Get.to(() => ChatHomePage);
                                           },
                                           style: ButtonStyle(
                                               shape: MaterialStateProperty.all(

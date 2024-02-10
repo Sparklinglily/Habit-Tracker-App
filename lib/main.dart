@@ -53,8 +53,6 @@ class MyApp extends StatelessWidget {
         home: const AuthWrapper(),
         debugShowCheckedModeBanner: false,
         routes: {
-          "/profile": (context) => ProfilePage(),
-          "/chat": (context) => ChatHomePage(),
           '/habits': (context) => const HabitsPage(),
           '/completedHabits': (context) => const HabitsPage().completedHabits
         },

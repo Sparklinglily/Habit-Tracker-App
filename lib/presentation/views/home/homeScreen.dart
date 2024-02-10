@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/Settings/settingsPage.dart';
+import 'package:habit_help/presentation/views/profile/profilePage.dart';
 import '../../styles/constants.dart';
 import '../addHabit/addHabitPage.dart';
 
@@ -44,12 +45,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const LoginPage()));
-  }
-
-  void navigateToProfileScreen() {
-    Navigator.pushNamed(context, '/profile');
+    Get.to(() => LoginPage);
   }
 
   @override
@@ -60,7 +56,9 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
             child: InkWell(
-              onTap: navigateToProfileScreen,
+              onTap: () {
+                Get.to(() => ProfilePage);
+              },
               child: CircleAvatar(
                 radius: 18,
                 backgroundImage: NetworkImage(picture),
@@ -109,7 +107,7 @@ class _HomePageState extends State<HomePage> {
 
                 TextButton.icon(
                   onPressed: () {
-                    Navigator.pushNamed(context, "/profile");
+                    Get.to(() => ProfilePage);
                   },
                   icon: Icon(
                     Icons.account_box_outlined,
