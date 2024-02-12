@@ -117,14 +117,14 @@ class _ChatPageState extends State<ChatPage> {
             child: TextField(
           obscureText: false,
           controller: _messageController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: " Input Message",
           ),
         )),
         //send button
         IconButton(
             onPressed: sendMessage,
-            icon: Icon(
+            icon: const Icon(
               Icons.send_rounded,
               size: 50,
             ))
