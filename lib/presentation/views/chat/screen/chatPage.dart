@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:habit_help/presentation/styles/constants.dart';
 import 'package:habit_help/presentation/views/chat/chatService/chatService.dart';
 import 'package:habit_help/presentation/views/chat/components/chatBubble.dart';
 
@@ -46,6 +47,10 @@ class _ChatPageState extends State<ChatPage> {
           ),
           //user input
           _buildMessageInput(),
+
+          SizedBox(
+            height: 25,
+          )
         ],
       ),
     );
@@ -104,11 +109,11 @@ class _ChatPageState extends State<ChatPage> {
                   ? MainAxisAlignment.end
                   : MainAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Text(data["senderEmail"]),
-            SizedBox(
+            const SizedBox(
               height: 4,
             ),
             ChatBubble(message: (data["message"])),
@@ -118,25 +123,29 @@ class _ChatPageState extends State<ChatPage> {
 
 //build messageInput
   Widget _buildMessageInput() {
-    return Row(
-      children: [
-        //textfield
-        Expanded(
-            child: TextField(
-          obscureText: false,
-          controller: _messageController,
-          decoration: const InputDecoration(
-            hintText: " Input Message",
-          ),
-        )),
-        //send button
-        IconButton(
-            onPressed: sendMessage,
-            icon: const Icon(
-              Icons.send_rounded,
-              size: 50,
-            ))
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: Row(
+        children: [
+          //textfield
+          Expanded(
+              child: TextField(
+            obscureText: false,
+            controller: _messageController,
+            decoration: const InputDecoration(
+              fillColor: accent,
+              hintText: " Input Message",
+            ),
+          )),
+          //send button
+          IconButton(
+              onPressed: sendMessage,
+              icon: const Icon(
+                Icons.send_rounded,
+                size: 50,
+              ))
+        ],
+      ),
     );
   }
 }
