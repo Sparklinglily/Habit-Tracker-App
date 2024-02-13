@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/chat/chatService/chatService.dart';
+import 'package:habit_help/presentation/views/chat/components/chatBubble.dart';
 
 class ChatPage extends StatefulWidget {
   final String receiverUserEmail;
@@ -72,7 +73,7 @@ class _ChatPageState extends State<ChatPage> {
             print("yayyy");
             //return Text("Loading..");
           }
-          print(snapshot.data!.docs);
+          //  print(snapshot.data!.docs);
 
           return ListView(
             children: snapshot.data!.docs
@@ -94,16 +95,23 @@ class _ChatPageState extends State<ChatPage> {
     return Container(
         alignment: alignment,
         child: Column(
-          // // crossAxisAlignment: (data['senderId'] == _firebaseAuth).currentUser!.uid)
-          // //   ? CrossAxisAlignment.end
-          // //    :CrossAxisAlignment.start,
-          // mainAxisAlignment: (data['senderId'] == _firebaseAuth).currentUser!.uid)
-          //   ? MainAxisAlignment.end
-          //   :MainAxisAlignment.start,
-
+          crossAxisAlignment:
+              (data['senderId'] == _firebaseAuth.currentUser!.uid)
+                  ? CrossAxisAlignment.end
+                  : CrossAxisAlignment.start,
+          mainAxisAlignment:
+              (data['senderId'] == _firebaseAuth.currentUser!.uid)
+                  ? MainAxisAlignment.end
+                  : MainAxisAlignment.start,
           children: [
+            SizedBox(
+              height: 5,
+            ),
             Text(data["senderEmail"]),
-            Text(data["message"]),
+            SizedBox(
+              height: 4,
+            ),
+            ChatBubble(message: (data["message"])),
           ],
         ));
   }
