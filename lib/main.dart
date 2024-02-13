@@ -42,8 +42,9 @@ class MyApp extends StatelessWidget {
         Provider<FirebaseAuthMethods>(
             create: (_) => FirebaseAuthMethods(FirebaseAuth.instance)),
         StreamProvider(
-            create: (context) => context.read<FirebaseAuthMethods>().authState,
-            initialData: null)
+          create: (context) => context.read<FirebaseAuthMethods>().authState,
+          initialData: null,
+        )
       ],
       child: GetMaterialApp(
         title: 'Flutter Demo',

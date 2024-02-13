@@ -139,7 +139,7 @@ class _ProfilePageState extends State<ProfilePage>
                                       height: 45,
                                       child: OutlinedButton(
                                           onPressed: () {
-                                            Get.to(() => ChatHomePage);
+                                            Get.to(() => const ChatHomePage());
                                           },
                                           style: ButtonStyle(
                                               shape: MaterialStateProperty.all(

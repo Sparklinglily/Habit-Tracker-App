@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(right: 15.0),
             child: InkWell(
               onTap: () {
-                Get.to(() => ProfilePage);
+                Get.to(() => ProfilePage());
               },
               child: CircleAvatar(
                 radius: 18,
