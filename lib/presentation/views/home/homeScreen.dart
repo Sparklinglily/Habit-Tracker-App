@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
 
                 TextButton.icon(
                   onPressed: () {
-                    Get.to(() => ProfilePage);
+                    Get.to(() => ProfilePage());
                   },
                   icon: Icon(
                     Icons.account_box_outlined,

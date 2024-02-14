@@ -142,7 +142,7 @@ class _ChatPageState extends State<ChatPage> {
               onPressed: sendMessage,
               icon: const Icon(
                 Icons.send_rounded,
-                size: 50,
+                size: 70,
               ))
         ],
       ),
