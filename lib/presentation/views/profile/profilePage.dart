@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:habit_help/presentation/views/chat/components/customTiles.dart';
 import 'package:habit_help/presentation/views/chat/screen/chatHome.dart';
 import 'package:habit_help/presentation/views/profile/tabCards.dart';
 import '../../styles/constants.dart';
@@ -16,35 +17,26 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 3, vsync: this);
-  }
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return DefaultTabController(
+        //initialIndex: 0,
         length: 3,
         child: Scaffold(
           body: NestedScrollView(
-            headerSliverBuilder:
-                (BuildContext context, bool innerBoxIsScrolled) {
+            headerSliverBuilder: (BuildContext context, bool innerBoxScrolled) {
               return <Widget>[
                 SliverAppBar(
                     // expandedHeight: 100,
                     pinned: true,
                     collapsedHeight: 250,
-                    //floating: true,
+                    floating: true,
                     bottom: const TabBar(
-                      // isScrollable: true,
+                      isScrollable: true,
                       indicatorColor: primaryDark,
-                      indicatorSize: TabBarIndicatorSize.label,
-                      indicatorWeight: 3,
-
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      indicatorWeight: 2,
                       tabs: [
                         Text(
                           "Achievement",
@@ -160,14 +152,13 @@ class _ProfilePageState extends State<ProfilePage>
                             ])))),
               ];
             },
-            body: Padding(
-              padding: const EdgeInsets.only(top: 5.0),
+            body: const Padding(
+              padding: EdgeInsets.only(top: 5.0),
               child: TabBarView(
-                controller: _tabController,
                 children: [
-                  const AchievementBoard(),
-                  const LeaderBoard(),
-                  const ChallengesBoard(),
+                  AchievementBoard(),
+                  LeaderBoard(),
+                  ChallengesBoard(),
                 ],
               ),
             ),
@@ -176,187 +167,64 @@ class _ProfilePageState extends State<ProfilePage>
   }
 }
 
-class _TabBarDelegate extends SliverPersistentHeaderDelegate {
-  final TabBar _tabBar;
-  _TabBarDelegate({required TabBar tabBar}) : _tabBar = tabBar;
-
-  @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Container(
-      color: background,
-      child: Column(
-        children: [
-          _tabBar,
-        ],
-      ),
-    );
-  }
-
-  @override
-  double get maxExtent => _tabBar.preferredSize.height;
-
-  @override
-  double get minExtent => _tabBar.preferredSize.height;
-
-  @override
-  bool shouldRebuild(covariant _TabBarDelegate oldDelegate) {
-    // TODO: implement shouldRebuild
-    return true;
-  }
-}
-
 class AchievementBoard extends StatelessWidget {
   const AchievementBoard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15),
+    return const Padding(
+      padding: EdgeInsets.only(left: 15, right: 15, top: 10),
       child: Column(
         children: [
-          //   child: ListTile(
-          //     leading:
-          //     CircleAvatar(
-          //       backgroundImage: AssetImage("images/water.png"),
-          //       radius: 23,
-          //
-          //     ),
-          //     title:
-          //     Text("Drink water challenge"),
-          //
-          //     trailing: Icon(Icons.star,color: primaryLight,size: 25,),
-          //     subtitle: Text("5000 streaks"),
-          //   ),
-          // ),
-          Container(
-            height: 80,
-            width: MediaQuery.of(context).size.height * .42,
-            decoration: BoxDecoration(
-                color: background,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  const BoxShadow(color: fontLight, offset: Offset(1, 2))
-                ]),
-            child: const ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage("images/sleeping2.jpg"),
-                radius: 23,
-              ),
-              title: Text("Got enough sleep"),
-              trailing: Icon(
+          ProfilePageTiles(
+              color: Color.fromARGB(255, 224, 239, 246),
+              title: 'Got enough sleep',
+              subtitle: '5000 streaks',
+              image: AssetImage('images/sleeping2.jpg'),
+              icon: Icon(
                 Icons.star,
+                size: 24,
                 color: primaryLight,
-                size: 25,
-              ),
-              subtitle: Text("5000 streaks"),
-            ),
+              )),
+          SizedBox(
+            height: 20,
           ),
-          const SizedBox(
-            height: 7,
-          ),
-
-          Container(
-            height: 80,
-            width: MediaQuery.of(context).size.height * .42,
-            decoration: BoxDecoration(
-                color: background,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  const BoxShadow(color: fontLight, offset: Offset(1, 2))
-                ]),
-            child: const ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage("images/mango.jpg"),
-                radius: 23,
-              ),
-              title: Text(" Ate fruits strictly for a week"),
-              trailing: Icon(
+          ProfilePageTiles(
+              color: Color.fromARGB(255, 246, 237, 224),
+              title: 'Eat a fruit',
+              image: AssetImage('images/pineapple.png'),
+              subtitle: '4000 streaks',
+              icon: Icon(
                 Icons.star,
+                size: 24,
                 color: primaryLight,
-                size: 25,
-              ),
-              subtitle: Text("4000 streaks"),
-            ),
+              )),
+          SizedBox(
+            height: 20,
           ),
-          const SizedBox(
-            height: 7,
-          ),
-          Container(
-            height: 80,
-            width: MediaQuery.of(context).size.height * .42,
-            decoration: BoxDecoration(
-                color: background,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  const BoxShadow(color: fontLight, offset: Offset(1, 2))
-                ]),
-            child: const ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage("images/trackRun.jpg"),
-                radius: 23,
-              ),
-              title: Text("Ran 10km daily"),
-              trailing: Icon(
+          ProfilePageTiles(
+              color: Color.fromARGB(255, 255, 240, 245),
+              subtitle: '2500 streaks',
+              title: 'Run 10km daily',
+              image: AssetImage('images/trackRun.jpg'),
+              icon: Icon(
                 Icons.star,
+                size: 24,
                 color: primaryLight,
-                size: 25,
-              ),
-              subtitle: Text("2500 streaks"),
-            ),
+              )),
+          SizedBox(
+            height: 20,
           ),
-          const SizedBox(
-            height: 7,
-          ),
-          Container(
-            height: 80,
-            width: MediaQuery.of(context).size.height * .42,
-            decoration: BoxDecoration(
-                color: background,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  const BoxShadow(color: fontLight, offset: Offset(1, 2))
-                ]),
-            child: const ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage("images/waterhold.jpg"),
-                radius: 23,
-              ),
-              title: Text("Drank 2 Litres of water daily"),
-              trailing: Icon(
+          ProfilePageTiles(
+              color: Color.fromARGB(255, 236, 252, 236),
+              subtitle: '3500 streaks',
+              title: 'Drink 2 cups of water daily',
+              image: AssetImage('images/waterhold.jpg'),
+              icon: Icon(
                 Icons.star,
+                size: 24,
                 color: primaryLight,
-                size: 25,
-              ),
-              subtitle: Text("3500 streaks"),
-            ),
-          ),
-          const SizedBox(
-            height: 7,
-          ),
-          Container(
-            height: 80,
-            width: MediaQuery.of(context).size.height * .42,
-            decoration: BoxDecoration(
-                color: background,
-                borderRadius: BorderRadius.circular(6),
-                boxShadow: [
-                  const BoxShadow(color: fontLight, offset: Offset(1, 2))
-                ]),
-            child: const ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage("images/waterhold.jpg"),
-                radius: 23,
-              ),
-              title: Text("Drank 2 Litres of water daily"),
-              trailing: Icon(
-                Icons.star,
-                color: primaryLight,
-                size: 25,
-              ),
-              subtitle: Text("3500 streaks"),
-            ),
-          ),
+              ))
         ],
       ),
     );
@@ -368,90 +236,50 @@ class LeaderBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left: 15, right: 15),
+    return Padding(
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
       child: Column(
         children: [
-          Card(
-            elevation: 3,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage("images/water.png"),
-                radius: 23,
-              ),
-              title: Text("Drink water challenge"),
-              trailing: Icon(
-                Icons.star,
-                color: primaryLight,
-                size: 25,
-              ),
-              subtitle: Text("Rank: 1st"),
-            ),
+          ProfilePageTiles(
+            color: Color.fromARGB(255, 246, 237, 224),
+            title: 'Drink water challenge',
+            image: const AssetImage('images/water2.jpg'),
+            rank: Expanded(
+                child: Row(
+              children: [
+                const Text('Rank 1st: '),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: const BoxDecoration(color: primaryLight),
+                  child: const Icon(Icons.star),
+                )
+              ],
+            )),
           ),
-          Card(
-            elevation: 3,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage("images/pineapple.png"),
-                radius: 23,
-              ),
-              title: Text("Eat A fruit"),
-              trailing: Icon(
-                Icons.star,
-                color: primaryLight,
-                size: 25,
-              ),
-              subtitle: Text("Rank: 2nd"),
-            ),
+          SizedBox(
+            height: 10,
           ),
-          Card(
-            elevation: 3,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage("images/readingAbOOK.png"),
-                radius: 23,
-              ),
-              title: Text("Read a book"),
-              trailing: Icon(
-                Icons.star,
-                color: primaryLight,
-                size: 25,
-              ),
-              subtitle: Text("Rank: 2nd"),
-            ),
+          const ProfilePageTiles(
+            color: Color.fromARGB(255, 246, 237, 224),
+            title: 'Read a book',
+            image: AssetImage('images/readingAbOOK.png'),
           ),
-          Card(
-            elevation: 3,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage("images/yoga.png"),
-                radius: 23,
-              ),
-              title: Text("Yoga Streak"),
-              trailing: Icon(
-                Icons.star,
-                color: primaryLight,
-                size: 25,
-              ),
-              subtitle: Text("Rank: 3rd"),
-            ),
+          SizedBox(
+            height: 10,
           ),
-          Card(
-            elevation: 3,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage("images/readingAbOOK.png"),
-                radius: 23,
-              ),
-              title: Text("planted 3 flowers"),
-              trailing: Icon(
-                Icons.star,
-                color: primaryLight,
-                size: 25,
-              ),
-              subtitle: Text("Rank: 3rd"),
-            ),
+          const ProfilePageTiles(
+            color: Color.fromARGB(255, 246, 237, 224),
+            title: 'Do yoga',
+            image: AssetImage('images/yoga2.jpeg'),
           ),
+          SizedBox(
+            height: 10,
+          ),
+          const ProfilePageTiles(
+            color: Color.fromARGB(255, 246, 237, 224),
+            title: 'Eat a fruit',
+            image: AssetImage('images/pineapple.png'),
+          )
         ],
       ),
     );
@@ -467,7 +295,7 @@ class ChallengesBoard extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15.0),
+            padding: const EdgeInsets.only(left: 15, top: 8, right: 15.0),
             child: Container(
               height: 200,
               width: 400,
