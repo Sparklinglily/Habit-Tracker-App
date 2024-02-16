@@ -96,13 +96,16 @@ class _ProfilePageState extends State<ProfilePage>
                                       fontSize: 25,
                                       fontWeight: FontWeight.bold),
                                 ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
                                 const Text("Live healthy and enjoy life",
                                     style: TextStyle(
                                         fontSize: 19,
                                         fontWeight: FontWeight.w400,
                                         color: Colors.blueGrey)),
                                 const SizedBox(
-                                  height: 13,
+                                  height: 16,
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -236,50 +239,58 @@ class LeaderBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+    return const Padding(
+      padding: EdgeInsets.only(left: 15, right: 15, top: 10),
       child: Column(
         children: [
-          ProfilePageTiles(
-            color: Color.fromARGB(255, 246, 237, 224),
-            title: 'Drink water challenge',
-            image: const AssetImage('images/water2.jpg'),
-            rank: Expanded(
-                child: Row(
-              children: [
-                const Text('Rank 1st: '),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: const BoxDecoration(color: primaryLight),
-                  child: const Icon(Icons.star),
-                )
-              ],
-            )),
-          ),
+          LeaderboardTile(
+              image: AssetImage('images/water2.jpg'),
+              rank: 'Rank: 1st  ',
+              icon: Icon(
+                Icons.star,
+                color: Colors.white,
+                size: 13,
+              ),
+              title: 'Drink water challenge'),
           SizedBox(
             height: 10,
           ),
-          const ProfilePageTiles(
-            color: Color.fromARGB(255, 246, 237, 224),
-            title: 'Read a book',
-            image: AssetImage('images/readingAbOOK.png'),
-          ),
+          LeaderboardTile(
+              image: AssetImage('images/readingAbOOK.png'),
+              rank: 'Rank: 1st  ',
+              icon: Icon(
+                Icons.star,
+                size: 13,
+                color: Colors.white,
+              ),
+              title: 'Read a book'),
           SizedBox(
             height: 10,
           ),
-          const ProfilePageTiles(
-            color: Color.fromARGB(255, 246, 237, 224),
-            title: 'Do yoga',
-            image: AssetImage('images/yoga2.jpeg'),
-          ),
+          LeaderboardTile(
+              image: AssetImage('images/yoga2.jpeg'),
+              rank: 'Rank: 1st  ',
+              icon: Icon(
+                Icons.star,
+                size: 13,
+                color: Colors.white,
+              ),
+              title: 'Do yoga'),
           SizedBox(
             height: 10,
           ),
-          const ProfilePageTiles(
-            color: Color.fromARGB(255, 246, 237, 224),
-            title: 'Eat a fruit',
-            image: AssetImage('images/pineapple.png'),
-          )
+          LeaderboardTile(
+              image: AssetImage('images/pineapple.png'),
+              rank: 'Rank: 1st  ',
+              icon: Icon(
+                Icons.star,
+                size: 13,
+                color: Colors.white,
+              ),
+              title: 'Eat a fruit'),
+          SizedBox(
+            height: 10,
+          ),
         ],
       ),
     );
