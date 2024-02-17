@@ -82,7 +82,7 @@ class Favorites extends StatelessWidget {
                       crossAxisCount: 2,
                       mainAxisSpacing: 10.0,
                       crossAxisSpacing: 15.0,
-                      childAspectRatio: 16 / 17.5,
+                      childAspectRatio: 16 / 15,
                     ),
                     itemCount: gridItemData.length,
                     itemBuilder: (context, index) {
