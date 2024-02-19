@@ -66,17 +66,22 @@ class Favorites extends StatelessWidget {
           scrollDirection: Axis.vertical,
           children: [
             TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'Close',
-                  style: TextStyle(color: primaryLight, fontSize: 16),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Align(
+                  alignment: Alignment.topRight,
+                  child: Text(
+                    'Close',
+                    style: TextStyle(color: primaryLight, fontSize: 16),
+                  ),
                 )),
             const SizedBox(
               height: 20,
             ),
             Expanded(
                 child: SizedBox(
-              height: 900,
+              height: 700,
               child: GridView.builder(
                   scrollDirection: Axis.vertical,
                   physics: const BouncingScrollPhysics(),
@@ -85,7 +90,7 @@ class Favorites extends StatelessWidget {
                     crossAxisCount: 2,
                     mainAxisSpacing: 5.0,
                     crossAxisSpacing: 6.0,
-                    childAspectRatio: 14 / 16,
+                    childAspectRatio: 15 / 15,
                   ),
                   itemCount: gridItemData.length,
                   itemBuilder: (context, index) {

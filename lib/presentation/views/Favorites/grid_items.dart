@@ -69,7 +69,20 @@ class GridItem extends StatelessWidget {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [Icon(Icons.group), Text(gridData.miniTitle)],
+                      children: [
+                        Icon(
+                          Icons.group,
+                          size: 18,
+                          color: primaryLight,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(gridData.miniTitle,
+                            style: TextStyle(
+                              fontSize: 14,
+                            ))
+                      ],
                     ),
                   ]),
             )
