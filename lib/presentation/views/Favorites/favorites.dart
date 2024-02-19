@@ -59,39 +59,39 @@ class Favorites extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-        child: Column(
-          children: [
-            TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'Close',
-                  style: TextStyle(color: primaryLight, fontSize: 16),
-                )),
-            const SizedBox(
-              height: 20,
-            ),
-            Expanded(
-                child: GridView.builder(
-                    scrollDirection: Axis.vertical,
-                    physics: const BouncingScrollPhysics(),
-                    shrinkWrap: true,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 10.0,
-                      crossAxisSpacing: 15.0,
-                      childAspectRatio: 16 / 12.5,
-                    ),
-                    itemCount: gridItemData.length,
-                    itemBuilder: (context, index) {
-                      return GridItem(
-                        gridData: gridItemData[index],
-                      );
-                    }))
-          ],
-        ),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
+          TextButton(
+              onPressed: () {},
+              child: const Text(
+                'Close',
+                style: TextStyle(color: primaryLight, fontSize: 16),
+              )),
+          const SizedBox(
+            height: 20,
+          ),
+          Expanded(
+              child: SizedBox(
+            height: 700,
+            child: GridView.builder(
+                scrollDirection: Axis.vertical,
+                physics: const BouncingScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10.0,
+                  crossAxisSpacing: 15.0,
+                  childAspectRatio: 16 / 12.5,
+                ),
+                itemCount: gridItemData.length,
+                itemBuilder: (context, index) {
+                  return GridItem(
+                    gridData: gridItemData[index],
+                  );
+                }),
+          ))
+        ],
       ),
     );
   }

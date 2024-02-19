@@ -49,13 +49,10 @@ class GridItem extends StatelessWidget {
           ),
           child: Column(children: [
             Text(gridData.title),
-            Flexible(
-              fit: FlexFit.loose,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [Icon(Icons.group), Text(gridData.miniTitle)],
-              ),
-            )
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [Icon(Icons.group), Text(gridData.miniTitle)],
+            ),
           ]),
         )
       ],
