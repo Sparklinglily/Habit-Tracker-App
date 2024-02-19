@@ -59,39 +59,43 @@ class Favorites extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children: [
-          TextButton(
-              onPressed: () {},
-              child: const Text(
-                'Close',
-                style: TextStyle(color: primaryLight, fontSize: 16),
-              )),
-          const SizedBox(
-            height: 20,
-          ),
-          Expanded(
-              child: SizedBox(
-            height: 700,
-            child: GridView.builder(
-                scrollDirection: Axis.vertical,
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10.0,
-                  crossAxisSpacing: 15.0,
-                  childAspectRatio: 16 / 12.5,
-                ),
-                itemCount: gridItemData.length,
-                itemBuilder: (context, index) {
-                  return GridItem(
-                    gridData: gridItemData[index],
-                  );
-                }),
-          ))
-        ],
+      backgroundColor: Color.fromARGB(255, 210, 204, 204),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 15, right: 15),
+        child: ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+            TextButton(
+                onPressed: () {},
+                child: const Text(
+                  'Close',
+                  style: TextStyle(color: primaryLight, fontSize: 16),
+                )),
+            const SizedBox(
+              height: 20,
+            ),
+            Expanded(
+                child: SizedBox(
+              height: 900,
+              child: GridView.builder(
+                  scrollDirection: Axis.vertical,
+                  physics: const BouncingScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 5.0,
+                    crossAxisSpacing: 6.0,
+                    childAspectRatio: 14 / 16,
+                  ),
+                  itemCount: gridItemData.length,
+                  itemBuilder: (context, index) {
+                    return GridItem(
+                      gridData: gridItemData[index],
+                    );
+                  }),
+            ))
+          ],
+        ),
       ),
     );
   }

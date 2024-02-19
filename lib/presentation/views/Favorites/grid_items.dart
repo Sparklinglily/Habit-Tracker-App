@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_help/presentation/styles/constants.dart';
 
 class GridItemData {
   final String image;
@@ -23,39 +24,56 @@ class GridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     //final size = MediaQuery.sizeOf(context);
     return Card(
+        color: const Color.fromARGB(255, 249, 248, 246),
         child: Column(
-      children: [
-        Stack(children: [
-          Container(
-              height: 200,
-              child: Image.asset(
+          children: [
+            Stack(children: [
+              Image.asset(
                 gridData.image,
                 fit: BoxFit.contain,
-              )),
-          Positioned(
-              left: 16,
-              top: 16,
-              child: InkWell(
-                onTap: gridData.onTapped,
-                child: Container(
-                  padding: EdgeInsets.all(6),
-                  child: Icon(Icons.delete),
-                ),
-              ))
-        ]),
-        Container(
-          decoration: BoxDecoration(
-            color: gridData.color,
-          ),
-          child: Column(children: [
-            Text(gridData.title),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [Icon(Icons.group), Text(gridData.miniTitle)],
-            ),
-          ]),
-        )
-      ],
-    ));
+              ),
+              Positioned(
+                  right: 16,
+                  top: 16,
+                  child: InkWell(
+                    onTap: gridData.onTapped,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white, shape: BoxShape.circle),
+                      padding: EdgeInsets.all(6),
+                      child: Icon(
+                        Icons.delete,
+                        size: 16,
+                        color: primaryLight,
+                      ),
+                    ),
+                  ))
+            ]),
+            Container(
+              decoration: BoxDecoration(
+                color: gridData.color,
+              ),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      gridData.title,
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [Icon(Icons.group), Text(gridData.miniTitle)],
+                    ),
+                  ]),
+            )
+          ],
+        ));
   }
 }
