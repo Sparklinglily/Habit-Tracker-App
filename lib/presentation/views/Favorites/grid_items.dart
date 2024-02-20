@@ -24,13 +24,16 @@ class GridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     //final size = MediaQuery.sizeOf(context);
     return Card(
+        semanticContainer: true,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
         color: const Color.fromARGB(255, 249, 248, 246),
         child: Column(
           children: [
             Stack(children: [
               Image.asset(
                 gridData.image,
-                fit: BoxFit.contain,
+                fit: BoxFit.fill,
               ),
               Positioned(
                   right: 16,
@@ -53,38 +56,41 @@ class GridItem extends StatelessWidget {
               decoration: BoxDecoration(
                 color: gridData.color,
               ),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      gridData.title,
-                      style:
-                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.group,
-                          size: 18,
-                          color: primaryLight,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(gridData.miniTitle,
-                            style: TextStyle(
-                              fontSize: 14,
-                            ))
-                      ],
-                    ),
-                  ]),
+              child: Padding(
+                padding: EdgeInsets.only(left: 8),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        gridData.title,
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const Icon(
+                            Icons.group,
+                            size: 18,
+                            color: primaryLight,
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Text(gridData.miniTitle,
+                              style: const TextStyle(
+                                fontSize: 14,
+                              ))
+                        ],
+                      ),
+                    ]),
+              ),
             )
           ],
         ));
