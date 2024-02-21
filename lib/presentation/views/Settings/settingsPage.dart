@@ -16,13 +16,18 @@ class SettingsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 30),
-            const Padding(
-              padding: EdgeInsets.only(left: 16.0),
-              child: Text(
+
+            Row(children: [
+              IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.arrow_back)),
+              Text(
                 'Settings',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
               ),
-            ),
+            ]),
             const SizedBox(
               height: 16,
             ),

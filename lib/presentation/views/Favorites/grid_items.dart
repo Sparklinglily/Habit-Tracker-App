@@ -22,7 +22,7 @@ class GridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final size = MediaQuery.sizeOf(context);
+    final size = MediaQuery.sizeOf(context);
     return Card(
         semanticContainer: true,
         clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -31,9 +31,11 @@ class GridItem extends StatelessWidget {
         child: Column(
           children: [
             Stack(children: [
-              Image.asset(
-                gridData.image,
-                fit: BoxFit.fill,
+              FractionallySizedBox(
+                child: Image.asset(
+                  gridData.image,
+                  fit: BoxFit.cover,
+                ),
               ),
               Positioned(
                   right: 16,
@@ -41,10 +43,10 @@ class GridItem extends StatelessWidget {
                   child: InkWell(
                     onTap: gridData.onTapped,
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Colors.white, shape: BoxShape.circle),
-                      padding: EdgeInsets.all(6),
-                      child: Icon(
+                      padding: const EdgeInsets.all(6),
+                      child: const Icon(
                         Icons.delete,
                         size: 16,
                         color: primaryLight,
@@ -57,7 +59,7 @@ class GridItem extends StatelessWidget {
                 color: gridData.color,
               ),
               child: Padding(
-                padding: EdgeInsets.only(left: 8),
+                padding: const EdgeInsets.only(left: 8),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

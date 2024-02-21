@@ -19,7 +19,7 @@ class Favorites extends StatelessWidget {
     GridItemData(
         onTapped: () {},
         color: const Color.fromARGB(255, 230, 238, 244),
-        image: ('images/yoga2.jpeg'),
+        image: ('images/yoga4.jpg'),
         miniTitle: '10 people',
         title: 'Lets do yoga'),
     GridItemData(
@@ -31,13 +31,13 @@ class Favorites extends StatelessWidget {
     GridItemData(
         onTapped: () {},
         color: const Color.fromARGB(255, 238, 238, 248),
-        image: ('images/readingAbOOK.png'),
+        image: ('images/book2.png'),
         miniTitle: '10 people',
         title: 'Readers are leaders'),
     GridItemData(
         onTapped: () {},
         color: const Color.fromARGB(255, 243, 251, 244),
-        image: ('images/water2.jpg'),
+        image: ('images/drinkingwater2.png'),
         miniTitle: '8 people',
         title: 'Drink water'),
     GridItemData(
@@ -61,7 +61,7 @@ class Favorites extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 210, 204, 204),
       body: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15),
+        padding: const EdgeInsets.only(left: 20, right: 20),
         child: ListView(
           scrollDirection: Axis.vertical,
           children: [
@@ -77,10 +77,9 @@ class Favorites extends StatelessWidget {
                   ),
                 )),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
-            Expanded(
-                child: SizedBox(
+            SizedBox(
               height: 700,
               child: GridView.builder(
                   scrollDirection: Axis.vertical,
@@ -98,7 +97,7 @@ class Favorites extends StatelessWidget {
                       gridData: gridItemData[index],
                     );
                   }),
-            ))
+            )
           ],
         ),
       ),

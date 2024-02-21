@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => HabitProvider()),
+        //  ChangeNotifierProvider(create: (context) => HabitProvider()),
         Provider<FirebaseAuthMethods>(
             create: (_) => FirebaseAuthMethods(FirebaseAuth.instance)),
         StreamProvider(
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: {
           '/habits': (context) => const HabitsPage(),
-          '/completedHabits': (context) => const HabitsPage().completedHabits
+          // '/completedHabits': (context) => const HabitsPage().completedHabits
         },
       ),
     );
