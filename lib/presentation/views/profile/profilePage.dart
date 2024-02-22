@@ -268,7 +268,7 @@ class LeaderBoard extends StatelessWidget {
             height: 10,
           ),
           LeaderboardTile(
-              image: AssetImage('images/yoga2.jpeg'),
+              image: AssetImage('images/yoga4.jpg'),
               rank: 'Rank: 1st  ',
               icon: Icon(
                 Icons.star,
