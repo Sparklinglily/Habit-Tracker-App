@@ -22,8 +22,8 @@ class SettingsPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.arrow_back)),
-              Text(
+                  icon: const Icon(Icons.arrow_back)),
+              const Text(
                 'Settings',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
               ),
