@@ -18,8 +18,10 @@ class _AddHabitPageState extends State<AddHabitPage> {
   File? _pickedImage;
   File? get pickedImage => _pickedImage;
   final items = ['Daily', 'three times a week', 'five times a week, '];
+  final days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
   String selectedValue = 'Daily';
+  String selectedDay = 'Monday';
 
   @override
   Widget build(BuildContext context) {
@@ -37,33 +39,45 @@ class _AddHabitPageState extends State<AddHabitPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                height: size.width * 0.6,
-                width: size.height * 0.47,
-                decoration: const BoxDecoration(
+                  height: size.width * 0.6,
+                  width: size.height * 0.47,
+                  decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 248, 238, 247),
                     borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(70),
-                        bottomLeft: Radius.circular(70.0))),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.image_search,
-                      size: 32,
-                      color: primaryLight,
-                    ),
-                    TextButton(
-                        child: const Text(
-                          'Upload Photo',
-                          style: TextStyle(color: secondaryDark),
-                        ),
-                        onPressed: () async {
-                          pickImage();
-                        }),
-                  ],
-                ),
-              ),
+                        bottomLeft: Radius.circular(70.0)),
+                  ),
+                  child: _pickedImage == null
+                      ? Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          // crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.image_search,
+                              size: 32,
+                              color: primaryLight,
+                            ),
+                            TextButton(
+                                child: const Text(
+                                  'Upload Photo',
+                                  style: TextStyle(color: secondaryDark),
+                                ),
+                                onPressed: () async {
+                                  pickImage();
+                                }),
+                          ],
+                        )
+                      : ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(70),
+                            bottomRight: Radius.circular(70),
+                          ),
+                          child: Image.file(
+                            _pickedImage!,
+                            width: double.infinity,
+                            height: double.infinity,
+                            fit: BoxFit.cover,
+                          ))),
               const SizedBox(
                 height: 25,
               ),
@@ -179,6 +193,33 @@ class _AddHabitPageState extends State<AddHabitPage> {
                       ),
                     ]),
               ),
+              SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 248, 238, 247),
+                      borderRadius: BorderRadius.circular(14),
+                      border: Border.all(
+                        width: 1,
+                        color: primaryDark,
+                      )),
+                  child: DropdownButton<String>(
+                      isExpanded: true,
+                      value: selectedDay,
+                      items: days
+                          .map<DropdownMenuItem<String>>((String value) =>
+                              DropdownMenuItem<String>(
+                                  value: value, child: Text(value)))
+                          .toList(),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedDay = newValue!;
+                        });
+                      }),
+                ),
+              ),
             ],
           ),
         ),
@@ -187,11 +228,13 @@ class _AddHabitPageState extends State<AddHabitPage> {
   }
 
   Future<void> pickImage() async {
-    final picker = ImagePicker();
+    final ImagePicker picker = ImagePicker();
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
 
     if (pickedFile != null) {
-      _pickedImage = File(pickedFile.path);
+      setState(() {
+        _pickedImage = File(pickedFile.path);
+      });
       //notifyListeners();
     }
   }
