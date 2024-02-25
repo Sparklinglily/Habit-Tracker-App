@@ -67,17 +67,37 @@ class _AddHabitPageState extends State<AddHabitPage> {
                                 }),
                           ],
                         )
-                      : ClipRRect(
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(70),
-                            bottomRight: Radius.circular(70),
-                          ),
-                          child: Image.file(
-                            _pickedImage!,
-                            width: double.infinity,
-                            height: double.infinity,
-                            fit: BoxFit.cover,
-                          ))),
+                      : Stack(children: [
+                          ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(70),
+                                bottomRight: Radius.circular(70),
+                              ),
+                              child: Image.file(
+                                _pickedImage!,
+                                width: double.infinity,
+                                height: double.infinity,
+                                fit: BoxFit.cover,
+                              )),
+                          Positioned(
+                              right: 8.0,
+                              top: 8.0,
+                              child: TextButton.icon(
+                                label: const Text(
+                                  'Remove image',
+                                  style: TextStyle(color: background),
+                                ),
+                                icon: const Icon(
+                                  Icons.remove_circle_outline_sharp,
+                                  color: background,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _pickedImage = null;
+                                  });
+                                },
+                              ))
+                        ])),
               const SizedBox(
                 height: 25,
               ),
