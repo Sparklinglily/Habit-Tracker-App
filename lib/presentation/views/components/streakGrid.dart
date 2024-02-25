@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../presentation/styles/constants.dart';
+import '../../styles/constants.dart';
 
 class StreakGrids extends StatefulWidget {
   const StreakGrids({Key? key}) : super(key: key);

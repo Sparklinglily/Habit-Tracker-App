@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../styles/constants.dart';
-import '../../../widgets/streakGrid.dart';
+import '../components/streakGrid.dart';
 
 class Achievement extends StatefulWidget {
   const Achievement({Key? key}) : super(key: key);
