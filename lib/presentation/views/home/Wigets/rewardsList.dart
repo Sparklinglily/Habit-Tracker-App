@@ -24,7 +24,7 @@ class _RewardListState extends State<RewardList> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const Achievement(),
+                builder: (context) => Achievement(),
               ));
         },
         child: Row(

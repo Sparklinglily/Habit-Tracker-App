@@ -2,35 +2,55 @@ import 'package:flutter/material.dart';
 import '../../styles/constants.dart';
 import '../components/streakGrid.dart';
 
-class Achievement extends StatefulWidget {
-  const Achievement({Key? key}) : super(key: key);
+class Achievement extends StatelessWidget {
+  final List<StreakGridData> eachGrid = [
+    StreakGridData(
+        LargeNum: '0',
+        miniText: 'You missed:',
+        color: const Color.fromARGB(255, 248, 238, 247),
+        days: 'day'),
+    StreakGridData(
+        LargeNum: '50',
+        miniText: 'You completed:',
+        color: const Color.fromARGB(255, 238, 203, 250),
+        days: 'days'),
+    StreakGridData(
+      LargeNum: '5000',
+      miniText: 'Streaks acquired:',
+      color: const Color.fromARGB(255, 210, 211, 246),
+    ),
+    StreakGridData(
+        LargeNum: '0',
+        miniText: 'Streaks lost:',
+        color: const Color.fromARGB(255, 245, 235, 199),
+        days: 'day'),
+  ];
+  Achievement({Key? key}) : super(key: key);
 
-  @override
-  State<Achievement> createState() => _AchievementState();
-}
-
-class _AchievementState extends State<Achievement> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(18.0),
-        child: Column(
+        child: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: defaultSpacing * 2,
             ),
-            Image(
+            const Image(
               image: AssetImage("images/achieverCup.png"),
               height: 200,
               width: 200,
             ),
             //text
-            Text("You are a SuperStar",
-                style: TextStyle(
-                    fontWeight: FontWeight.w600, fontSize: defaultSpacing * 2)),
-            SizedBox(height: defaultSpacing / 2),
-            Padding(
+            Center(
+              child: const Text("You are a SuperStar",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: defaultSpacing * 2)),
+            ),
+            const SizedBox(height: defaultSpacing / 2),
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: defaultSpacing * 1.5),
               child: Text(
                 "The great thing about completing a task "
@@ -44,7 +64,26 @@ class _AchievementState extends State<Achievement> {
                 textAlign: TextAlign.center,
               ),
             ),
-            StreakGrids()
+            SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              height: 500,
+              child: GridView.builder(
+                  scrollDirection: Axis.vertical,
+                  physics: null,
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16.0,
+                    crossAxisSpacing: 6.0,
+                    childAspectRatio: 16 / 12,
+                  ),
+                  itemCount: eachGrid.length,
+                  itemBuilder: (context, index) {
+                    return StreakGrids(gridItem: eachGrid[index]);
+                  }),
+            )
           ],
         ),
       ),
