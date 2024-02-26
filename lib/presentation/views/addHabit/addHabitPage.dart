@@ -31,6 +31,14 @@ class _AddHabitPageState extends State<AddHabitPage> {
         backgroundColor: Colors.white10,
         elevation: 0,
         automaticallyImplyLeading: true,
+        actions: [
+          TextButton(
+              onPressed: () {},
+              child: const Text(
+                'Save',
+                style: TextStyle(fontSize: 16, color: primaryDark),
+              ))
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(

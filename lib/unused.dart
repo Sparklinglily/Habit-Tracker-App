@@ -274,29 +274,29 @@ import 'dart:ffi';
 //                 children: [
 //                   TabBar(
 //                     tabs: [
-//                       Text(
-//                         "Ongoing",
-//                         style: TextStyle(
-//                             color: fontDark,
-//                             height: 1.5,
-//                             fontWeight: FontWeight.w500,
-//                             fontSize: 21),
-//                       ),
-//                       Text(
-//                         "Completed",
-//                         style: TextStyle(
-//                             color: fontDark,
-//                             height: 1.5,
-//                             fontWeight: FontWeight.w500,
-//                             fontSize: 24),
-//                       )
-//                     ],
-//                     indicatorColor: primaryLight,
-//                     indicatorSize: TabBarIndicatorSize.label,
-//                   )
-//                 ],
-//               ),
-//               elevation: 0,
+              //         Text(
+              //           "Ongoing",
+              //           style: TextStyle(
+              //               color: fontDark,
+              //               height: 1.5,
+              //               fontWeight: FontWeight.w500,
+              //               fontSize: 21),
+              //         ),
+              //         Text(
+              //           "Completed",
+              //           style: TextStyle(
+              //               color: fontDark,
+              //               height: 1.5,
+              //               fontWeight: FontWeight.w500,
+              //               fontSize: 24),
+              //         )
+              //       ],
+              //       indicatorColor: primaryLight,
+              //       indicatorSize: TabBarIndicatorSize.label,
+              //     )
+              //   ],
+              // ),
+              // elevation: 0,
 //             ),
 //             body: TabBarView(
 //               children: [
