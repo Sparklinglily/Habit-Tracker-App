@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/Favorites/favorites.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/track_progress.dart';
 import 'package:habit_help/presentation/views/Settings/settingsPage.dart';
 import 'package:habit_help/presentation/views/profile/profilePage.dart';
 import '../../../../styles/constants.dart';
@@ -172,7 +173,9 @@ class _HomePageState extends State<HomePage> {
                           color: primaryDark, fontSize: defaultSpacing * 1.7),
                     )),
                 TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => ProgressPage());
+                    },
                     icon: Icon(
                       Icons.call,
                       color: primaryDark,

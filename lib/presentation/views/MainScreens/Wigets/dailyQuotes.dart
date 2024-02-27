@@ -20,7 +20,7 @@ class _DailyQuotesState extends State<DailyQuotes> {
             "Daily Quotes",
             style: TextStyle(
                 color: fontDark,
-                fontSize: defaultSpacing * 1.4,
+                fontSize: defaultSpacing * 1.1,
                 fontWeight: FontWeight.w500),
           ),
           Padding(

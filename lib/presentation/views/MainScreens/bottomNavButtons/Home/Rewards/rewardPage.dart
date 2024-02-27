@@ -20,10 +20,10 @@ class Achievement extends StatelessWidget {
       color: const Color.fromARGB(255, 210, 211, 246),
     ),
     StreakGridData(
-        LargeNum: '0',
-        miniText: 'Streaks lost:',
-        color: const Color.fromARGB(255, 245, 235, 199),
-        days: 'day'),
+      LargeNum: '0',
+      miniText: 'Streaks lost:',
+      color: const Color.fromARGB(255, 245, 235, 199),
+    ),
   ];
   Achievement({Key? key}) : super(key: key);
 
@@ -60,7 +60,7 @@ class Achievement extends StatelessWidget {
                     color: secondaryLight,
                     height: 1.5,
                     fontWeight: FontWeight.w500,
-                    fontSize: defaultSpacing * 1.2),
+                    fontSize: defaultSpacing * 1),
                 textAlign: TextAlign.center,
               ),
             ),

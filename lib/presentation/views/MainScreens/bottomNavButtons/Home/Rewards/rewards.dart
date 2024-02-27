@@ -15,10 +15,10 @@ class _RewardsState extends State<Rewards> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "Achievements",
+          " Top Achievements",
           style: TextStyle(
               color: fontDark,
-              fontSize: defaultSpacing * 1.4,
+              fontSize: defaultSpacing * 1,
               fontWeight: FontWeight.w500),
         ),
         Text(

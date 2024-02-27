@@ -10,7 +10,7 @@ class StreakGridData {
       {required this.LargeNum,
       required this.color,
       required this.miniText,
-      this.days = 'days'});
+      this.days = ''});
 }
 
 class StreakGrids extends StatelessWidget {
@@ -36,7 +36,7 @@ class StreakGrids extends StatelessWidget {
                 gridItem.LargeNum,
                 style: const TextStyle(fontSize: 55),
               ),
-              Text(gridItem.days)
+              Text(gridItem.days!)
             ],
           )
         ],

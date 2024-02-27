@@ -11,16 +11,16 @@ class DueToday extends StatefulWidget {
 class _DueTodayState extends State<DueToday> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return const Padding(
+      padding: EdgeInsets.all(8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
+        children: [
           Text(
             "Due for today",
             style: TextStyle(
                 color: fontDark,
-                fontSize: defaultSpacing * 1.4,
+                fontSize: defaultSpacing * 1.1,
                 fontWeight: FontWeight.w500),
           ),
           Text(
