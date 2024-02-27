@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/styles/constants.dart';
-import 'package:habit_help/presentation/views/chat/components/habits_tb.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/habits_tb.dart';
 
 class HabitsPage extends StatelessWidget {
   const HabitsPage({super.key});

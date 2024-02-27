@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:habit_help/presentation/styles/constants.dart';
-import 'package:habit_help/presentation/views/addHabit/addHabitPage.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/habit_details_page.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/addHabitPage.dart';
 
 class HabitTab extends StatelessWidget {
   final String image;
@@ -71,13 +72,15 @@ class OngoingHabitTab extends StatelessWidget {
                 crossAxisCount: 2,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 7,
-                childAspectRatio: 20 / 17),
+                childAspectRatio: 20 / 15.5),
             itemBuilder: (context, index) {
               return HabitTab(
                 buttonColor: const Color.fromARGB(255, 237, 124, 19),
                 image: 'assets/image5.jpg',
                 buttonText: 'Drink water',
-                onTap: () {},
+                onTap: () {
+                  Get.to(() => HabitDetailsPage());
+                },
               );
             },
             itemCount: 4,
@@ -125,7 +128,7 @@ class CompletedHabitTab extends StatelessWidget {
             crossAxisCount: 2,
             mainAxisSpacing: 10,
             crossAxisSpacing: 7,
-            childAspectRatio: 20 / 17),
+            childAspectRatio: 20 / 15.5),
         itemBuilder: (context, index) {
           return HabitTab(
             buttonColor: const Color.fromARGB(255, 43, 106, 45),

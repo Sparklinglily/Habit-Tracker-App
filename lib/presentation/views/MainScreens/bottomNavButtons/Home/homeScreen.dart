@@ -4,7 +4,7 @@ import 'package:habit_help/presentation/views/Favorites/favorites.dart';
 import 'package:habit_help/presentation/views/Settings/settingsPage.dart';
 import 'package:habit_help/presentation/views/profile/profilePage.dart';
 import '../../../../styles/constants.dart';
-import '../../../addHabit/addHabitPage.dart';
+import '../Habit/addHabitPage.dart';
 
 import '../Challenge/challenges.dart';
 import '../Habit/habits.dart';
