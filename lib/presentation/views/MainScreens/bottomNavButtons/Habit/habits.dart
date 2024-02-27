@@ -13,7 +13,7 @@ class HabitsPage extends StatelessWidget {
           appBar: AppBar(
             automaticallyImplyLeading: true,
             backgroundColor: const Color(0xFFFAFAFA),
-            flexibleSpace: Column(
+            flexibleSpace: const Column(
               children: [
                 TabBar(
                   automaticIndicatorColorAdjustment: true,
