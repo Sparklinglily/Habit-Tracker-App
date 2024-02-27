@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../styles/constants.dart';
+import '../../../../styles/constants.dart';
 
 class Challenges extends StatefulWidget {
   const Challenges({Key? key}) : super(key: key);

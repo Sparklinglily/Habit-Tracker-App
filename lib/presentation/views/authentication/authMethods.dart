@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:habit_help/presentation/views/authentication/widgets/showSnackBar.dart';
-import 'package:habit_help/presentation/views/home/homeScreen.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Home/homeScreen.dart';
 
 import 'checkEmail.dart';
 import 'loginPage.dart';

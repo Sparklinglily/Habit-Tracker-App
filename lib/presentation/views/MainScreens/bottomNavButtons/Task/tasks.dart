@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/todoList/toDoUtil/alertDialog.dart';
 import 'package:habit_help/presentation/views/todoList/toDoUtil/toDoTile.dart';
 import 'package:hive/hive.dart';
-import '../../../styles/constants.dart';
-import '../../todoList/todoListPage.dart';
+import '../../../../styles/constants.dart';
+import '../../../todoList/todoListPage.dart';
 import 'addTask.dart';
 
 class Tasks extends StatefulWidget {

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/authentication/authMethods.dart';
 import 'package:provider/provider.dart';
 import '../../styles/constants.dart';
-import 'package:habit_help/presentation/views/home/homeScreen.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Home/homeScreen.dart';
 import 'package:habit_help/presentation/views/authentication/signUpPage.dart';
 import 'package:email_validator/email_validator.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../styles/constants.dart';
-import '../components/streakGrid.dart';
+import '../../../../../styles/constants.dart';
+import '../../../../components/streakGrid.dart';
 
 class Achievement extends StatelessWidget {
   final List<StreakGridData> eachGrid = [

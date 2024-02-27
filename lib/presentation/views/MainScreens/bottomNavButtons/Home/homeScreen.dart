@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/Favorites/favorites.dart';
 import 'package:habit_help/presentation/views/Settings/settingsPage.dart';
 import 'package:habit_help/presentation/views/profile/profilePage.dart';
-import '../../styles/constants.dart';
-import '../addHabit/addHabitPage.dart';
+import '../../../../styles/constants.dart';
+import '../../../addHabit/addHabitPage.dart';
 
-import 'bottomNavButtons/challenges.dart';
-import 'bottomNavButtons/habits.dart';
+import '../Challenge/challenges.dart';
+import '../Habit/habits.dart';
 import 'homePage.dart';
 
-import 'bottomNavButtons/tasks.dart';
+import '../Task/tasks.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../authentication/loginPage.dart';
+import '../../../authentication/loginPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

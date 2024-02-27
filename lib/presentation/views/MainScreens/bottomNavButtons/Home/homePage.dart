@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../styles/constants.dart';
+import '../../../../styles/constants.dart';
 import 'package:habit_help/widgets/spactBtw.dart';
 
-import 'Wigets/dailyQuotes.dart';
-import 'Wigets/due.dart';
-import 'Wigets/imageGrid.dart';
-import 'Wigets/rewards.dart';
-import 'Wigets/rewardsList.dart';
+import '../../Wigets/dailyQuotes.dart';
+import '../../Wigets/due.dart';
+import '../../Wigets/imageGrid.dart';
+import 'Rewards/rewards.dart';
+import 'Rewards/rewardsList.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

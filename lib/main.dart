@@ -4,8 +4,8 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:habit_help/presentation/views/addHabit/addHabitMethod.dart';
 import 'package:habit_help/presentation/views/authentication/authMethods.dart';
 
-import 'package:habit_help/presentation/views/home/bottomNavButtons/habits.dart';
-import 'package:habit_help/presentation/views/home/homeScreen.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/habits.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Home/homeScreen.dart';
 import 'package:habit_help/presentation/views/authentication/loginPage.dart';
 import 'package:habit_help/presentation/views/profile/profilePage.dart';
 

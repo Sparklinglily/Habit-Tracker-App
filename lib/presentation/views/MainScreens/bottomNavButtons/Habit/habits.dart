@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/styles/constants.dart';
+import 'package:habit_help/presentation/views/chat/components/habits_tb.dart';
 
 class HabitsPage extends StatelessWidget {
   const HabitsPage({super.key});
@@ -12,9 +13,10 @@ class HabitsPage extends StatelessWidget {
           appBar: AppBar(
             automaticallyImplyLeading: true,
             backgroundColor: const Color(0xFFFAFAFA),
-            flexibleSpace: const Column(
+            flexibleSpace: Column(
               children: [
                 TabBar(
+                  automaticIndicatorColorAdjustment: true,
                   tabs: [
                     Text(
                       "Ongoing",
@@ -40,7 +42,8 @@ class HabitsPage extends StatelessWidget {
             ),
             elevation: 0,
           ),
-          body: const TabBarView(children: [Text('bgfnm'), Text('bgfnm')]),
+          body: const TabBarView(
+              children: [OngoingHabitTab(), CompletedHabitTab()]),
         ));
   }
 }

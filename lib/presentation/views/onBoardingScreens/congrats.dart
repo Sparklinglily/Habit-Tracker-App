@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../styles/constants.dart';
-import 'package:habit_help/presentation/views/home/homeScreen.dart';
-import 'package:habit_help/presentation/views/home/homePage.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Home/homeScreen.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Home/homePage.dart';
 
 class ProceedToHomePage extends StatefulWidget {
   const ProceedToHomePage({Key? key}) : super(key: key);
