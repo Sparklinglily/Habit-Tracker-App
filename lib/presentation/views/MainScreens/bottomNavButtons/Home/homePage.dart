@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
+                      crossAxisCount: 3,
                       mainAxisSpacing: 5,
                       childAspectRatio: 17 / 14,
                       crossAxisSpacing: 6),
