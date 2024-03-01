@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                     shadows: [
                       Shadow(
                           offset: const Offset(2.0, 2.0),
-                          blurRadius: 6.0,
+                          blurRadius: 8.0,
                           color: const Color.fromARGB(255, 153, 153, 153)
                               .withOpacity(0.8))
                     ],
