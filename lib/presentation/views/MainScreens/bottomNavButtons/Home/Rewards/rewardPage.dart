@@ -31,7 +31,7 @@ class Achievement extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: const EdgeInsets.all(19.0),
         child: ListView(
           children: [
             const SizedBox(

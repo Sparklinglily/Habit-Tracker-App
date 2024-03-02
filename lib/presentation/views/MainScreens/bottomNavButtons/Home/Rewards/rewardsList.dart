@@ -38,7 +38,7 @@ class _RewardListState extends State<RewardList> {
               "Get at least 7 hours of sleep",
               style: TextStyle(color: secondaryLight, fontSize: defaultSpacing),
             ),
-            Padding(padding: EdgeInsets.only(right: 43)),
+            Padding(padding: EdgeInsets.only(right: 44)),
             Icon(
               Icons.card_giftcard_outlined,
               color: secondaryLight,
