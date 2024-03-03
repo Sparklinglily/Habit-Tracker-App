@@ -30,7 +30,7 @@ class _ImageGridsState extends State<ImageGrids> {
             // color: Colors.black,
           ),
           Positioned(
-            right: 5,
+            right: 6,
             child: Checkbox(
               value: widget.gridData.isChecked,
               onChanged: (value) {
