@@ -36,75 +36,80 @@ class ProgressPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: IconButton(
-          icon: const Icon(Icons.arrow_back_outlined),
-          onPressed: () {},
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Align(
-              alignment: Alignment.center,
-              child: Stack(
-                children: [
-                  Image.asset(
-                    'images/Ellipse.png',
-                    height: 150,
-                    width: 150,
-                  ),
-                  Positioned(
-                      right: 5,
-                      left: 5,
-                      bottom: 40,
-                      child: Image.asset(
-                        'images/smiley.png',
-                        height: 70,
-                        width: 70,
-                      ))
-                ],
-              ),
-            ),
-            const SizedBox(height: 10),
-            const Text(
-              'Congratulations!!!',
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-            ),
-            const Text(
-              'You are 75% into achieving your goals, you can do this.',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 16,
-              ),
-            ),
-            SizedBox(
-              height: 25,
-            ),
-            SizedBox(
-              height: 800,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                child: GridView.builder(
-                    scrollDirection: Axis.vertical,
-                    physics: null,
-                    shrinkWrap: true,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 16.0,
-                      crossAxisSpacing: 6.0,
-                      childAspectRatio: 16 / 12,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: null,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).pop;
+                      },
+                      icon: Icon(Icons.arrow_back_outlined))),
+              SizedBox(height: 20),
+              Align(
+                alignment: Alignment.center,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      'images/Ellipse.png',
+                      height: 150,
+                      width: 150,
                     ),
-                    itemCount: eachGrid.length,
-                    itemBuilder: (context, index) {
-                      return StreakGrids(gridItem: eachGrid[index]);
-                    }),
+                    Positioned(
+                        right: 5,
+                        left: 5,
+                        bottom: 40,
+                        child: Image.asset(
+                          'images/smiley.png',
+                          height: 70,
+                          width: 70,
+                        ))
+                  ],
+                ),
               ),
-            )
-          ],
+              const SizedBox(height: 10),
+              const Text(
+                'Congratulations!!!',
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+              ),
+              const Text(
+                'You are 75% into achieving your goals, you can do this.',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 16,
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              SizedBox(
+                height: 800,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                  child: GridView.builder(
+                      scrollDirection: Axis.vertical,
+                      physics: null,
+                      shrinkWrap: true,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 16.0,
+                        crossAxisSpacing: 6.0,
+                        childAspectRatio: 16 / 12,
+                      ),
+                      itemCount: eachGrid.length,
+                      itemBuilder: (context, index) {
+                        return StreakGrids(gridItem: eachGrid[index]);
+                      }),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
