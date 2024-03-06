@@ -30,7 +30,7 @@ class _ProfilePageState extends State<ProfilePage>
                 SliverAppBar(
                     // expandedHeight: 100,
                     pinned: true,
-                    collapsedHeight: 250,
+                    collapsedHeight: 230,
                     floating: true,
                     bottom: const TabBar(
                       isScrollable: true,
