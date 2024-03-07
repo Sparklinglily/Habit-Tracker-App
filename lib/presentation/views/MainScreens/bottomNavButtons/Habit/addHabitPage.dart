@@ -50,7 +50,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                   height: size.width * 0.6,
                   width: size.height * 0.47,
                   decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 248, 238, 247),
+                    color: tileColor,
                     borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(70),
                         bottomLeft: Radius.circular(70.0)),
@@ -93,7 +93,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                               child: TextButton.icon(
                                 label: const Text(
                                   'Remove image',
-                                  style: TextStyle(color: background),
+                                  style: TextStyle(color: Colors.grey),
                                 ),
                                 icon: const Icon(
                                   Icons.remove_circle_outline_sharp,
@@ -126,7 +126,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 14),
                   decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 248, 238, 247),
+                      color: tileColor,
                       borderRadius: BorderRadius.circular(14),
                       border: Border.all(
                         width: 1,
@@ -136,7 +136,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(padding: EdgeInsets.only(top: 5)),
+                      const Padding(padding: EdgeInsets.only(top: 3)),
                       const Text('Frequency'),
                       DropdownButton<String>(
                           isExpanded: true,
@@ -181,8 +181,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                                         color: primaryDark,
                                         size: 16),
                                     filled: true,
-                                    fillColor:
-                                        Color.fromARGB(255, 248, 238, 247),
+                                    fillColor: tileColor,
                                     border: InputBorder.none)
 
                                 //readonly true
@@ -209,8 +208,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                                     hintText: 'Select End Date',
                                     hintStyle: TextStyle(fontSize: 12),
                                     filled: true,
-                                    fillColor:
-                                        Color.fromARGB(255, 248, 238, 247),
+                                    fillColor: tileColor,
                                     border: InputBorder.none)
 
                                 //readonly true
@@ -227,7 +225,7 @@ class _AddHabitPageState extends State<AddHabitPage> {
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 14),
                   decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 248, 238, 247),
+                      color: tileColor,
                       borderRadius: BorderRadius.circular(14),
                       border: Border.all(
                         width: 1,

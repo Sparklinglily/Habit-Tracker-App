@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:habit_help/presentation/styles/constants.dart';
 import 'package:habit_help/presentation/views/Favorites/grid_items.dart';
 
@@ -60,11 +61,10 @@ class Favorites extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 210, 204, 204),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20),
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          children: [
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Column(children: [
             TextButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -98,7 +98,7 @@ class Favorites extends StatelessWidget {
                     );
                   }),
             )
-          ],
+          ]),
         ),
       ),
     );

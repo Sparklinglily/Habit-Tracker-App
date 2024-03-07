@@ -25,12 +25,13 @@ class _ProfilePageState extends State<ProfilePage>
         length: 3,
         child: Scaffold(
           body: NestedScrollView(
-            headerSliverBuilder: (BuildContext context, bool innerBoxScrolled) {
+            headerSliverBuilder:
+                (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
                     // expandedHeight: 100,
                     pinned: true,
-                    collapsedHeight: 230,
+                    collapsedHeight: 250,
                     floating: true,
                     bottom: const TabBar(
                       isScrollable: true,
@@ -158,6 +159,7 @@ class _ProfilePageState extends State<ProfilePage>
             body: const Padding(
               padding: EdgeInsets.only(top: 5.0),
               child: TabBarView(
+//physics: NeverScrollableScrollPhysics(),
                 children: [
                   AchievementBoard(),
                   LeaderBoard(),
@@ -334,7 +336,7 @@ class ChallengesBoard extends StatelessWidget {
                       fontSize: 17),
                 ),
                 SizedBox(
-                  width: 165,
+                  width: 125,
                 ),
                 Icon(Icons.dark_mode_sharp),
                 Text(
@@ -366,6 +368,9 @@ class ChallengesBoard extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(
+            height: 15,
+          ),
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 15.0),
             child: Container(
@@ -396,7 +401,7 @@ class ChallengesBoard extends StatelessWidget {
                       fontSize: 17),
                 ),
                 SizedBox(
-                  width: 165,
+                  width: 125,
                 ),
                 Icon(Icons.dark_mode_sharp),
                 Text(

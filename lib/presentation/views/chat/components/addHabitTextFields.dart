@@ -15,7 +15,7 @@ class MyTextFields extends StatelessWidget {
         decoration: InputDecoration(
             border: InputBorder.none,
             filled: true,
-            fillColor: Color.fromARGB(255, 248, 238, 247),
+            fillColor: tileColor,
             focusColor: primaryDark,
             enabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(width: 1, color: primaryDark),
