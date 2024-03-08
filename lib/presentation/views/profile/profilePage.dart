@@ -3,6 +3,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:habit_help/presentation/views/chat/components/customTiles.dart';
 import 'package:habit_help/presentation/views/chat/screen/chatHome.dart';
+import 'package:habit_help/presentation/views/profile/profile_page.dart';
 import 'package:habit_help/presentation/views/profile/tabCards.dart';
 import '../../styles/constants.dart';
 
@@ -29,68 +30,70 @@ class _ProfilePageState extends State<ProfilePage>
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                    // expandedHeight: 100,
-                    pinned: true,
-                    collapsedHeight: 250,
-                    floating: true,
-                    bottom: const TabBar(
-                      isScrollable: true,
-                      indicatorColor: primaryDark,
-                      indicatorSize: TabBarIndicatorSize.tab,
-                      indicatorWeight: 2,
-                      tabs: [
-                        Text(
-                          "Achievement",
-                          style: TextStyle(
-                              color: fontDark,
-                              height: 1.5,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16),
-                        ),
-                        Text(
-                          "Leaderboard",
-                          style: TextStyle(
-                              color: fontDark,
-                              height: 1.5,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16),
-                        ),
-                        Text(
-                          "Challenges",
-                          style: TextStyle(
-                              color: fontDark,
-                              height: 1.5,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16),
-                        ),
-                      ],
-                    ),
-                    flexibleSpace: FlexibleSpaceBar(
-                        background: Container(
-                            color: background,
-                            child: Column(children: [
-                              Stack(
-                                children: [
-                                  SizedBox(
-                                    height: size.height * 0.206,
-                                    width: size.width,
-                                    child: Image.asset("images/header.png"),
-                                  ),
-                                  const Positioned(
-                                      left: 160,
-                                      top: 90,
-                                      child: CircleAvatar(
-                                        radius: 36,
-                                        backgroundImage: AssetImage(
-                                            "images/profileImage.jpg"),
-                                      ))
-                                ],
+                  // expandedHeight: 100,
+                  pinned: true,
+                  collapsedHeight: 250,
+                  floating: true,
+                  bottom: const TabBar(
+                    isScrollable: true,
+                    indicatorColor: primaryDark,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicatorWeight: 2,
+                    tabs: [
+                      Text(
+                        "Achievement",
+                        style: TextStyle(
+                            color: fontDark,
+                            height: 1.5,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                      Text(
+                        "Leaderboard",
+                        style: TextStyle(
+                            color: fontDark,
+                            height: 1.5,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                      Text(
+                        "Challenges",
+                        style: TextStyle(
+                            color: fontDark,
+                            height: 1.5,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16),
+                      ),
+                    ],
+                  ),
+                  flexibleSpace: FlexibleSpaceBar(
+                    background: Container(
+                      color: background,
+                      child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              SizedBox(
+                                height: size.height * 0.206,
+                                width: size.width,
+                                child: Image.asset("images/header.png"),
                               ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Container(
-                                  child: Column(children: [
+                              const Positioned(
+                                  left: 160,
+                                  top: 90,
+                                  child: CircleAvatar(
+                                    radius: 36,
+                                    backgroundImage:
+                                        AssetImage("images/profileImage.jpg"),
+                                  ))
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
                                 const Text(
                                   "Mary Peters",
                                   style: TextStyle(
@@ -134,26 +137,37 @@ class _ProfilePageState extends State<ProfilePage>
                                       width: 120,
                                       height: 45,
                                       child: OutlinedButton(
-                                          onPressed: () {
-                                            Get.to(() => const ChatHomePage());
-                                          },
-                                          style: ButtonStyle(
-                                              shape: MaterialStateProperty.all(
-                                                  RoundedRectangleBorder(
-                                                      side: const BorderSide(
-                                                        color: primaryLight,
-                                                        width: 1,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4)))),
-                                          child: const Text("Chat",
-                                              style: TextStyle(fontSize: 15))),
+                                        onPressed: () {
+                                          Get.to(() => const ChatHomePage());
+                                        },
+                                        style: ButtonStyle(
+                                          shape: MaterialStateProperty.all(
+                                            RoundedRectangleBorder(
+                                              side: const BorderSide(
+                                                color: primaryLight,
+                                                width: 1,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(4),
+                                            ),
+                                          ),
+                                        ),
+                                        child: const Text(
+                                          "Chat",
+                                          style: TextStyle(fontSize: 15),
+                                        ),
+                                      ),
                                     )
                                   ],
                                 ),
-                              ]))
-                            ])))),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ];
             },
             body: const Padding(
@@ -177,11 +191,15 @@ class AchievementBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(left: 15, right: 15, top: 10),
-      child: Column(
-        children: [
-          ProfilePageTiles(
+    return Padding(
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+      child: MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
+        child: ListView.separated(
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return const ProfilePageTiles(
               color: Color.fromARGB(255, 224, 239, 246),
               title: 'Got enough sleep',
               subtitle: '5000 streaks',
@@ -190,47 +208,16 @@ class AchievementBoard extends StatelessWidget {
                 Icons.star,
                 size: 24,
                 color: primaryLight,
-              )),
-          SizedBox(
-            height: 20,
-          ),
-          ProfilePageTiles(
-              color: Color.fromARGB(255, 246, 237, 224),
-              title: 'Eat a fruit',
-              image: AssetImage('images/pineapple.png'),
-              subtitle: '4000 streaks',
-              icon: Icon(
-                Icons.star,
-                size: 24,
-                color: primaryLight,
-              )),
-          SizedBox(
-            height: 20,
-          ),
-          ProfilePageTiles(
-              color: Color.fromARGB(255, 255, 240, 245),
-              subtitle: '2500 streaks',
-              title: 'Run 10km daily',
-              image: AssetImage('images/trackRun.jpg'),
-              icon: Icon(
-                Icons.star,
-                size: 24,
-                color: primaryLight,
-              )),
-          SizedBox(
-            height: 20,
-          ),
-          ProfilePageTiles(
-              color: Color.fromARGB(255, 236, 252, 236),
-              subtitle: '3500 streaks',
-              title: 'Drink 2 cups of water daily',
-              image: AssetImage('images/waterhold.jpg'),
-              icon: Icon(
-                Icons.star,
-                size: 24,
-                color: primaryLight,
-              ))
-        ],
+              ),
+            );
+          },
+          separatorBuilder: (context, index) {
+            return const SizedBox(
+              height: 10,
+            );
+          },
+          itemCount: 22,
+        ),
       ),
     );
   }
@@ -368,7 +355,7 @@ class ChallengesBoard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Padding(
@@ -440,7 +427,7 @@ class ChallengesBoard extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
-    home: ProfilePage(),
+  runApp(const MaterialApp(
+    home: ProfileView(),
   ));
 }
