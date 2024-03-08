@@ -36,7 +36,7 @@ class StreakGrids extends StatelessWidget {
                 gridItem.LargeNum,
                 style: const TextStyle(fontSize: 55),
               ),
-              Text(gridItem.days!)
+              Text(gridItem.days)
             ],
           )
         ],

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:habit_help/presentation/styles/constants.dart';
+import 'package:habit_help/presentation/views/Profile/Widgets/customTiles.dart';
+
 import 'package:habit_help/presentation/views/chat/screen/chatHome.dart';
-import 'package:habit_help/presentation/views/profile/profilePage.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -113,7 +114,7 @@ class ProfileView extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             const TabBar(
@@ -148,8 +149,8 @@ class ProfileView extends StatelessWidget {
                 ),
               ],
             ),
-            Expanded(
-              child: const Padding(
+            const Expanded(
+              child: Padding(
                 padding: EdgeInsets.only(top: 5.0),
                 child: TabBarView(
                   //physics: NeverScrollableScrollPhysics(),
@@ -166,4 +167,119 @@ class ProfileView extends StatelessWidget {
       ),
     );
   }
+}
+
+class AchievementBoard extends StatelessWidget {
+  const AchievementBoard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+      child: MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
+        child: ListView.separated(
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return const ProfilePageTiles(
+              color: Color.fromARGB(255, 224, 239, 246),
+              title: 'Got enough sleep',
+              subtitle: '5000 streaks',
+              image: AssetImage('images/sleeping2.jpg'),
+              icon: Icon(
+                Icons.star,
+                size: 24,
+                color: primaryLight,
+              ),
+            );
+          },
+          separatorBuilder: (context, index) {
+            return const SizedBox(
+              height: 10,
+            );
+          },
+          itemCount: 22,
+        ),
+      ),
+    );
+  }
+}
+
+class LeaderBoard extends StatelessWidget {
+  const LeaderBoard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
+      child: MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
+        child: ListView.separated(
+          shrinkWrap: true,
+          itemCount: 15,
+          separatorBuilder: (context, index) => const SizedBox(
+            height: 10,
+          ),
+          itemBuilder: (context, index) {
+            return const LeaderboardTile(
+                image: AssetImage('images/water2.jpg'),
+                rank: 'Rank: 1st  ',
+                icon: Icon(
+                  Icons.star,
+                  color: Colors.white,
+                  size: 13,
+                ),
+                title: 'Drink water challenge');
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class ChallengesBoard extends StatelessWidget {
+  const ChallengesBoard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MediaQuery.removePadding(
+      context: context,
+      removeTop: true,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 15, right: 15),
+        child: ListView.separated(
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return const ChallengeListTile(
+                challengeTitle: 'Water is life',
+                image: 'images/water4.jpg',
+                numberOfDays: '30 days',
+                numberOfDaysIcon: Icon(
+                  Icons.dark_mode_rounded,
+                  color: primaryDark,
+                  size: 20,
+                ),
+                numberOfPeople: '12 people',
+                peopleIcon: Icon(
+                  Icons.people_alt_rounded,
+                  color: primaryDark,
+                  size: 20,
+                ),
+              );
+            },
+            separatorBuilder: ((context, index) => const SizedBox(
+                  height: 13,
+                )),
+            itemCount: 3),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(const MaterialApp(
+    home: ProfileView(),
+  ));
 }

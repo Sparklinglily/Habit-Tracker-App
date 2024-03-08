@@ -64,41 +64,44 @@ class Favorites extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
-          child: Column(children: [
-            TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Align(
-                  alignment: Alignment.topRight,
-                  child: Text(
-                    'Close',
-                    style: TextStyle(color: primaryLight, fontSize: 16),
-                  ),
-                )),
-            const SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              height: 700,
-              child: GridView.builder(
-                  scrollDirection: Axis.vertical,
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 5.0,
-                    crossAxisSpacing: 6.0,
-                    childAspectRatio: 15 / 15,
-                  ),
-                  itemCount: gridItemData.length,
-                  itemBuilder: (context, index) {
-                    return GridItem(
-                      gridData: gridItemData[index],
-                    );
-                  }),
-            )
-          ]),
+          child: SingleChildScrollView(
+            child: Column(children: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Align(
+                    alignment: Alignment.topRight,
+                    child: Text(
+                      'Close',
+                      style: TextStyle(color: primaryLight, fontSize: 16),
+                    ),
+                  )),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                height: 700,
+                child: GridView.builder(
+                    scrollDirection: Axis.vertical,
+                    physics: const BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 5.0,
+                      crossAxisSpacing: 6.0,
+                      childAspectRatio: 15 / 15,
+                    ),
+                    itemCount: gridItemData.length,
+                    itemBuilder: (context, index) {
+                      return GridItem(
+                        gridData: gridItemData[index],
+                      );
+                    }),
+              )
+            ]),
+          ),
         ),
       ),
     );

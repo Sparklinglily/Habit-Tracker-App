@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/views/Favorites/favorites.dart';
 import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/track_progress.dart';
 import 'package:habit_help/presentation/views/Settings/settingsPage.dart';
-import 'package:habit_help/presentation/views/profile/profilePage.dart';
+
 import 'package:habit_help/presentation/views/profile/profile_page.dart';
 import '../../../../styles/constants.dart';
 import '../Habit/addHabitPage.dart';
@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
 
                 TextButton.icon(
                   onPressed: () {
-                    Get.to(() => ProfilePage());
+                    Get.to(() => ProfileView());
                   },
                   icon: Icon(
                     Icons.account_box_outlined,

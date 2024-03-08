@@ -7,7 +7,6 @@ import 'package:habit_help/presentation/views/authentication/authMethods.dart';
 import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/habits.dart';
 import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Home/homeScreen.dart';
 import 'package:habit_help/presentation/views/authentication/loginPage.dart';
-import 'package:habit_help/presentation/views/profile/profilePage.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive/hive.dart';
