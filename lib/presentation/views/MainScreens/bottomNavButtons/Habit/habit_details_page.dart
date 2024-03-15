@@ -195,7 +195,7 @@ class _HabitDetailsPageState extends State<HabitDetailsPage> {
 
               ElevatedButton(
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   'Track your progress',
                 ),
               )
