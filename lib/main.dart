@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/pogressGraph.dart';
 import 'package:habit_help/presentation/views/addHabit/addHabitMethod.dart';
 import 'package:habit_help/presentation/views/authentication/authMethods.dart';
 
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.orange,
         ),
-        home: const AuthWrapper(),
+        home: AuthWrapper(),
         debugShowCheckedModeBanner: false,
         routes: {
           '/habits': (context) => const HabitsPage(),

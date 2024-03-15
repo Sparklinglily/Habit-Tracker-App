@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:habit_help/presentation/styles/constants.dart';
 import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/Widgets/habitDetailsTile.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/pogressGraph.dart';
 
 class HabitDetailsPage extends StatefulWidget {
   const HabitDetailsPage({super.key});
@@ -178,7 +179,13 @@ class _HabitDetailsPageState extends State<HabitDetailsPage> {
                   },
                   value: status,
                 ),
-              )
+              ),
+              SizedBox(
+                height: 30,
+              ),
+
+              //barchat
+              BarChartSample3()
             ],
           ),
         ),
