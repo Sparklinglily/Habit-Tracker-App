@@ -86,6 +86,7 @@ class _BarChart extends StatelessWidget {
   FlTitlesData get titlesData => FlTitlesData(
         show: true,
         bottomTitles: AxisTitles(
+          drawBelowEverything: true,
           sideTitles: SideTitles(
             showTitles: true,
             reservedSize: 30,
@@ -93,7 +94,7 @@ class _BarChart extends StatelessWidget {
           ),
         ),
         leftTitles: const AxisTitles(
-          sideTitles: SideTitles(showTitles: false),
+          sideTitles: SideTitles(reservedSize: 30, showTitles: true),
         ),
         topTitles: const AxisTitles(
           sideTitles: SideTitles(showTitles: false),
@@ -109,7 +110,7 @@ class _BarChart extends StatelessWidget {
 
   LinearGradient get _barsGradient => LinearGradient(
         colors: [
-          primaryDark,
+          primaryLight,
           primaryDark,
         ],
         begin: Alignment.bottomCenter,
@@ -121,7 +122,7 @@ class _BarChart extends StatelessWidget {
           x: 0,
           barRods: [
             BarChartRodData(
-              toY: 8,
+              toY: 15,
               gradient: _barsGradient,
             )
           ],
@@ -131,7 +132,7 @@ class _BarChart extends StatelessWidget {
           x: 1,
           barRods: [
             BarChartRodData(
-              toY: 10,
+              toY: 8,
               gradient: _barsGradient,
             )
           ],
@@ -149,55 +150,35 @@ class _BarChart extends StatelessWidget {
         ),
         BarChartGroupData(
           x: 3,
-          barRods: [
-            BarChartRodData(
-              toY: 15,
-              gradient: _barsGradient,
-            )
-          ],
+          barRods: [],
           showingTooltipIndicators: [0],
         ),
         BarChartGroupData(
           x: 4,
-          barRods: [
-            BarChartRodData(
-              toY: 13,
-              gradient: _barsGradient,
-            )
-          ],
+          barRods: [BarChartRodData(toY: 10, gradient: _barsGradient)],
           showingTooltipIndicators: [0],
         ),
         BarChartGroupData(
           x: 5,
-          barRods: [
-            BarChartRodData(
-              toY: 10,
-              gradient: _barsGradient,
-            )
-          ],
+          barRods: [],
           showingTooltipIndicators: [0],
         ),
         BarChartGroupData(
           x: 6,
-          barRods: [
-            BarChartRodData(
-              toY: 16,
-              gradient: _barsGradient,
-            )
-          ],
+          barRods: [],
           showingTooltipIndicators: [0],
         ),
       ];
 }
 
-class BarChartSample3 extends StatefulWidget {
-  const BarChartSample3({super.key});
+class HabitTrackingChart extends StatefulWidget {
+  const HabitTrackingChart({super.key});
 
   @override
-  State<StatefulWidget> createState() => BarChartSample3State();
+  State<StatefulWidget> createState() => HabitTrackingChartState();
 }
 
-class BarChartSample3State extends State<BarChartSample3> {
+class HabitTrackingChartState extends State<HabitTrackingChart> {
   @override
   Widget build(BuildContext context) {
     return const AspectRatio(

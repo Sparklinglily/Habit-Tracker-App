@@ -180,12 +180,25 @@ class _HabitDetailsPageState extends State<HabitDetailsPage> {
                   value: status,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
 
               //barchat
-              BarChartSample3()
+              const Padding(
+                padding: EdgeInsets.only(left: 15.0, right: 15.0),
+                child: Card(
+                    color: Color.fromARGB(255, 245, 239, 235),
+                    elevation: 1,
+                    child: HabitTrackingChart()),
+              ),
+
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  'Track your progress',
+                ),
+              )
             ],
           ),
         ),

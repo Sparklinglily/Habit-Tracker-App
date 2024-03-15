@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.orange,
         ),
-        home: AuthWrapper(),
+        home: const AuthWrapper(),
         debugShowCheckedModeBanner: false,
         routes: {
           '/habits': (context) => const HabitsPage(),
