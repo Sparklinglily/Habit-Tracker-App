@@ -192,8 +192,12 @@ class _HabitDetailsPageState extends State<HabitDetailsPage> {
                     elevation: 1,
                     child: HabitTrackingChart()),
               ),
+              const SizedBox(
+                height: 25,
+              ),
 
               ElevatedButton(
+                style: ButtonStyle(),
                 onPressed: () {},
                 child: const Text(
                   'Track your progress',
