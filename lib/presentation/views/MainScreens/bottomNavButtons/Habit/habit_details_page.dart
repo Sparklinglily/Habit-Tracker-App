@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:habit_help/presentation/styles/constants.dart';
 import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/Widgets/habitDetailsTile.dart';
 import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/pogressGraph.dart';
+import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/track_progress.dart';
 
 class HabitDetailsPage extends StatefulWidget {
   const HabitDetailsPage({super.key});
@@ -198,7 +201,9 @@ class _HabitDetailsPageState extends State<HabitDetailsPage> {
 
               ElevatedButton(
                 style: ButtonStyle(),
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => ProgressPage());
+                },
                 child: const Text(
                   'Track your progress',
                 ),

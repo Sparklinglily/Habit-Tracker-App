@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                     )),
                 TextButton.icon(
                     onPressed: () {
-                      Get.to(() => ProgressPage());
+                      // Get.to(() => ProgressPage());
                     },
                     icon: Icon(
                       Icons.call,
