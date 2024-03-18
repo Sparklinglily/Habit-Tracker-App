@@ -184,7 +184,7 @@ class _HabitDetailsPageState extends State<HabitDetailsPage> {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 29,
               ),
 
               //barchat
