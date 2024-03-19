@@ -6,6 +6,7 @@ import 'package:habit_help/presentation/styles/constants.dart';
 import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/Widgets/habitDetailsTile.dart';
 import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/pogressGraph.dart';
 import 'package:habit_help/presentation/views/MainScreens/bottomNavButtons/Habit/track_progress.dart';
+import 'package:habit_help/presentation/views/chat/components/appButton.dart';
 
 class HabitDetailsPage extends StatefulWidget {
   const HabitDetailsPage({super.key});
@@ -193,15 +194,11 @@ class _HabitDetailsPageState extends State<HabitDetailsPage> {
                 height: 25,
               ),
 
-              ElevatedButton(
-                style: ButtonStyle(),
-                onPressed: () {
-                  Get.to(() => ProgressPage());
-                },
-                child: const Text(
-                  'Track your progress',
-                ),
-              )
+              AppButton(
+                  text: 'Track your progress',
+                  onTap: () {
+                    Get.to(() => ProgressPage());
+                  })
             ],
           ),
         ),

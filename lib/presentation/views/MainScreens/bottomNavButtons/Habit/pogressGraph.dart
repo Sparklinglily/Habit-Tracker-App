@@ -84,6 +84,37 @@ class _BarChart extends StatelessWidget {
     );
   }
 
+  Widget customLeftTitles(dynamic value) {
+    if (value >= 0 & (value < 5)) {
+      return Image.asset(
+        'images/sadEmoji.png',
+        width: 20,
+        height: 20,
+      );
+    } else if (value >= 5 & (value < 10)) {
+      return Image.asset(
+        'images/smiley.png',
+        width: 20,
+        height: 20,
+      );
+    } else if (value >= 10 & (value < 15)) {
+      return Image.asset(
+        'images/happyEmoji.png',
+        width: 20,
+        height: 20,
+      );
+    } else {
+      return SizedBox();
+    }
+  }
+
+  SideTitles sideTitles = SideTitles(
+    showTitles: true,
+    reservedSize: 34,
+    getTitles: customLeftTitles,
+  );
+  // Use custom function for left titles
+
   FlTitlesData get titlesData => FlTitlesData(
         show: true,
         bottomTitles: AxisTitles(
@@ -95,10 +126,7 @@ class _BarChart extends StatelessWidget {
           ),
         ),
         leftTitles: const AxisTitles(
-          sideTitles: SideTitles(
-            reservedSize: 34,
-            showTitles: true,
-          ),
+          sideTitles: sideTitles,
         ),
         topTitles: const AxisTitles(
           sideTitles: SideTitles(showTitles: false),
