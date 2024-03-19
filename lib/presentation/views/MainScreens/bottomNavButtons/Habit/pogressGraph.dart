@@ -32,13 +32,14 @@ class _BarChart extends StatelessWidget {
             BarChartRodData rod,
             int rodIndex,
           ) {
-            return BarTooltipItem(
-              rod.toY.round().toString(),
-              const TextStyle(
-                color: primaryDark,
-                fontWeight: FontWeight.bold,
-              ),
-            );
+            return null;
+            //    return BarTooltipItem(
+            //   rod.toY.round().toString(),
+            //   const TextStyle(
+            //     color: primaryDark,
+            //     fontWeight: FontWeight.bold,
+            //   ),
+            // );
           },
         ),
       );

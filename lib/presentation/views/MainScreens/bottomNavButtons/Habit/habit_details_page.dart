@@ -27,24 +27,18 @@ class _HabitDetailsPageState extends State<HabitDetailsPage> {
           child: Column(
             children: [
               Container(
-                height: size.width * 0.6,
-                width: size.height * 0.47,
+                height: size.width * 0.58,
+                width: double.maxFinite,
                 decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(
+                        'images/waterhold.jpg',
+                      ),
+                      fit: BoxFit.cover),
                   //color: Color.fromARGB(255, 248, 238, 247),
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(120),
                       bottomLeft: Radius.circular(120.0)),
-                ),
-                child: ClipRRect(
-                  clipBehavior: Clip.antiAliasWithSaveLayer, // Add this line
-                  borderRadius: const BorderRadius.only(
-                    bottomRight: Radius.circular(120),
-                    bottomLeft: Radius.circular(120.0),
-                  ),
-                  child: Image.asset(
-                    'images/waterhold.jpg',
-                    fit: BoxFit.cover,
-                  ),
                 ),
               ),
               const SizedBox(
