@@ -101,19 +101,14 @@ class _BarChart extends StatelessWidget {
       return Image.asset(
         'images/happyEmoji.png',
         width: 20,
-        height: 20,
+        height: 19,
       );
     } else {
       return SizedBox();
     }
   }
 
-  SideTitles sideTitles = SideTitles(
-    showTitles: true,
-    reservedSize: 34,
-    getTitles: customLeftTitles,
-  );
-  // Use custom function for left titles
+  // Use custom function for left titles here
 
   FlTitlesData get titlesData => FlTitlesData(
         show: true,
