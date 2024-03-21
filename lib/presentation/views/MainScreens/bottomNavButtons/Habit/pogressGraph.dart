@@ -121,8 +121,8 @@ class _BarChart extends StatelessWidget {
           ),
         ),
         leftTitles: const AxisTitles(
-          sideTitles: sideTitles,
-        ),
+            // sideTitles: sideTitles,
+            ),
         topTitles: const AxisTitles(
           sideTitles: SideTitles(showTitles: false),
         ),
