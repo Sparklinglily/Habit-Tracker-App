@@ -16,7 +16,7 @@ class AppButton extends StatelessWidget {
         decoration: BoxDecoration(
             color: primaryDark, borderRadius: BorderRadius.circular(8)),
         height: 50,
-        width: size.height * 0.52,
+        width: size.height * 0.43,
         child: const Center(
           child: Text(
             'Track your progress',
