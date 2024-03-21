@@ -101,7 +101,7 @@ class _BarChart extends StatelessWidget {
       return Image.asset(
         'images/happyEmoji.png',
         width: 20,
-        height: 19,
+        height: 20,
       );
     } else {
       return SizedBox();
