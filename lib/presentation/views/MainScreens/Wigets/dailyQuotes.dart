@@ -46,7 +46,7 @@ class _DailyQuotesState extends State<DailyQuotes> {
                   image: AssetImage("images/quotes.png"),
                   fit: BoxFit.fill,
                   height: 150,
-                  width: 300,
+                  width: 301,
                 ),
                 SizedBox(
                   width: 10,
