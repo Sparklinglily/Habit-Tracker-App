@@ -50,7 +50,7 @@ class ProgressPage extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       icon: Icon(Icons.arrow_back_outlined))),
-              SizedBox(height: 20),
+              SizedBox(height: 22),
               Align(
                 alignment: Alignment.center,
                 child: Stack(
