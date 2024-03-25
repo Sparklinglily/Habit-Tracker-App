@@ -16,11 +16,11 @@ class ProgressPage extends StatelessWidget {
         miniText: 'You have completed:'),
     StreakGridData(
         LargeNum: '1400',
-        color: Color.fromARGB(255, 223, 241, 223),
+        color: const Color.fromARGB(255, 223, 241, 223),
         miniText: 'Streaks acquired:'),
     StreakGridData(
         LargeNum: '100',
-        color: Color.fromARGB(255, 248, 247, 238),
+        color: const Color.fromARGB(255, 248, 247, 238),
         miniText: 'Streaks lost:'),
     StreakGridData(
         LargeNum: '3/7',
