@@ -22,7 +22,7 @@ class HabitsPage extends StatelessWidget {
                       "Ongoing",
                       style: TextStyle(
                           color: fontDark,
-                          height: 1.5,
+                          height: 1.6,
                           fontWeight: FontWeight.w500,
                           fontSize: 21),
                     ),
