@@ -32,7 +32,7 @@ class HabitsPage extends StatelessWidget {
                           color: fontDark,
                           height: 1.5,
                           fontWeight: FontWeight.w500,
-                          fontSize: 24),
+                          fontSize: 25),
                     )
                   ],
                   indicatorColor: primaryLight,
