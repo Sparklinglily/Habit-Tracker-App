@@ -100,7 +100,8 @@ class ProgressPage extends StatelessWidget {
                         crossAxisCount: 2,
                         mainAxisSpacing: 16.0,
                         crossAxisSpacing: 6.0,
-                        childAspectRatio: 16 / 12,
+                        //formerly 12
+                        childAspectRatio: 16 / 13,
                       ),
                       itemCount: eachGrid.length,
                       itemBuilder: (context, index) {
