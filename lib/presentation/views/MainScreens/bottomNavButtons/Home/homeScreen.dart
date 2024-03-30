@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                     icon: Icon(
                       Icons.settings,
                       color: primaryDark,
-                      size: defaultSpacing * 3,
+                      size: defaultSpacing * 3.5,
                       shadows: [
                         Shadow(
                             offset: const Offset(2.0, 2.0),
