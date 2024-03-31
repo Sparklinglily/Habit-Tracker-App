@@ -74,7 +74,7 @@ class ProgressPage extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               const Text(
-                'Congratulations!!!',
+                'Congratulations!',
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
               ),
               const Text(
