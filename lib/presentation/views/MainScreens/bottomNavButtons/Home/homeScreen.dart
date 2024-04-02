@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                   backgroundImage: NetworkImage(picture),
                 ),
                 const SizedBox(
-                  height: 9,
+                  height: 10,
                 ),
                 const Text(
                   "Sparkling Lily",
