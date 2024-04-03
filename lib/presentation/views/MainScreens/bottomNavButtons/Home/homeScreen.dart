@@ -120,8 +120,8 @@ class _HomePageState extends State<HomePage> {
                       Shadow(
                           offset: const Offset(2.0, 2.0),
                           blurRadius: 6.0,
-                          color: const Color.fromARGB(255, 153, 153, 153)
-                              .withOpacity(0.8))
+                          color:
+                              Color.fromARGB(255, 57, 34, 34).withOpacity(0.8))
                     ],
                   ),
                   label: const Text(
