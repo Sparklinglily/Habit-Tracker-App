@@ -22,7 +22,6 @@ class GridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
     return Card(
         semanticContainer: true,
         clipBehavior: Clip.antiAliasWithSaveLayer,
