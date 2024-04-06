@@ -47,7 +47,7 @@ class GridItem extends StatelessWidget {
                       padding: const EdgeInsets.all(6),
                       child: const Icon(
                         Icons.delete,
-                        size: 16,
+                        size: 17,
                         color: primaryLight,
                       ),
                     ),
