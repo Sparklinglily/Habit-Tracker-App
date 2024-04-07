@@ -78,7 +78,7 @@ class Favorites extends StatelessWidget {
                     ),
                   )),
               const SizedBox(
-                height: 10,
+                height: 12,
               ),
               SizedBox(
                 height: 700,
