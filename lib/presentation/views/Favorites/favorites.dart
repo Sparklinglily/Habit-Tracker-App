@@ -27,7 +27,7 @@ class Favorites extends StatelessWidget {
         onTapped: () {},
         color: const Color.fromARGB(255, 248, 247, 230),
         image: ('images/mediatation.png'),
-        miniTitle: '8 people',
+        miniTitle: '9 people',
         title: '30 days meditation'),
     GridItemData(
         onTapped: () {},
